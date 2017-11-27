@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.beat.util.LMSDao;
+
 public class MemberInfoDao extends LMSDao{
 
 	Connection conn;

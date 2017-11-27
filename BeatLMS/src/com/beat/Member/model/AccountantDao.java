@@ -12,6 +12,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import com.beat.util.LMSDao;
+
 public class AccountantDao extends LMSDao{
 	private Connection conn;
 	private PreparedStatement pstmt;

@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.beat.util.LMSDao;
+
 public class LoginDao extends LMSDao{
 	private Connection conn;
 	private PreparedStatement pstmt;
@@ -37,8 +39,4 @@ public class LoginDao extends LMSDao{
 		}
 		return pwchk;
 	}
-	
-	
-	
-	
 }

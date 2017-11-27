@@ -1,0 +1,65 @@
+.content{
+width: 960px;
+height: 750px;
+background-color: #fcfddf;
+}
+#logo{
+position: relative;
+top:50px;
+left: 320px;
+}
+#id{
+position: relative;
+top: 110px;
+left: 360px;
+}
+#pw{
+position: relative;
+top: 130px;
+left: 350px;
+}
+#pw2{
+position: relative;
+top: 150px;
+left: 313px;
+}
+#name{
+position: relative;
+top: 170px;
+left: 377px;
+}
+#birth{
+position: relative;
+top: 190px;
+left: 345px;
+}
+#number{
+position: relative;
+top: 210px;
+left: 360px;
+}
+#mail{
+position: relative;
+top: 230px;
+left: 365px;
+}
+#address{
+position: relative;
+top: 250px;
+left: 377px;
+}
+#radio{
+position: relative;
+top: 270px;
+left: 377px;
+}
+#radio2{
+position: relative;
+top: 290px;
+left: 377px;
+}
+#btn{
+position: relative;
+top: 310px;
+left: 440px;
+}

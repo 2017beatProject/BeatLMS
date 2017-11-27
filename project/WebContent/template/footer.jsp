@@ -6,7 +6,7 @@
 <!-- footer -->
 		<div class="footer">
 		   <div class="grid_12">
-		     <img alt="footer" src="imgs/footer.jpg">
+		     <img alt="footer" src="../imgs/footer.jpg">
 		   </div>
 		
 		</div>

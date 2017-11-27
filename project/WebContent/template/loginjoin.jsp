@@ -5,8 +5,8 @@
 <body>
 <!-- login join  -->
 		<div class="grid_12 loginjoin">
-			<a href="#"><img alt="login" src="imgs/login.jpg"></a> 
-			<a href="#"><img alt="join" src="imgs/join.jpg"></a>
+			<a href="#"><img alt="login" src="../imgs/login.jpg"></a> 
+			<a href="#"><img alt="join" src="../imgs/join.jpg"></a>
 		</div>
 		<div class="clear"></div>
 </body>

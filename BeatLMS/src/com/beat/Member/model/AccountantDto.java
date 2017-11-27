@@ -16,8 +16,6 @@ public class AccountantDto {
 	private int maddnum;
 	private Date joindate;
 	
-
-	
 	public int getMnum() {
 		return mnum;
 	}

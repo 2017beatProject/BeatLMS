@@ -21,62 +21,6 @@ public class AccountantDao extends LMSDao{
 	 conn=super.conn;	
 	}
 	
-	
-	public void OneMember(int mnum) {
-		String sql = "";
-
-	}
-
-	public AccountantDto memberOne(int mnum) {
-		String sql = "select mname, mbirth, mzen, mphone, mmail, maddress, maddnum, joindate where mnum=?";
-		AccountantDto bean = new AccountantDto();
-		
-		try {
-			pstmt=this.conn.prepareStatement(sql);
-			pstmt.setInt(1, mnum);
-			rs=pstmt.executeQuery();		
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally{
-			destroy();
-		}
-		
-		return bean;
-	}
-
-	public List<AccountantDto> memberList() {
-		String sql = "select mnum, snum,mname, mbirth, mzen, mphone, mmail, maddress, maddnum, joindate from lmsMember";
-		List<AccountantDto> list = new ArrayList<AccountantDto>();
-		try {
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				AccountantDto accbean = new AccountantDto();
-				accbean.setMnum(rs.getInt("mnum"));
-				accbean.setSnum(rs.getInt("snum"));
-				accbean.setMname(rs.getString("mname"));
-				accbean.setMbirth(rs.getDate("mbirth"));
-				accbean.setMzen(rs.getInt("mzen"));
-				accbean.setMphone(rs.getInt("mphone"));
-				accbean.setMmail(rs.getString("mmail"));
-				accbean.setMaddress(rs.getString("maddress"));
-				accbean.setMaddnum(rs.getInt("maddnum"));
-				accbean.setJoindate(rs.getDate("joindate"));
-				list.add(accbean);
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			destroy();
-		}
-		return list;
-	}
-
-
-
 	public void memberJoin(int snum, String mid, String mpw, String mname,
 			Date mbirth, int mzen, int mphone, String mmail, String maddress,
 			int maddnum) {
@@ -101,45 +45,37 @@ public class AccountantDao extends LMSDao{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			destroy();
+			super.destroy();
 		}
 
 	}
 
-	public boolean memberLogin(String mid, String mpw) {
+	
+	
+	
+	public void OneMember(int mnum) {
+		String sql = "";
 
-		String sql = "select count(*) from lmsMember where mid like ? "
-				+ "and CryptString.decrypt(mpw,'key') like ?";
-		boolean pwchk = false;
+	}
+
+	public AccountantDto memberOne(int mnum) {
+		String sql = "select mname, mbirth, mzen, mphone, mmail, maddress, maddnum, joindate where mnum=?";
+		AccountantDto bean = new AccountantDto();
+		
 		try {
-			pstmt = this.conn.prepareStatement(sql);
-			pstmt.setString(1, mid);
-			pstmt.setString(2, mpw);
-			rs = pstmt.executeQuery();
-			if (rs.getInt("count(*)") == 1)
-				pwchk = true;
-
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, mnum);
+			rs=pstmt.executeQuery();		
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 			destroy();
 		}
-		return pwchk;
+		
+		return bean;
 	}
 
-	private void destroy() { // 연결종료 메소드
-		try {
-			if (rs != null)
-				rs.close();
-			if (pstmt != null)
-				pstmt.close();
-			if (conn != null)
-				conn.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	
 }

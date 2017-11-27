@@ -50,14 +50,6 @@ public class AccountantDao extends LMSDao{
 
 	}
 
-	
-	
-	
-	public void OneMember(int mnum) {
-		String sql = "";
-
-	}
-
 	public AccountantDto memberOne(int mnum) {
 		String sql = "select mname, mbirth, mzen, mphone, mmail, maddress, maddnum, joindate where mnum=?";
 		AccountantDto bean = new AccountantDto();

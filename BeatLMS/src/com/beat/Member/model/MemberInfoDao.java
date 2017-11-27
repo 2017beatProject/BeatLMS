@@ -16,27 +16,24 @@ public class MemberInfoDao extends LMSDao{
 	public MemberInfoDao(){
 		conn=super.conn;
 	}
-	
-	
-	public List<AccountantDto> memberList() {
-		String sql = "select mnum, snum,mname, mbirth, mzen, mphone, mmail, maddress, maddnum, joindate from lmsMember";
-		List<AccountantDto> list = new ArrayList<AccountantDto>();
+		
+	public List<MemberInfoDto> memberList() {
+		String sql = "select mname, mbirth, mzen, mphone, mmail, maddress, maddnum, joindate from lmsMember";
+		List<MemberInfoDto> list = new ArrayList<MemberInfoDto>();
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				AccountantDto accbean = new AccountantDto();
-				accbean.setMnum(rs.getInt("mnum"));
-				accbean.setSnum(rs.getInt("snum"));
-				accbean.setMname(rs.getString("mname"));
-				accbean.setMbirth(rs.getDate("mbirth"));
-				accbean.setMzen(rs.getInt("mzen"));
-				accbean.setMphone(rs.getInt("mphone"));
-				accbean.setMmail(rs.getString("mmail"));
-				accbean.setMaddress(rs.getString("maddress"));
-				accbean.setMaddnum(rs.getInt("maddnum"));
-				accbean.setJoindate(rs.getDate("joindate"));
-				list.add(accbean);
+				MemberInfoDto infobean = new MemberInfoDto();			
+				infobean.setMname(rs.getString("mname"));				
+				infobean.setMbirth(rs.getDate("mbirth"));
+				infobean.setMzen(rs.getInt("mzen"));
+				infobean.setMphone(rs.getInt("mphone"));
+				infobean.setMmail(rs.getString("mmail"));
+				infobean.setMaddress(rs.getString("maddress"));
+				infobean.setMaddnum(rs.getInt("maddnum"));
+				infobean.setJoindate(rs.getDate("joindate"));
+				list.add(infobean);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

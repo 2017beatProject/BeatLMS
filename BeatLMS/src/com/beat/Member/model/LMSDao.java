@@ -11,7 +11,7 @@ import javax.sql.DataSource;
 
 public class LMSDao {
 	protected Connection conn;	
-	public Connection connection(){
+	public LMSDao(){
 		// 회원 가입할 때 오라클에 연결
 		// 주요 메소드는 회원가입, 회원정보 수정, 회원 탈퇴(삭제), 회원정보 전체열람, 회원정보 개별 열람 등이다.
 		// singleton 방식으로 한번만 접근하도록 한다. -> conn이 null이나 close 일때만 생성
@@ -31,8 +31,6 @@ public class LMSDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		return conn;
 		
 	}
 	

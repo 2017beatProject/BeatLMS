@@ -18,11 +18,10 @@ public class AccountantDao extends LMSDao{
 	private ResultSet rs;
 
 	public AccountantDao(){
-		LMSDao dao=new LMSDao();
-		conn=dao.connection();
+	 conn=super.conn;	
 	}
 	
-
+	
 	public void OneMember(int mnum) {
 		String sql = "";
 
@@ -33,7 +32,7 @@ public class AccountantDao extends LMSDao{
 		AccountantDto bean = new AccountantDto();
 		
 		try {
-			pstmt=conn.prepareStatement(sql);
+			pstmt=this.conn.prepareStatement(sql);
 			pstmt.setInt(1, mnum);
 			rs=pstmt.executeQuery();		
 			
@@ -86,7 +85,7 @@ public class AccountantDao extends LMSDao{
 		// 이메일주소, 거주지 주소, 우편번호 (컬럼 개수는 9개)
 		String sql = "insert into lmsMember values(membernum_seq, ?, ?, ?, ? ,? ,? ,?,?,? ,?,sysdate)";
 		try {
-			pstmt = conn.prepareStatement(sql);
+			pstmt = this.conn.prepareStatement(sql);
 			pstmt.setInt(1, snum);
 			pstmt.setString(2, mid);
 			pstmt.setString(3, mpw);
@@ -113,7 +112,7 @@ public class AccountantDao extends LMSDao{
 				+ "and CryptString.decrypt(mpw,'key') like ?";
 		boolean pwchk = false;
 		try {
-			pstmt = conn.prepareStatement(sql);
+			pstmt = this.conn.prepareStatement(sql);
 			pstmt.setString(1, mid);
 			pstmt.setString(2, mpw);
 			rs = pstmt.executeQuery();

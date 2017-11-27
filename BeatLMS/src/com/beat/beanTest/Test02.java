@@ -34,11 +34,10 @@ public class Test02 extends HttpServlet {
 			String mmail = list.get(i).getMmail();
 			String maddress = list.get(i).getMaddress();
 			int maddnum = list.get(i).getMaddnum();
-			Date joindate=list.get(i).getJoindate();
 
 			System.out.println(mnum + "|" + snum + "|" + mname + "|" + mbirth
 					+ "|" + mzen + "|" + mphone + "|" + mmail + "|" + maddress
-					+ "|" + maddnum + "|"+ joindate);
+					+ "|" + maddnum);
 		}
 		req.getRequestDispatcher("index.jsp").forward(req,resp);
 

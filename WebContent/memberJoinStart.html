@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>회원가입 종류</title>
@@ -16,19 +17,21 @@
                 con.style.display = 'block';
             }
         }
-        
-        function staffSubmitClicked(){
+
+        function staffSubmitClicked() {
             var staffValue = document.getElementById("staffNumber").value;
-            
+            location.href = "staffcheck.html?staffNumber="+staffValue;
         }
-        
+
     </script>
     <style>
         #staffDiv {
             display: none;
         }
+
     </style>
 </head>
+
 </html>
 
 <body>
@@ -36,10 +39,12 @@
     <input type="button" id="defaultMemberJoinButton" onclick="defaultMember_click();" value="일반회원" />
     <input type="button" id="staffMemberJoinButton" onclick="doDisplay();" value="직원" /><br>
     <div id="staffDiv">
-        사번을 입력해주세요 <br>
-        <input type="text" id="staffNumber"><br>
-        <input type="button" id="staffSubmit" value="확인" onclick="staffSubmitClicked();">
-        <input type="button" id="cancel" value="취소" onclick="doDisplay();">
+        <form name="join" action="staffCheck.html" method="post">
+            사번을 입력해주세요 <br>
+            <input type="text" id="staffNumber"><br>
+            <input type="button" id="staffSubmit" value="확인" onclick="staffSubmitClicked();">
+            <input type="reset" id="cancel" value="취소" onclick="doDisplay();">
+        </form>
     </div>
-    
+
 </body>

@@ -5,6 +5,9 @@
     <title>회원가입</title>
     <script>
         var errList = [
+            "idErr",
+            "pwInputErr",
+            "pwInputReErr",
             "nameErr",
             "bDayErr",
             "genErr",
@@ -15,6 +18,9 @@
         ];
 
         var inputList = [
+            "idInput",
+            "pwInput",
+            "pwInputRe",
             "userName",
             "bDay",
             "gender",
@@ -24,18 +30,30 @@
             "postNumber"
         ];
 
+        var returnTfCount;
+        var pwToggle;
+
         function submitButton() {
             submitCheck();
-            //            location.href = "exit.html";
+            if (returnTfCount == 0) {
+                location.href = "exit.html";
+            }
         }
 
         function submitCheck() {
+            returnTfCount = 0;
             for (var j = 0; j < inputList.length; j++) {
                 if (document.getElementById(inputList[j]).value == "") {
                     document.getElementById(errList[j]).style.opacity = "1";
                     document.getElementById(errList[j]).style.color = "deeppink";
                     document.getElementById(inputList[j]).style.backgroundColor = "deeppink";
+                    returnTfCount++;
                 }
+            }
+            if (document.getElementById("pwInput").value != document.getElementById("pwInputRe").value) {
+                document.getElementById("pwInputReErr").style.opacity = "1";
+                document.getElementById("pwInputReErr").style.color = "deeppink";
+                returnTfCount++;
             }
         }
 
@@ -43,6 +61,17 @@
             for (var i = 0; i < errList.length; i++) {
                 document.getElementById(errList[i]).style.opacity = "0";
                 document.getElementById(inputList[i]).style.backgroundColor = "white";
+            }
+        }
+
+        function showPW() {
+            pwToggle = !pwToggle;
+            if (pwToggle) {
+                document.getElementById("pwInput").setAttribute('type', 'text');
+                document.getElementById("pwInputRe").setAttribute('type', 'text');
+            } else {
+                document.getElementById("pwInput").setAttribute('type', 'password');
+                document.getElementById("pwInputRe").setAttribute('type', 'password');
             }
         }
 
@@ -55,24 +84,30 @@
 <body>
     <h1>회원가입페이지</h1>
     <form name="join" action="exit.html" method="post">
-        이름 <input type="text" id="userName" >
+        아이디 <input type="text" id="idInput">
+        <div id="idErr">아이디를 입력해주세요</div>
+        암호 <input type="password" id="pwInput">
+        <div id="pwInputErr">암호를 입력해주세요</div>
+        확인 <input type="password" id="pwInputRe"> <input type="button" value="보기" onclick="showPW();">
+        <div id="pwInputReErr">암호를 확인해주세요</div>
+        이름 <input type="text" id="userName">
         <div id="nameErr">이름을 입력해주세요</div>
-        생년월일 <input type="date" id="bDay" >
+        생년월일 <input type="date" id="bDay">
         <div id="bDayErr">생년월일을 입력해주세요</div>
-        성별 <select name="gender" id="gender" > 
+        성별 <select name="gender" id="gender"> 
           <option value="">성별을 선택해주세요</option>
            <option value="man">남성</option>
            <option value="woman">여성</option>
            <option value="etc">기타</option>
        </select>
         <div id="genErr">성별을 선택해주세요</div>
-        휴대폰 전화번호 <input type="text" id="phoneFirst" >
+        휴대폰 전화번호 <input type="text" id="phoneFirst">
         <div id="phoErr">전화번호를 입력해주세요</div>
-        이메일주소 <input type="text" id="email" >
+        이메일주소 <input type="email" id="email">
         <div id="emErr">올바른 이메일 주소를 입력해주세요</div>
-        거주지 주소 <input type="text" id="location" >
+        거주지 주소 <input type="text" id="location">
         <div id="loErr">올바른 주소를 입력해주세요</div>
-        우편번호 <input type="text" id="postNumber" >
+        우편번호 <input type="text" id="postNumber">
         <div id="postErr">올바른 우편번호를 입력해주세요</div>
         <input type="button" id="submit" value="확인" onclick="submitButton();">
         <input type="reset" id="cancel" value="취소" onclick="resetText();">

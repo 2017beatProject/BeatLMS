@@ -45,7 +45,7 @@ public class AccountantDao {
 	
 	
 		public List<AccountantDto> memberList(){
-			String sql="select mnum, snum, mname, mbirth, mzen, mphone, mmail, maddress, maddnum, joindate from lmsMember";
+			String sql="select mnum, snum,mname, mbirth, mzen, mphone, mmail, maddress, maddnum, joindate from lmsMember";
 			List<AccountantDto> list=new ArrayList<AccountantDto>();
 			try {
 				pstmt=conn.prepareStatement(sql);
@@ -53,7 +53,7 @@ public class AccountantDao {
 				while(rs.next()){
 					AccountantDto accbean=new AccountantDto();
 					accbean.setMnum(rs.getInt("mnum"));
-					accbean.setSnum(rs.getInt("snum"));
+					accbean.setSnum(rs.getInt("snum"));				
 					accbean.setMname(rs.getString("mname"));
 					accbean.setMbirth(rs.getDate("mbirth"));
 					accbean.setMzen(rs.getInt("mzen"));
@@ -62,8 +62,7 @@ public class AccountantDao {
 					accbean.setMaddress(rs.getString("maddress"));
 					accbean.setMaddnum(rs.getInt("maddnum"));
 					accbean.setJoindate(rs.getDate("joindate"));	
-					list.add(accbean);
-					
+					list.add(accbean);					
 				}				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -85,22 +84,20 @@ public class AccountantDao {
 				}			
 		}
 	
-		public void memberJoin(int snum, String mname, Date mbirth, int mzen, int mphone, String mmail, String maddress, int maddnum, String mid, String mpw){
+		public void memberJoin(int snum, String mid, String mpw,String mname, Date mbirth, int mzen, int mphone, String mmail, String maddress, int maddnum){
 			//회원가입시 기재 사항- 회원고유번호(시퀀스), 신분식별(학생/직원), 아이디, 비밀번호, 이름, 생년월일, 성별, 휴대전화번호
 			//이메일주소, 거주지 주소, 우편번호 (컬럼 개수는 9개)
-			String sql="insert into lmsMember values(membernum_seq, ?, password(?), ?, ?, ?, ? ,? ,? ,? ,?,sysdate)";
+			String sql="insert into lmsMember values(membernum_seq, ?, ?, ?, ? ,? ,? ,? ,?,sysdate)";
 			try {
 				pstmt=conn.prepareStatement(sql);
-				pstmt.setInt(1, snum);
-				pstmt.setString(2,mid);
-				pstmt.setString(3,mpw);
-				pstmt.setString(4,mname);
-				pstmt.setDate(5,mbirth);
-				pstmt.setInt(6, mzen);
-				pstmt.setInt(7, mphone);
-				pstmt.setString(8,mmail);
-				pstmt.setString(9, maddress);
-				pstmt.setInt(10, maddnum);
+				pstmt.setInt(1, snum);				
+				pstmt.setString(2,mname);
+				pstmt.setDate(3,mbirth);
+				pstmt.setInt(4, mzen);
+				pstmt.setInt(5, mphone);
+				pstmt.setString(6,mmail);
+				pstmt.setString(7, maddress);
+				pstmt.setInt(8, maddnum);
 				pstmt.executeUpdate();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block

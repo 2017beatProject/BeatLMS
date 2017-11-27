@@ -6,7 +6,7 @@ import java.sql.Date;
 public class AccountantDto {
 
 	private int mnum;
-	private int snum;
+	private int snum;	
 	private String mname;
 	private Date mbirth;
 	private int mzen;
@@ -15,6 +15,8 @@ public class AccountantDto {
 	private String maddress;
 	private int maddnum;
 	private Date joindate;
+	
+
 	
 	public int getMnum() {
 		return mnum;

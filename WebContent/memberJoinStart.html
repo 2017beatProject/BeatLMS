@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입 종류</title>
+    <script>
+        function defaultMember_click() {
+            location.href = "memberJoinPage.html";
+        }
+
+        function doDisplay() {
+            var con = document.getElementById("staffDiv");
+            if (con.style.display == 'block') {
+                con.style.display = 'none';
+            } else {
+                con.style.display = 'block';
+            }
+        }
+        
+        function staffSubmitClicked(){
+            var staffValue = document.getElementById("staffNumber").value;
+            
+        }
+        
+    </script>
+    <style>
+        #staffDiv {
+            display: none;
+        }
+    </style>
+</head>
+</html>
+
+<body>
+    <h1>어느 회원으로 가입하시나요?</h1>
+    <input type="button" id="defaultMemberJoinButton" onclick="defaultMember_click();" value="일반회원" />
+    <input type="button" id="staffMemberJoinButton" onclick="doDisplay();" value="직원" /><br>
+    <div id="staffDiv">
+        사번을 입력해주세요 <br>
+        <input type="text" id="staffNumber"><br>
+        <input type="button" id="staffSubmit" value="확인" onclick="staffSubmitClicked();">
+        <input type="button" id="cancel" value="취소" onclick="doDisplay();">
+    </div>
+    
+</body>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #completed{
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById("completed").style.display="block";
+                document.getElementById("onGoing").style.display="none";
+                window.close();
+            }, 2000);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="onGoing">창을 닫지 말고 잠시만 기다려주세요</div>
+    <div id="completed">회원가입이 완료되었습니다. 이제 창을 닫으셔도 됩니다.</div>
+</body>
+</html>

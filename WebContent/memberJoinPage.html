@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>íšŒì›ê°€ìž…</title>
+    <title>È¸¿ø°¡ÀÔ</title>
     <script>
         var errList = [
             "idErr",
@@ -82,35 +82,35 @@
 </head>
 
 <body>
-    <h1>íšŒì›ê°€ìž…íŽ˜ì´ì§€</h1>
+    <h1>È¸¿ø°¡ÀÔÆäÀÌÁö</h1>
     <form name="join" action="exit.html" method="post">
-        ì•„ì´ë”” <input type="text" id="idInput">
-        <div id="idErr">ì•„ì´ë””ë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”</div>
-        ì•”í˜¸ <input type="password" id="pwInput">
-        <div id="pwInputErr">ì•”í˜¸ë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”</div>
-        í™•ì¸ <input type="password" id="pwInputRe"> <input type="button" value="ë³´ê¸°" onclick="showPW();">
-        <div id="pwInputReErr">ì•”í˜¸ë¥¼ í™•ì¸í•´ì£¼ì„¸ìš”</div>
-        ì´ë¦„ <input type="text" id="userName">
-        <div id="nameErr">ì´ë¦„ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”</div>
-        ìƒë…„ì›”ì¼ <input type="date" id="bDay">
-        <div id="bDayErr">ìƒë…„ì›”ì¼ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”</div>
-        ì„±ë³„ <select name="gender" id="gender"> 
-          <option value="">ì„±ë³„ì„ ì„ íƒí•´ì£¼ì„¸ìš”</option>
-           <option value="man">ë‚¨ì„±</option>
-           <option value="woman">ì—¬ì„±</option>
-           <option value="etc">ê¸°íƒ€</option>
+        ¾ÆÀÌµð <input type="text" id="idInput">
+        <div id="idErr">¾ÆÀÌµð¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä</div>
+        ¾ÏÈ£ <input type="password" id="pwInput">
+        <div id="pwInputErr">¾ÏÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä</div>
+        È®ÀÎ <input type="password" id="pwInputRe"> <input type="button" value="º¸±â" onclick="showPW();">
+        <div id="pwInputReErr">¾ÏÈ£¸¦ È®ÀÎÇØÁÖ¼¼¿ä</div>
+        ÀÌ¸§ <input type="text" id="userName">
+        <div id="nameErr">ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä</div>
+        »ý³â¿ùÀÏ <input type="date" id="bDay">
+        <div id="bDayErr">»ý³â¿ùÀÏÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä</div>
+        ¼ºº° <select name="gender" id="gender"> 
+          <option value="">¼ºº°À» ¼±ÅÃÇØÁÖ¼¼¿ä</option>
+           <option value="man">³²¼º</option>
+           <option value="woman">¿©¼º</option>
+           <option value="etc">±âÅ¸</option>
        </select>
-        <div id="genErr">ì„±ë³„ì„ ì„ íƒí•´ì£¼ì„¸ìš”</div>
-        íœ´ëŒ€í° ì „í™”ë²ˆí˜¸ <input type="text" id="phoneFirst">
-        <div id="phoErr">ì „í™”ë²ˆí˜¸ë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”</div>
-        ì´ë©”ì¼ì£¼ì†Œ <input type="email" id="email">
-        <div id="emErr">ì˜¬ë°”ë¥¸ ì´ë©”ì¼ ì£¼ì†Œë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”</div>
-        ê±°ì£¼ì§€ ì£¼ì†Œ <input type="text" id="location">
-        <div id="loErr">ì˜¬ë°”ë¥¸ ì£¼ì†Œë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”</div>
-        ìš°íŽ¸ë²ˆí˜¸ <input type="text" id="postNumber">
-        <div id="postErr">ì˜¬ë°”ë¥¸ ìš°íŽ¸ë²ˆí˜¸ë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”</div>
-        <input type="button" id="submit" value="í™•ì¸" onclick="submitButton();">
-        <input type="reset" id="cancel" value="ì·¨ì†Œ" onclick="resetText();">
+        <div id="genErr">¼ºº°À» ¼±ÅÃÇØÁÖ¼¼¿ä</div>
+        ÈÞ´ëÆù ÀüÈ­¹øÈ£ <input type="text" id="phoneFirst">
+        <div id="phoErr">ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä</div>
+        ÀÌ¸ÞÀÏÁÖ¼Ò <input type="email" id="email">
+        <div id="emErr">¿Ã¹Ù¸¥ ÀÌ¸ÞÀÏ ÁÖ¼Ò¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä</div>
+        °ÅÁÖÁö ÁÖ¼Ò <input type="text" id="location">
+        <div id="loErr">¿Ã¹Ù¸¥ ÁÖ¼Ò¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä</div>
+        ¿ìÆí¹øÈ£ <input type="text" id="postNumber">
+        <div id="postErr">¿Ã¹Ù¸¥ ¿ìÆí¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä</div>
+        <input type="button" id="submit" value="È®ÀÎ" onclick="submitButton();">
+        <input type="reset" id="cancel" value="Ãë¼Ò" onclick="resetText();">
     </form>
 </body>
 </html>

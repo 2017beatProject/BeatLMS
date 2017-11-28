@@ -19,6 +19,27 @@ public class MemberInfoDao extends LMSDao{
 		conn=super.conn;
 	}
 		
+	
+	public MemberDto memberOne(int mnum) {
+		String sql = "select mname, mbirth, mzen, mphone, mmail, maddress, maddnum, joindate where mnum=?";
+		MemberDto bean = new MemberDto();
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, mnum);
+			rs=pstmt.executeQuery();		
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			destroy();
+		}
+		
+		return bean;
+	}
+	
+	
 	public List<MemberInfoDto> memberList() {
 		String sql = "select mname, mbirth, mzen, mphone, mmail, maddress, maddnum, joindate from lmsMember";
 		List<MemberInfoDto> list = new ArrayList<MemberInfoDto>();

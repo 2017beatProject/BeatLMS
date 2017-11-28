@@ -52,24 +52,5 @@ public class AccountantDao extends LMSDao{
 
 	}
 
-	public AccountantDto memberOne(int mnum) {
-		String sql = "select mname, mbirth, mzen, mphone, mmail, maddress, maddnum, joindate where mnum=?";
-		AccountantDto bean = new AccountantDto();
 		
-		try {
-			pstmt=conn.prepareStatement(sql);
-			pstmt.setInt(1, mnum);
-			rs=pstmt.executeQuery();		
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally{
-			destroy();
-		}
-		
-		return bean;
-	}
-
-	
 }

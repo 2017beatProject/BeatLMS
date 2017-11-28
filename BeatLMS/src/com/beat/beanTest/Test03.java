@@ -33,9 +33,12 @@ public class Test03 extends HttpServlet {
 		String maddress=sc.nextLine();
 		System.out.print("우편번호||");
 		int maddnum=Integer.parseInt(sc.nextLine());
-		
+		System.out.print("id||");
+		String id=sc.nextLine();
+		System.out.print("pw||");
+		String pw=sc.nextLine();
 		AccountantDao dao =new AccountantDao();
-		dao.memberJoin(snum, mname, mbirth, mzen, mphone, mmail, maddress, maddnum);
+		dao.memberJoin(snum, id,pw,mname, mbirth, mzen, mphone, mmail, maddress, maddnum);
 
 		
 	};

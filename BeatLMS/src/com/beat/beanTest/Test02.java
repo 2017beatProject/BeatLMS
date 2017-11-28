@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.beat.Member.model.AccountantDao;
-import com.beat.Member.model.AccountantDto;
+import com.beat.Member.model.MemberDto;
+import com.beat.Member.model.MemberInfoDao;
+import com.beat.Member.model.MemberInfoDto;
 
 @WebServlet("/list.do")
 public class Test02 extends HttpServlet {
@@ -20,13 +22,11 @@ public class Test02 extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 
-		AccountantDao accdao = new AccountantDao();
+		MemberInfoDao accdao = new MemberInfoDao();
 
-		List<AccountantDto> list = accdao.memberList();
+		List<MemberInfoDto> list = accdao.memberList();
 
-		for (int i = 0; i < list.size(); i++) {
-			int mnum = list.get(i).getMnum();
-			int snum = list.get(i).getSnum();
+		for (int i = 0; i < list.size(); i++) {					
 			String mname = list.get(i).getMname();
 			Date mbirth = list.get(i).getMbirth();
 			int mzen = list.get(i).getMzen();
@@ -34,10 +34,11 @@ public class Test02 extends HttpServlet {
 			String mmail = list.get(i).getMmail();
 			String maddress = list.get(i).getMaddress();
 			int maddnum = list.get(i).getMaddnum();
+			Date joindate=list.get(i).getJoindate();
 
-			System.out.println(mnum + "|" + snum + "|" + mname + "|" + mbirth
+			System.out.println( mname +"|"  + mbirth
 					+ "|" + mzen + "|" + mphone + "|" + mmail + "|" + maddress
-					+ "|" + maddnum);
+					+ "|" + maddnum + "|"+ joindate);
 		}
 		req.getRequestDispatcher("index.jsp").forward(req,resp);
 

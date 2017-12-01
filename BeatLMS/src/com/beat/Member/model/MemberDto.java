@@ -3,7 +3,7 @@ package com.beat.Member.model;
 import java.sql.Timestamp;
 import java.sql.Date;
 
-public class AccountantDto {
+public class MemberDto {
 
 	private int mnum;
 	private int snum;	

@@ -14,13 +14,13 @@ import javax.sql.DataSource;
 
 import com.beat.util.LMSDao;
 
-public class AccountantDao extends LMSDao{
+public class AccountantAdminDao extends LMSDao{
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 
-	public AccountantDao(){
-	 conn=super.conn;	
+	public AccountantAdminDao(){
+	 this.conn=super.conn;	
 	}
 	
 	public void memberJoin(int snum, String mid, String mpw, String mname,

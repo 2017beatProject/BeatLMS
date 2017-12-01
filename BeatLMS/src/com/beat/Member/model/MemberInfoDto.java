@@ -1,12 +1,8 @@
 package com.beat.Member.model;
 
-import java.sql.Timestamp;
 import java.sql.Date;
 
-public class AccountantDto {
-
-	private int mnum;
-	private int snum;	
+public class MemberInfoDto {
 	private String mname;
 	private Date mbirth;
 	private int mzen;
@@ -15,25 +11,7 @@ public class AccountantDto {
 	private String maddress;
 	private int maddnum;
 	private Date joindate;
-	
-	public int getMnum() {
-		return mnum;
-	}
-	public Date getJoindate() {
-		return joindate;
-	}
-	public void setJoindate(Date joindate) {
-		this.joindate = joindate;
-	}
-	public void setMnum(int mnum) {
-		this.mnum = mnum;
-	}
-	public int getSnum() {
-		return snum;
-	}
-	public void setSnum(int snum) {
-		this.snum = snum;
-	}
+		
 	public String getMname() {
 		return mname;
 	}
@@ -76,6 +54,10 @@ public class AccountantDto {
 	public void setMaddnum(int maddnum) {
 		this.maddnum = maddnum;
 	}
-
-	
+	public Date getJoindate() {
+		return joindate;
+	}
+	public void setJoindate(Date joindate) {
+		this.joindate = joindate;
+	}
 }

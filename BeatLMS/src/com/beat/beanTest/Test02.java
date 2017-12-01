@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.beat.Member.model.AccountantDao;
+import com.beat.Member.model.AccountantAdminDao;
 import com.beat.Member.model.MemberDto;
 import com.beat.Member.model.MemberInfoDao;
 import com.beat.Member.model.MemberInfoDto;

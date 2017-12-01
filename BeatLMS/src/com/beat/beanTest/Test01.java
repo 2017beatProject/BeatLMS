@@ -15,7 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.sql.DataSource;
 
-import com.beat.Member.model.AccountantDao;
+import com.beat.Member.model.AccountantAdminDao;
 import com.sun.corba.se.spi.orbutil.fsm.Guard.Result;
 
 public class Test01 extends HttpServlet {

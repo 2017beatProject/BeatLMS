@@ -8,7 +8,7 @@ import java.util.Scanner;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
-import com.beat.Member.model.AccountantDao;
+import com.beat.Member.model.AccountantAdminDao;
 
 
 @WebServlet("/test01.do")
@@ -37,7 +37,7 @@ public class Test03 extends HttpServlet {
 		String id=sc.nextLine();
 		System.out.print("pw||");
 		String pw=sc.nextLine();
-		AccountantDao dao =new AccountantDao();
+		AccountantAdminDao dao =new AccountantAdminDao();
 		dao.memberJoin(snum, id,pw,mname, mbirth, mzen, mphone, mmail, maddress, maddnum);
 
 		

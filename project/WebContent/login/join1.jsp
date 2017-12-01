@@ -59,26 +59,59 @@ a.cbtn:hover {
 }
 
 #check{
-position: relative;
-left: 30px;
+position: absolute;
+left: 270px;
 width: 100px;
+height: 70px;
 }
 
 #join,#memberJoin{
 position: absolute;
+width: 100px;
+height: 100px;
+border-radius:50px;
 }
 
 #join{
-top:400px;
-left: 500px;
+top:450px;
+left: 650px;
 }
 #memberJoin{
-top:400px;
-left: 600px;
+top:450px;
+left: 850px;
 }
-
+#sabun{
+ width: 130px;
+}
+#name{
+ width: 130px;
+}
+#popname{
+ border-bottom: 1px solid #DDD;
+ text-align: center;
+ color:#123478;
+ padding: 10px;
+}
+#pageName{
+ padding-top: 50px;
+ padding-bottom: 15px;
+ border-bottom: 3px dotted #DDD;
+ text-align: center;
+ color: gray;
+ width: 830px;
+ left: 80px;
+ position: relative;
+}
+#pageEnd{
+ border-top: 3px dotted #DDD;
+ color: gray;
+ width: 830px;
+ top: 300px;
+ left: 80px;
+ position: relative;
+}
 .content{
-height: 300px;
+height: 450px;
 }
 
 
@@ -131,6 +164,7 @@ height: 300px;
 
 	<!-- content -->
 	<div class="content">
+	    <div id="pageName"><strong>회원가입</strong></div>
 		<div>
 			<a href="join.jsp"><button type="button" id="join">일반가입</button></a>
 		</div>
@@ -138,21 +172,23 @@ height: 300px;
 			<a href="#" class="btn-example" onclick="layer_open('layer1');return false;">
 			<button type="button" id="memberJoin">직원가입</button>
 			</a>
+			<div id="pageEnd">&nbsp;</div>
 			<div id="layer1" class="pop-layer">
 				<div class="pop-container">
 					<div class="pop-conts">
 						<!--content //-->
 						<div class="ctxt mb20">
+						    <div id="popname"><strong>직원인증</strong></div>
 							<div>&nbsp;</div>
 							<div>
 								<label>&nbsp;&nbsp;사&nbsp;&nbsp;번&nbsp;&nbsp;</label> 
-								<input type="text" name="" /> 
+								<input type="text" name="" id="sabun"/> 
 								<input type="submit" value="인&nbsp;&nbsp;증" id="check" />
 							</div>
 							<div>&nbsp;</div>
 							<div>
 								<label>&nbsp;&nbsp;이&nbsp;&nbsp;름&nbsp;&nbsp;</label> 
-								<input type="text" name="" />
+								<input type="text" name="" id="name"/>
 							</div>
 							<div>&nbsp;</div>
 							<div>

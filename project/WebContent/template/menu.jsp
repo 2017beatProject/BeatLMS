@@ -30,7 +30,7 @@
 			</div>
 			<div class="grid_2">
 			<ul>
-				<li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOTICE&nbsp;</a>
+				<li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;NOTICE&nbsp;&nbsp;&nbsp;</a>
 					<ul>
 						<li><a href="#">학사공지</a></li>
 						<li><a href="#">일반공지</a></li>
@@ -40,7 +40,7 @@
 			</div>
 			<div class="grid_2">
 			<ul>
-				<li><a href="#">LECTURE</a>
+				<li><a href="#">&nbsp;&nbsp;LECTURE&nbsp;&nbsp;&nbsp;</a>
 					<ul>
 						<li><a href="#">강의소개</a></li>
 						<li><a href="#">수강신청</a></li>

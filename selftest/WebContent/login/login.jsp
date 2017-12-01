@@ -32,44 +32,25 @@
 	
 	//실패시 리퀘스트 셋어트뷰트에서 보낸 msg가 "실패"라고 가정
 			
-	var loginResult, err;
+	var loginResult, logintf, err;
+	
+
+	var er = function(){
+		err.innerText='ID와 비밀번호를 확인하세요';
+	}
+	
 	
 	$(function(){
 		
-		loginResult = <%=request.getAttribute("msg")%>
-		logintf= <%=session.getAttribute("result")%>
+		loginResult = '<%=request.getAttribute("msg") %>';
+		logintf= '<%=session.getAttribute("result")%>';
 			
 		err = document.getElementById('errMsg1');
 		
-		err.innerText='로딩때는 작동 함';
-		alert(loginResult+""+logintf);
-		
-	
-	  $('form').submit(function(e){
-	  
-	  if(loginResult==null){ 
-		  e.preventDefault();
-		  err.innerText="널값들어옴!=처음 로그인창뜰때.."; 
-		  
-	  }else if(loginResult.equals("성공")){
-		
-		  // $(this).unbind('submit').submit(); 
-		 
-	  }else if(loginResult.equals("실패")){
-		  e.preventDefault();
-		  err.innerText="ID와 비밀번호를 확인하세요"; //여기; 처리 안됨
-		 
-  		
-	  }else{
-		  alert(msg);
-	  }
-	  });
-		 
-	  
-	  
+		if(loginResult=="failed"){
+		  	er();
+		}
 	});
-	
-	
 	
 	
 </script>
@@ -77,23 +58,18 @@
 <body >
 
    <jsp:include page="../template/header.jsp"></jsp:include>
-   
-	<jsp:include page="../template/loginjoin.jsp"></jsp:include>
-	
+	<jsp:include page="../template/loginjoin.jsp"></jsp:include>	
 	<jsp:include page="../template/menu.jsp"></jsp:include>
 
 	<!-- content -->
 	<div class="content">
 	
-	<p>${pageContext.request.contextPath}</p>
-	<p><%=request.getAttribute("msg")%></p>
-	<p><%= session.getAttribute("result")%></p>
-	<p><%= session.getAttribute("id")%></p>
 	
+		<div>
+		<span id="errMsg1"></span>
+		</div>
+		
 		<form action="login.test" method="post">
-		
-		
-		
 		
 		<div>
 			<label for="id">아이디</label>
@@ -108,14 +84,12 @@
 		     <input type="radio" name="choice">관리자
 		</div> 
 		
+		
 		<div>
 			<button type="submit">로그인</button>
 		</div>
 		
-		<div>
-		<span id="errMsg1"></span>
-		</div>
-		
+	
 	</form>
 	</div>
 	<div class="clear"></div>

@@ -18,7 +18,7 @@ public class LoginController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		
+		System.out.println("get");
 		req.getRequestDispatcher("/login/login.jsp").forward(req, resp);
 	}
 	
@@ -27,7 +27,7 @@ public class LoginController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		
+		System.out.println("post");
 		req.setCharacterEncoding("UTF-8");
 		
 		String userid =req.getParameter("id").trim();
@@ -42,7 +42,7 @@ public class LoginController extends HttpServlet {
 		int acc = dao.matchAcc(userid, userpw);
 		
 		if(acc>0){
-			req.setAttribute("msg", "성공");
+			req.setAttribute("msg", "successed");
 			
 			session.setAttribute("result", true);
 			session.setAttribute("id", userid);
@@ -55,7 +55,7 @@ public class LoginController extends HttpServlet {
 			//성공시 메인으로
 			
 		}else{
-			req.setAttribute("msg", "실패");
+			req.setAttribute("msg", "failed");
 			session.setAttribute("result", false);
 			
 			req.getRequestDispatcher("/login/login.jsp").forward(req, resp);

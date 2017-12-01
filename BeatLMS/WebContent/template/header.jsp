@@ -7,7 +7,7 @@
 
 		<!-- header -->
 		<div class="grid_12 logo">
-			<a href="#"><img alt="logo" src="imgs/logo.jpg" /></a>
+			<a href="index.lms"><img alt="logo" src="./imgs/logo.jpg" /></a>
 		</div>
 		<div class="clear"></div>
 			

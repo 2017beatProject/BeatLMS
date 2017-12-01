@@ -3,8 +3,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>회원가입 페이지</title>
+<link rel="stylesheet" href="../css/960.css">
+<link rel="stylesheet" href="../css/menu.css">
+<link rel="stylesheet" href="../css/header.css">
 <style type="text/css">
 .pop-layer {
 	display: none;
@@ -60,6 +63,26 @@ position: relative;
 left: 30px;
 width: 100px;
 }
+
+#join,#memberJoin{
+position: absolute;
+}
+
+#join{
+top:400px;
+left: 500px;
+}
+#memberJoin{
+top:400px;
+left: 600px;
+}
+
+.content{
+height: 300px;
+}
+
+
+
 </style>
 <script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
 <script type="text/javascript">
@@ -102,40 +125,53 @@ width: 100px;
 </script>
 </head>
 <body>
-	<a href="#" class="btn-example"
-		onclick="layer_open('layer1');return false;">
-		<button type="button" id="memberCheck">직원인증</button>
-	</a>
-	<div id="layer1" class="pop-layer">
-		<div class="pop-container">
-			<div class="pop-conts">
-				<!--content //-->
-				<div class="ctxt mb20">
-				    <div>&nbsp;</div>
-					<div>
-						<label>&nbsp;&nbsp;사&nbsp;&nbsp;번&nbsp;&nbsp;</label> 
-						<input type="text" name="" /> 
-						<input type="submit" value="인&nbsp;&nbsp;증" id="check"/>
-					</div>
-					<div>&nbsp;</div>
-					<div>
-						<label>&nbsp;&nbsp;이&nbsp;&nbsp;름&nbsp;&nbsp;</label> 
-						<input type="text" name="" />
-						
-					</div>
-					<div>&nbsp;</div>
-					<div>
-						<label>생년월일</label> <input type="date" name="" />
-					</div>
-					<div>&nbsp;</div>
-				</div>
+	<jsp:include page="../template/header.jsp"></jsp:include>
+	<jsp:include page="../template/loginjoin.jsp"></jsp:include>
+	<jsp:include page="../template/menu.jsp"></jsp:include>
 
-				<div class="btn-r">
-					<a href="#" class="cbtn">닫기</a>
+	<!-- content -->
+	<div class="content">
+		<div>
+			<a href="join.jsp"><button type="button" id="join">일반가입</button></a>
+		</div>
+		<div>
+			<a href="#" class="btn-example" onclick="layer_open('layer1');return false;">
+			<button type="button" id="memberJoin">직원가입</button>
+			</a>
+			<div id="layer1" class="pop-layer">
+				<div class="pop-container">
+					<div class="pop-conts">
+						<!--content //-->
+						<div class="ctxt mb20">
+							<div>&nbsp;</div>
+							<div>
+								<label>&nbsp;&nbsp;사&nbsp;&nbsp;번&nbsp;&nbsp;</label> 
+								<input type="text" name="" /> 
+								<input type="submit" value="인&nbsp;&nbsp;증" id="check" />
+							</div>
+							<div>&nbsp;</div>
+							<div>
+								<label>&nbsp;&nbsp;이&nbsp;&nbsp;름&nbsp;&nbsp;</label> 
+								<input type="text" name="" />
+							</div>
+							<div>&nbsp;</div>
+							<div>
+								<label>생년월일</label> <input type="date" name="" />
+							</div>
+							<div>&nbsp;</div>
+						</div>
+
+						<div class="btn-r">
+							<a href="#" class="cbtn">닫기</a>
+						</div>
+						<!--// content-->
+					</div>
 				</div>
-				<!--// content-->
 			</div>
 		</div>
 	</div>
+	<div class="clear"></div>
+
+	<jsp:include page="../template/footer.jsp"></jsp:include>
 </body>
 </html>

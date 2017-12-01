@@ -22,7 +22,7 @@
 			<ul>
 				<li><a href="#">CONTACT US</a>
 					<ul>
-						<li><a href="#">상담신청확인</a></li>
+						<li><a href="#">상담신청</a></li>
 						<li><a href="#">질문사항</a></li>
 					</ul>
 				</li>
@@ -40,12 +40,10 @@
 			</div>
 			<div class="grid_2">
 			<ul>
-				<li><a href="#">ADMINISTRATION</a>
+				<li><a href="#">LECTURE</a>
 					<ul>
-						<li><a href="#">회원관리</a></li>
-						<li><a href="#">강의관리</a></li>
-						<li><a href="#">상담관리</a></li>
-						<li><a href="#">수강생관리</a></li>
+						<li><a href="#">강의소개</a></li>
+						<li><a href="#">수강신청</a></li>
 					</ul>
 				</li>
 			</ul>

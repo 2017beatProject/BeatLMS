@@ -94,7 +94,6 @@
 		<div id="id">
 			<label for="id">아이디</label>
 			<input type="text" name="id" id="idInput"/>
-			<input type="submit" value="중복확인" id="idCheck">
 			<div id="idErr">아이디를 입력해주세요</div>
 		</div>
 		<div id="pw">
@@ -126,8 +125,7 @@
 		</div>
 		<div id="mail">
 			<label for="mail">e_mail</label>
-			<input type="email" name="email" id="email"/>
-			<input type="submit" value="인증메일전송" id="send"/>
+			<input type="text" name="mail" id="email"/>
         	<div id="emErr">올바른 이메일 주소를 입력해주세요</div>
 		</div>	
 		<div id="address">
@@ -137,7 +135,7 @@
 		</div>	
 		<div id="radio">
 		    <label for="gender">성별</label>
-			<select name="gender" id="gender" > 
+			<select name="gender" id="gender"> 
           		<option value="">성별을 선택해주세요</option>
            		<option value="man">남성</option>
            		<option value="woman">여성</option>
@@ -146,8 +144,8 @@
        		<div id="genErr">성별을 선택해주세요</div>
 		</div>
 		<div id="btn">
-			<input type="button" id="submit" value="가입" onclick="submitButton();"/>
-        	<input type="reset" id="cancel" value="취소" onclick="resetText();"/>
+			<input type="button" id="submit" value="확인" onclick="submitButton();">
+        	<input type="reset" id="cancel" value="취소" onclick="resetText();">
 		</div>
 		</form>
 	</div>

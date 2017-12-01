@@ -1,9 +1,4 @@
 
-.content{
-background-color: #fcfddf;
-width: 960px;
-height: 450px;
-}
 #id{
 position: relative;
 top: 110px;
@@ -28,4 +23,9 @@ left: 460px;
 position: relative;
 top: 50px;
 left: 320px;
+}
+.content{
+background-color: #fcfddf;
+width: 960px;
+height: 450px;
 }

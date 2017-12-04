@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>È¸¿ø°¡ÀÔ ÆäÀÌÁö</title>
+<title>íšŒì›ê°€ìž… íŽ˜ì´ì§€</title>
 <link rel="stylesheet" href="./css/960.css">
 <link rel="stylesheet" href="./css/menu.css">
 <link rel="stylesheet" href="./css/header.css">
@@ -95,92 +95,92 @@
 		<img alt="logo" src="./imgs/joinlogo.jpg">
 		</div>
 		<div id="id">
-			<label for="id">¾ÆÀÌµð</label>
+			<label for="id">ì•„ì´ë””</label>
 			<input type="text" name="id" id="idInput"/>
-			<input type="submit" value="Áßº¹È®ÀÎ" id="idCheck">
-			<div id="idErr">¾ÆÀÌµð¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä</div>
+			<input type="submit" value="ì¤‘ë³µí™•ì¸" id="idCheck">
+			<div id="idErr">ì•„ì´ë””ë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”</div>
 		</div>
 		<div id="pw">
-			<label for="password">ºñ¹Ð¹øÈ£</label>
+			<label for="password">ë¹„ë°€ë²ˆí˜¸</label>
 			<input type="password" name="password" id="pwInput"/>
-        	<div id="pwInputErr">¾ÏÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä</div>
+        	<div id="pwInputErr">ì•”í˜¸ë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”</div>
 		</div>
 		
 		<div id="pw2">
-			<label for="password2">ºñ¹Ð¹øÈ£ È®ÀÎ</label>
+			<label for="password2">ë¹„ë°€ë²ˆí˜¸ í™•ì¸</label>
 			<input type="password" id="pwInputRe" name="password2"/> 
-			<input type="button" value="º¸±â" onclick="showPW();">
-        	<div id="pwInputReErr">¾ÏÈ£¸¦ È®ÀÎÇØÁÖ¼¼¿ä</div>
+			<input type="button" value="ë³´ê¸°" onclick="showPW();">
+        	<div id="pwInputReErr">ì•”í˜¸ë¥¼ í™•ì¸í•´ì£¼ì„¸ìš”</div>
 		</div>
 		<div id="name">
-			<label for="name">ÀÌ¸§</label>
+			<label for="name">ì´ë¦„</label>
 			<input type="text" id="userName" name="name">
-			<div id="nameErr">ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä</div>
+			<div id="nameErr">ì´ë¦„ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”</div>
 		</div>
 		<div id="birth">
-			<label for="birth">»ý³â¿ùÀÏ</label>
+			<label for="birth">ìƒë…„ì›”ì¼</label>
 			<input type="date" id="bDay" name="birth"/>
-			<div id="bDayErr">»ý³â¿ùÀÏÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä</div>
+			<div id="bDayErr">ìƒë…„ì›”ì¼ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”</div>
 		</div>
 		<div id="number">
-			<label for="number">¿¬¶ôÃ³</label>
+			<label for="number">ì—°ë½ì²˜</label>
 			<input type="text" id="phoneFirst" name="number">
-        	<div id="phoErr">ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä</div>
+        	<div id="phoErr">ì „í™”ë²ˆí˜¸ë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”</div>
 		</div>
 		<div id="mail">
 			<label for="mail">e_mail</label>
 			<input type="email" name="email" id="email"/>
-			<input type="submit" value="ÀÎÁõ¸ÞÀÏÀü¼Û" id="send"/>
-        	<div id="emErr">¿Ã¹Ù¸¥ ÀÌ¸ÞÀÏ ÁÖ¼Ò¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä</div>
+			<input type="submit" value="ì¸ì¦ë©”ì¼ì „ì†¡" id="send"/>
+        	<div id="emErr">ì˜¬ë°”ë¥¸ ì´ë©”ì¼ ì£¼ì†Œë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”</div>
 		</div>	
 		<div id="address">
-			<label for="address">ÁÖ¼Ò</label>
-<input type="text" id="sample4_postcode" placeholder="¿ìÆí¹øÈ£">
-<input type="button" onclick="sample4_execDaumPostcode()" value="¿ìÆí¹øÈ£ Ã£±â"><br>
-<input type="text" id="sample4_roadAddress" placeholder="µµ·Î¸íÁÖ¼Ò">
-<input type="text" id="sample4_jibunAddress" placeholder="Áö¹øÁÖ¼Ò">
+			<label for="address">ì£¼ì†Œ</label>
+<input type="text" id="sample4_postcode" placeholder="ìš°íŽ¸ë²ˆí˜¸" name="maddnum">
+<input type="button" onclick="sample4_execDaumPostcode()" value="ìš°íŽ¸ë²ˆí˜¸ ì°¾ê¸°"><br>
+<input type="text" id="sample4_roadAddress" placeholder="ë„ë¡œëª…ì£¼ì†Œ" name="maddress">
+<input type="text" id="sample4_jibunAddress" placeholder="ì§€ë²ˆì£¼ì†Œ">
 <span id="guide" style="color:#999"></span>
 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
-    //º» ¿¹Á¦¿¡¼­´Â µµ·Î¸í ÁÖ¼Ò Ç¥±â ¹æ½Ä¿¡ ´ëÇÑ ¹ý·É¿¡ µû¶ó, ³»·Á¿À´Â µ¥ÀÌÅÍ¸¦ Á¶ÇÕÇÏ¿© ¿Ã¹Ù¸¥ ÁÖ¼Ò¸¦ ±¸¼ºÇÏ´Â ¹æ¹ýÀ» ¼³¸íÇÕ´Ï´Ù.
+    //ë³¸ ì˜ˆì œì—ì„œëŠ” ë„ë¡œëª… ì£¼ì†Œ í‘œê¸° ë°©ì‹ì— ëŒ€í•œ ë²•ë ¹ì— ë”°ë¼, ë‚´ë ¤ì˜¤ëŠ” ë°ì´í„°ë¥¼ ì¡°í•©í•˜ì—¬ ì˜¬ë°”ë¥¸ ì£¼ì†Œë¥¼ êµ¬ì„±í•˜ëŠ” ë°©ë²•ì„ ì„¤ëª…í•©ë‹ˆë‹¤.
     function sample4_execDaumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {
-                // ÆË¾÷¿¡¼­ °Ë»ö°á°ú Ç×¸ñÀ» Å¬¸¯ÇßÀ»¶§ ½ÇÇàÇÒ ÄÚµå¸¦ ÀÛ¼ºÇÏ´Â ºÎºÐ.
-                // µµ·Î¸í ÁÖ¼ÒÀÇ ³ëÃâ ±ÔÄ¢¿¡ µû¶ó ÁÖ¼Ò¸¦ Á¶ÇÕÇÑ´Ù.
-                // ³»·Á¿À´Â º¯¼ö°¡ °ªÀÌ ¾ø´Â °æ¿ì¿£ °ø¹é('')°ªÀ» °¡Áö¹Ç·Î, ÀÌ¸¦ Âü°íÇÏ¿© ºÐ±â ÇÑ´Ù.
-                var fullRoadAddr = data.roadAddress; // µµ·Î¸í ÁÖ¼Ò º¯¼ö
-                var extraRoadAddr = ''; // µµ·Î¸í Á¶ÇÕÇü ÁÖ¼Ò º¯¼ö
-                // ¹ýÁ¤µ¿¸íÀÌ ÀÖÀ» °æ¿ì Ãß°¡ÇÑ´Ù. (¹ýÁ¤¸®´Â Á¦¿Ü)
-                // ¹ýÁ¤µ¿ÀÇ °æ¿ì ¸¶Áö¸· ¹®ÀÚ°¡ "µ¿/·Î/°¡"·Î ³¡³­´Ù.
-                if(data.bname !== '' && /[µ¿|·Î|°¡]$/g.test(data.bname)){
+                // íŒì—…ì—ì„œ ê²€ìƒ‰ê²°ê³¼ í•­ëª©ì„ í´ë¦­í–ˆì„ë•Œ ì‹¤í–‰í•  ì½”ë“œë¥¼ ìž‘ì„±í•˜ëŠ” ë¶€ë¶„.
+                // ë„ë¡œëª… ì£¼ì†Œì˜ ë…¸ì¶œ ê·œì¹™ì— ë”°ë¼ ì£¼ì†Œë¥¼ ì¡°í•©í•œë‹¤.
+                // ë‚´ë ¤ì˜¤ëŠ” ë³€ìˆ˜ê°€ ê°’ì´ ì—†ëŠ” ê²½ìš°ì—” ê³µë°±('')ê°’ì„ ê°€ì§€ë¯€ë¡œ, ì´ë¥¼ ì°¸ê³ í•˜ì—¬ ë¶„ê¸° í•œë‹¤.
+                var fullRoadAddr = data.roadAddress; // ë„ë¡œëª… ì£¼ì†Œ ë³€ìˆ˜
+                var extraRoadAddr = ''; // ë„ë¡œëª… ì¡°í•©í˜• ì£¼ì†Œ ë³€ìˆ˜
+                // ë²•ì •ë™ëª…ì´ ìžˆì„ ê²½ìš° ì¶”ê°€í•œë‹¤. (ë²•ì •ë¦¬ëŠ” ì œì™¸)
+                // ë²•ì •ë™ì˜ ê²½ìš° ë§ˆì§€ë§‰ ë¬¸ìžê°€ "ë™/ë¡œ/ê°€"ë¡œ ëë‚œë‹¤.
+                if(data.bname !== '' && /[ë™|ë¡œ|ê°€]$/g.test(data.bname)){
                     extraRoadAddr += data.bname;
                 }
-                // °Ç¹°¸íÀÌ ÀÖ°í, °øµ¿ÁÖÅÃÀÏ °æ¿ì Ãß°¡ÇÑ´Ù.
+                // ê±´ë¬¼ëª…ì´ ìžˆê³ , ê³µë™ì£¼íƒì¼ ê²½ìš° ì¶”ê°€í•œë‹¤.
                 if(data.buildingName !== '' && data.apartment === 'Y'){
                    extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
                 }
-                // µµ·Î¸í, Áö¹ø Á¶ÇÕÇü ÁÖ¼Ò°¡ ÀÖÀ» °æ¿ì, °ýÈ£±îÁö Ãß°¡ÇÑ ÃÖÁ¾ ¹®ÀÚ¿­À» ¸¸µç´Ù.
+                // ë„ë¡œëª…, ì§€ë²ˆ ì¡°í•©í˜• ì£¼ì†Œê°€ ìžˆì„ ê²½ìš°, ê´„í˜¸ê¹Œì§€ ì¶”ê°€í•œ ìµœì¢… ë¬¸ìžì—´ì„ ë§Œë“ ë‹¤.
                 if(extraRoadAddr !== ''){
                     extraRoadAddr = ' (' + extraRoadAddr + ')';
                 }
-                // µµ·Î¸í, Áö¹ø ÁÖ¼ÒÀÇ À¯¹«¿¡ µû¶ó ÇØ´ç Á¶ÇÕÇü ÁÖ¼Ò¸¦ Ãß°¡ÇÑ´Ù.
+                // ë„ë¡œëª…, ì§€ë²ˆ ì£¼ì†Œì˜ ìœ ë¬´ì— ë”°ë¼ í•´ë‹¹ ì¡°í•©í˜• ì£¼ì†Œë¥¼ ì¶”ê°€í•œë‹¤.
                 if(fullRoadAddr !== ''){
                     fullRoadAddr += extraRoadAddr;
                 }
-                // ¿ìÆí¹øÈ£¿Í ÁÖ¼Ò Á¤º¸¸¦ ÇØ´ç ÇÊµå¿¡ ³Ö´Â´Ù.
-                document.getElementById('sample4_postcode').value = data.zonecode; //5ÀÚ¸® »õ¿ìÆí¹øÈ£ »ç¿ë
+                // ìš°íŽ¸ë²ˆí˜¸ì™€ ì£¼ì†Œ ì •ë³´ë¥¼ í•´ë‹¹ í•„ë“œì— ë„£ëŠ”ë‹¤.
+                document.getElementById('sample4_postcode').value = data.zonecode; //5ìžë¦¬ ìƒˆìš°íŽ¸ë²ˆí˜¸ ì‚¬ìš©
                 document.getElementById('sample4_roadAddress').value = fullRoadAddr;
                 document.getElementById('sample4_jibunAddress').value = data.jibunAddress;
-                // »ç¿ëÀÚ°¡ '¼±ÅÃ ¾ÈÇÔ'À» Å¬¸¯ÇÑ °æ¿ì, ¿¹»ó ÁÖ¼Ò¶ó´Â Ç¥½Ã¸¦ ÇØÁØ´Ù.
+                // ì‚¬ìš©ìžê°€ 'ì„ íƒ ì•ˆí•¨'ì„ í´ë¦­í•œ ê²½ìš°, ì˜ˆìƒ ì£¼ì†Œë¼ëŠ” í‘œì‹œë¥¼ í•´ì¤€ë‹¤.
                 if(data.autoRoadAddress) {
-                    //¿¹»óµÇ´Â µµ·Î¸í ÁÖ¼Ò¿¡ Á¶ÇÕÇü ÁÖ¼Ò¸¦ Ãß°¡ÇÑ´Ù.
+                    //ì˜ˆìƒë˜ëŠ” ë„ë¡œëª… ì£¼ì†Œì— ì¡°í•©í˜• ì£¼ì†Œë¥¼ ì¶”ê°€í•œë‹¤.
                     var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
-                    document.getElementById('guide').innerHTML = '(¿¹»ó µµ·Î¸í ÁÖ¼Ò : ' + expRoadAddr + ')';
+                    document.getElementById('guide').innerHTML = '(ì˜ˆìƒ ë„ë¡œëª… ì£¼ì†Œ : ' + expRoadAddr + ')';
                 } else if(data.autoJibunAddress) {
                     var expJibunAddr = data.autoJibunAddress;
-                    document.getElementById('guide').innerHTML = '(¿¹»ó Áö¹ø ÁÖ¼Ò : ' + expJibunAddr + ')';
+                    document.getElementById('guide').innerHTML = '(ì˜ˆìƒ ì§€ë²ˆ ì£¼ì†Œ : ' + expJibunAddr + ')';
                 } else {
                     document.getElementById('guide').innerHTML = '';
                 }
@@ -191,17 +191,17 @@
         	
 		</div>	
 		<div id="radio">
-		    <label for="gender">¼ºº°</label>
+		    <label for="gender">ì„±ë³„</label>
 			<select name="gender" id="gender" > 
-          		<option value="">¼ºº°À» ¼±ÅÃÇØÁÖ¼¼¿ä</option>
-           		<option value="1">³²¼º</option>
-           		<option value="2">¿©¼º</option>           		
+          		<option value="">ì„±ë³„ì„ ì„ íƒí•´ì£¼ì„¸ìš”</option>
+           		<option value="1">ë‚¨ì„±</option>
+           		<option value="2">ì—¬ì„±</option>           		
        		</select>
-       		<div id="genErr">¼ºº°À» ¼±ÅÃÇØÁÖ¼¼¿ä</div>
+       		<div id="genErr">ì„±ë³„ì„ ì„ íƒí•´ì£¼ì„¸ìš”</div>
 		</div>
 		<div id="btn">
-			<input type="button" id="submit" value="°¡ÀÔ"/>
-        	<input type="reset" id="cancel" value="Ãë¼Ò" onclick="resetText();"/>
+			<input type="submit" id="submit" value="ê°€ìž…"/>
+        	<input type="reset" id="cancel" value="ì·¨ì†Œ" onclick="resetText();"/>
 		</div>
 		</form>
 	</div>

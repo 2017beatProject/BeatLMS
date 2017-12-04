@@ -32,16 +32,16 @@ public class LoginController extends HttpServlet {
 		String mpw = req.getParameter("mpw");
 		
 		LoginDao loginDao = new LoginDao();
-		loginDao.memberLogin(mid, mpw);
+		boolean login = loginDao.memberLogin(mid, mpw);
 		
 		HttpSession session = req.getSession();
-		if(loginDao.memberLogin(mid, mpw)) {
+		if(login==true) {
 			req.setAttribute("msg", "successed");
 			session.setAttribute("result", true);
 			req.getRequestDispatcher("/index/index_post.jsp").forward(req, resp);
 		}
 		
-		else {
+		else if(login==false){
 			req.setAttribute("msg", "failed");
 			session.setAttribute("result", false);
 			req.getRequestDispatcher("/login/login.jsp").forward(req, resp);

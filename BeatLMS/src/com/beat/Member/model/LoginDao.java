@@ -31,17 +31,20 @@ public class LoginDao extends LMSDao{
 			pstmt.setString(2, mpw);
 			rs=pstmt.executeQuery();
 			System.out.println(mid+"로그인 창에서 입력된 정보"+mpw);
+			pwchk = false;
 			while(rs.next()){
-			if (rs.getInt("cnt") == 1)
+			if (rs.getInt("cnt") == 1) {
 				System.out.println(mid+"맞는 정보 찾았음"+mpw);
 				pwchk = true;
 				return pwchk;
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{
 			destroy();
 		}
+		System.out.println(pwchk);
 		return pwchk;
 	}
 }

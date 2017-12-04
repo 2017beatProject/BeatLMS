@@ -31,37 +31,46 @@ public class AccountantController extends HttpServlet {
 		
 		req.setCharacterEncoding("UTF-8");
 		
-		int snum = Integer.parseInt(req.getParameter("snum"));
+//		int snum = Integer.parseInt(req.getParameter("snum"));
 		
-		String mid = req.getParameter("mid");
+		String mid = req.getParameter("id");
+		System.out.println("아이디:"+mid);
 		
-		String mpw = req.getParameter("mpw");
+		String mpw = req.getParameter("password");
+		System.out.println("비번:"+mpw);
 		
-		String mname = req.getParameter("mname");
+		String mname = req.getParameter("name");
+		System.out.println("이름:"+mname);
 		
 		//Date 변환 문제
-		String mbirthStr = req.getParameter("mbirth");
+		String mbirthStr = req.getParameter("birth");
+		System.out.println("생년월일str:"+mbirthStr);
 		//DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date mbirth = java.sql.Date.valueOf(mbirthStr);
+		System.out.println("생년월일date:"+mbirth);
 		
+		int mzen = Integer.parseInt(req.getParameter("gender"));
+		System.out.println("성별:"+mzen);
 		
-		int mzen = Integer.parseInt(req.getParameter("mzen"));
+		int mphone = Integer.parseInt(req.getParameter("number"));
+		System.out.println("연락처:"+mphone);
 		
-		int mphone = Integer.parseInt(req.getParameter("mphone"));
-		
-		String mmail = req.getParameter("mmail");
+		String mmail = req.getParameter("email");
+		System.out.println("이메일:"+mmail);
 		
 		String maddress = req.getParameter("maddress");
+		System.out.println("도로명주소:"+maddress);
 		
 		int maddnum = Integer.parseInt(req.getParameter("maddnum"));
+		System.out.println("우편번호:"+maddnum);
 		
 		
 		AccountantAdminDao accountantDao = new AccountantAdminDao();
 		
-		accountantDao.memberJoin(snum, mid, mpw, mname, mbirth, mzen, mphone, mmail, maddress, maddnum);
+//		accountantDao.memberJoin(snum, mid, mpw, mname, mbirth, mzen, mphone, mmail, maddress, maddnum);
+		accountantDao.memberJoin(mid, mpw, mname, mbirth, mzen, mphone, mmail, maddress, maddnum);
 		
-		req.getRequestDispatcher("/login/join.jsp").forward(req, resp);
-		
+		req.getRequestDispatcher("/login/login.jsp").forward(req, resp);
 		
 	
 	}

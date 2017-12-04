@@ -31,9 +31,8 @@ public class LoginController extends HttpServlet {
 		String mpw = req.getParameter("mpw");
 		
 		LoginDao loginDao = new LoginDao();
-		boolean loginChk=loginDao.memberLogin(mid, mpw);// 리턴값은 true-> false
+		loginDao.memberLogin(mid, mpw);
 		
-		req.setAttribute("loginChk", loginChk);
 		req.getRequestDispatcher("/index/index_post.jsp").forward(req, resp);
 		// 일단은 로그인 후 페이지로 함. login.jsp form action 태그에 전달 페이지가 없으므로..
 	}

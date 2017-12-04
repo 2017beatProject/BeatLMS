@@ -20,18 +20,17 @@ public class LoginDao extends LMSDao{
 	public boolean memberLogin(String mid, String mpw) {
 		//로그인할 때 쓰는 매소드
 		String sql = "select count(*) from lmsMember "
-				+ "where mid like %?% "
+				+ "where mid like ? "
 				+ "and CryptString.decrypt(mpw,'key') like ?";// 비번 암호화/복호화(DB 내부에서 값비교)
 		boolean pwchk = false;
 		try {
 			pstmt = this.conn.prepareStatement(sql);
 			pstmt.setString(1, mid);
 			pstmt.setString(2, mpw);
-			rs=pstmt.executeQuery();
-			while(rs.next()){
+			rs = pstmt.executeQuery();
 			if (rs.getInt("count(*)") == 1)
 				pwchk = true;
-			}
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

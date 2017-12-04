@@ -43,20 +43,20 @@ var loginResult, logintf, err;
 
    <!-- content -->
    <div class="content">
-      <form action="login.lms" method="post">
+      <form action="index.lms" method="post">
          <div>
             <img id="logo" alt="logo" src="./imgs/loginlogo.jpg">
          </div>
          <div id="id">
-            <label for="id">아이디</label> <input type="text" name="mid" />
+            <label for="id">아이디</label> <input type="text" name="id" />
          </div>
          <div id="pw">
             <label for="password">비밀번호</label> <input type="password"
-               name="mpw" />
+               name="password" />
          </div>
          <div id="radio">
-            <input type="radio" name="1">일반회원 <input type="radio"
-               name="2">직원
+            <input type="radio" name="radio">회원 <input type="radio"
+               name="radio">직원
          </div>
          <div id="btn">
             <button type="submit">로그인</button>

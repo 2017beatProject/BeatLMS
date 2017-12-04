@@ -16,13 +16,13 @@ public class AccountantController extends HttpServlet {
 	
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp){
-		
 		try {
 			req.getRequestDispatcher("/login/join.jsp").forward(req, resp);
 		} catch (ServletException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 	}
 	
 	@Override

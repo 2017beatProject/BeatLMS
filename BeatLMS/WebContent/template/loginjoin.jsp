@@ -9,7 +9,7 @@
 		
 		<div class="grid_12 loginjoin">
 			<a href="./login.lms"><img alt="login" src="./imgs/login.jpg"></a> 
-			<a href="./join.lms"><img alt="join" src="./imgs/join.jpg"></a>
+			<a href="./join_choice.lms"><img alt="join" src="./imgs/join.jpg"></a>
 		</div>
 		<div class="clear"></div>		
 </body>

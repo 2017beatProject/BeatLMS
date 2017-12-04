@@ -99,6 +99,10 @@ th {
 	border-radius: 2px;
 	color: white;
 }
+#topimg {
+	position: relative;
+	left: -20px;
+}
 </style>
 </head>
 <body>
@@ -128,6 +132,7 @@ th {
 
 	<!-- content -->
 	<div class="content grid_10">
+	<img class="imgs" id="topimg" alt="" src="../imgs/infoTopImg.jpg">
 		<div class="layout">
 		    <div>
 		     <img alt="" src="">

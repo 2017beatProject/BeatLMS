@@ -9,10 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.beat.Member.model.AccountantDao;
+import com.beat.Member.model.AccountantAdminDao;
 
 @WebServlet("/join.lms")
 public class AccountantController extends HttpServlet {
+	
+	
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp){
+		
+		try {
+			req.getRequestDispatcher("/login/join.jsp").forward(req, resp);
+		} catch (ServletException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -45,7 +56,7 @@ public class AccountantController extends HttpServlet {
 		int maddnum = Integer.parseInt(req.getParameter("maddnum"));
 		
 		
-		AccountantDao accountantDao = new AccountantDao();
+		AccountantAdminDao accountantDao = new AccountantAdminDao();
 		
 		accountantDao.memberJoin(snum, mid, mpw, mname, mbirth, mzen, mphone, mmail, maddress, maddnum);
 		

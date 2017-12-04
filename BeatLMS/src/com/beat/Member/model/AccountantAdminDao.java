@@ -24,12 +24,12 @@ public class AccountantAdminDao extends LMSDao{
 	}
 	
 	public void memberJoin(int snum, String mid, String mpw, String mname,
-			Date mbirth, int mzen, int mphone, String mmail, String maddress,
-			int maddnum) {
+			Date mbirth, int mzen, int mphone, String mmail, String maddress, int maddnum
+			) {
 		// 회원가입시 기재 사항- 회원고유번호(시퀀스), 신분식별(학생/직원), 아이디, 비밀번호, 이름, 생년월일, 성별,
 		// 휴대전화번호
 		// 이메일주소, 거주지 주소, 우편번호 (컬럼 개수는 9개)
-		String sql = "insert into lmsMember values(membernum_seq, ?, ?, ?, ? ,? ,? ,?,?,? ,?,sysdate)";
+		String sql = "insert into lmsMember values(membernum_seq, ?, ?, ?, ? ,? ,? ,?,?,?,sysdate)";
 		try {
 			pstmt = this.conn.prepareStatement(sql);
 			pstmt.setInt(1, snum);
@@ -41,7 +41,7 @@ public class AccountantAdminDao extends LMSDao{
 			pstmt.setInt(7, mphone);
 			pstmt.setString(8, mmail);
 			pstmt.setString(9, maddress);
-			pstmt.setInt(10, maddnum);
+			
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

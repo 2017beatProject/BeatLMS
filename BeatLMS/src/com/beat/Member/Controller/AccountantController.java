@@ -2,8 +2,6 @@ package com.beat.Member.Controller;
 
 import java.io.IOException;
 import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,13 +14,16 @@ import com.beat.Member.model.AccountantAdminDao;
 @WebServlet("/join.lms")
 public class AccountantController extends HttpServlet {
 	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException ,IOException {
+	
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp){
 		
-		req.getRequestDispatcher("/login/join.jsp").forward(req, resp);
-	};
-	
-	
+		try {
+			req.getRequestDispatcher("/login/join.jsp").forward(req, resp);
+		} catch (ServletException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -40,8 +41,9 @@ public class AccountantController extends HttpServlet {
 		
 		//Date 변환 문제
 		String mbirthStr = req.getParameter("mbirth");
-		
+		//DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date mbirth = java.sql.Date.valueOf(mbirthStr);
+		
 		
 		int mzen = Integer.parseInt(req.getParameter("mzen"));
 		
@@ -58,7 +60,9 @@ public class AccountantController extends HttpServlet {
 		
 		accountantDao.memberJoin(snum, mid, mpw, mname, mbirth, mzen, mphone, mmail, maddress, maddnum);
 		
-		req.getRequestDispatcher("/index_post.jsp").forward(req, resp);
+		req.getRequestDispatcher("/login/join.jsp").forward(req, resp);
+		
+		
 	
 	}
 

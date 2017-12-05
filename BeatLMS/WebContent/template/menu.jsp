@@ -42,8 +42,8 @@
 			<ul>
 				<li><a href="#">LECTURE</a>
 					<ul>
-						<li><a href="#">강의소개</a></li>
-						<li><a href="#">수강신청</a></li>
+						<li><a href="lecture.lms">강의소개</a></li>
+						<li><a href="lecture_detail.lms">수강신청</a></li>
 					</ul>
 				</li>
 			</ul>

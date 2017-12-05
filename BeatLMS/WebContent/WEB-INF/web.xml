@@ -9,4 +9,13 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+   	<servlet-name>doublechk</servlet-name>
+  	<servlet-class>com.beat.Member.Controller.IdDoubleCheckController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>doublechk</servlet-name>
+  	<url-pattern>/target/join.json</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

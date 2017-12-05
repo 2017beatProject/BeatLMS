@@ -54,10 +54,11 @@
 	<!-- content -->
 	<div class="content">
 	    <div id="pageName"><strong>회원가입</strong></div>
+	
+		
+		
 		<div>
 			<a href="join.lms"><button type="button" id="join">일반가입</button></a>
-		</div>
-		<div>
 			<a href="#" class="btn-example" onclick="layer_open('layer1');return false;">
 			<button type="button" id="memberJoin">직원가입</button>
 			</a>

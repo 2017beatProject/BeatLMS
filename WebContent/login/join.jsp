@@ -5,14 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원가입 페이지</title>
-<link rel="stylesheet" href="../css/960.css">
-<link rel="stylesheet" href="../css/menu.css">
-<link rel="stylesheet" href="../css/header.css">
-<link rel="stylesheet" href="../css/join.css">
+<link rel="stylesheet" href="./css/960.css">
+<link rel="stylesheet" href="./css/menu.css">
+<link rel="stylesheet" href="./css/header.css">
+<link rel="stylesheet" href="./css/join.css">
 <style type="text/css">
-
 </style>
-<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
 <script>
         var errList = [
             "idErr",
@@ -25,9 +24,8 @@
             "emErr",
             "loErr"
         ];
-
         var inputList = [
-            "id",
+            "idInput",
             "pwInput",
             "pwInputRe",
             "userName",
@@ -37,17 +35,14 @@
             "email",
             "location"
         ];
-
         var returnTfCount;
         var pwToggle;
-
         function submitButton() {
             submitCheck();
-            if (returnTfCount == 0) {
-                location.href = "exit.html";
+            if (returnTfCount > 0) {
+                location.href = "join.lms";
             }
         }
-
         function submitCheck() {
             returnTfCount = 0;
             for (var j = 0; j < inputList.length; j++) {
@@ -58,20 +53,19 @@
                     returnTfCount++;
                 }
             }
+            
             if (document.getElementById("pwInput").value != document.getElementById("pwInputRe").value) {
                 document.getElementById("pwInputReErr").style.opacity = "1";
                 document.getElementById("pwInputReErr").style.color = "deeppink";
                 returnTfCount++;
             }
         }
-
         function resetText() {
             for (var i = 0; i < errList.length; i++) {
                 document.getElementById(errList[i]).style.opacity = "0";
                 //document.getElementById(inputList[i]).style.backgroundColor = "white";
             }
         }
-
         function showPW() {
             pwToggle = !pwToggle;
             if (pwToggle) {
@@ -82,7 +76,6 @@
                 document.getElementById("pwInputRe").setAttribute('type', 'password');
             }
         }
-
         window.onload = function() {
             resetText();
         }
@@ -95,13 +88,14 @@
 
 	<!-- content -->
 	<div class="content">
-		<form name="join" action="exit.html" method="post">
+		<form name="join" action="join.lms" method="post">
 		<div id="logo">
-		<img alt="logo" src="../imgs/joinlogo.jpg">
+		<img alt="logo" src="./imgs/joinlogo.jpg">
 		</div>
 		<div id="id">
 			<label for="id">아이디</label>
 			<input type="text" name="id" id="idInput"/>
+			<input type="submit" value="중복확인" id="idCheck">
 			<div id="idErr">아이디를 입력해주세요</div>
 		</div>
 		<div id="pw">
@@ -133,7 +127,8 @@
 		</div>
 		<div id="mail">
 			<label for="mail">e_mail</label>
-			<input type="text" name="mail" id="email"/>
+			<input type="email" name="email" id="email"/>
+			<input type="submit" value="인증메일전송" id="send"/>
         	<div id="emErr">올바른 이메일 주소를 입력해주세요</div>
 		</div>	
 		<div id="address">
@@ -143,17 +138,16 @@
 		</div>	
 		<div id="radio">
 		    <label for="gender">성별</label>
-			<select name="gender" id="gender"> 
+			<select name="gender" id="gender" > 
           		<option value="">성별을 선택해주세요</option>
-           		<option value="man">남성</option>
-           		<option value="woman">여성</option>
-           		<option value="etc">기타</option>
+           		<option value="1">남성</option>
+           		<option value="2">여성</option>           		
        		</select>
        		<div id="genErr">성별을 선택해주세요</div>
 		</div>
 		<div id="btn">
-			<input type="button" id="submit" value="확인" onclick="submitButton();">
-        	<input type="reset" id="cancel" value="취소" onclick="resetText();">
+			<input type="button" id="submit" value="가입"/>
+        	<input type="reset" id="cancel" value="취소" onclick="resetText();"/>
 		</div>
 		</form>
 	</div>
@@ -162,4 +156,3 @@
 	<jsp:include page="../template/footer.jsp"></jsp:include>
 </body>
 </html>
-

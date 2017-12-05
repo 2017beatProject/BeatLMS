@@ -1,19 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 
 <body>
 <!-- menu -->
 		<div class="menu">
-		<div class="grid_2">&nbsp;</div> <!--ºóÄ­-->
+		<div class="grid_2">&nbsp;</div> <!--ë¹ˆì¹¸-->
 			<div class="grid_2">
 			<ul>
 				<li><a href="#">&nbsp;ABOUT US&nbsp;</a>
 					<ul>
-						<li><a href="#">Á¶Á÷µµ</a></li>
-						<li><a href="#">°­»ç¼Ò°³</a></li>
-						<li><a href="#">¾à·Â</a></li>
+						<li><a href="#">ì¡°ì§ë„</a></li>
+						<li><a href="#">ê°•ì‚¬ì†Œê°œ</a></li>
+						<li><a href="#">ì•½ë ¥</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -22,8 +22,8 @@
 			<ul>
 				<li><a href="#">CONTACT US</a>
 					<ul>
-						<li><a href="#">»ó´ã½ÅÃ»</a></li>
-						<li><a href="#">Áú¹®»çÇ×</a></li>
+						<li><a href="#">ìƒë‹´ì‹ ì²­</a></li>
+						<li><a href="#">ì§ˆë¬¸ì‚¬í•­</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -32,8 +32,8 @@
 			<ul>
 				<li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOTICE&nbsp;</a>
 					<ul>
-						<li><a href="#">ÇÐ»ç°øÁö</a></li>
-						<li><a href="#">ÀÏ¹Ý°øÁö</a></li>
+						<li><a href="#">í•™ì‚¬ê³µì§€</a></li>
+						<li><a href="#">ì¼ë°˜ê³µì§€</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -42,13 +42,13 @@
 			<ul>
 				<li><a href="#">LECTURE</a>
 					<ul>
-						<li><a href="#">°­ÀÇ¼Ò°³</a></li>
-						<li><a href="#">¼ö°­½ÅÃ»</a></li>
+						<li><a href="#">ê°•ì˜ì†Œê°œ</a></li>
+						<li><a href="#">ìˆ˜ê°•ì‹ ì²­</a></li>
 					</ul>
 				</li>
 			</ul>
 			</div>
-			<div class="grid_2">&nbsp;</div> <!--ºóÄ­-->
+			<div class="grid_2">&nbsp;</div> <!--ë¹ˆì¹¸-->
 
 
 		</div>

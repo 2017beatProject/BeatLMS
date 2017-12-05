@@ -21,56 +21,76 @@ public class LoginDao extends LMSDao{
 	}
 		
 	public ArrayList<LoginDto> memberLogin(String mid, String mpw) {
-		//로그인할 때 쓰는 매소드
-		//String sql = "select count(*) as cnt from lmsmember "
+	//로그인할 때 쓰는 매소드
+	//	String sql = "select count(*) as cnt from lmsmember "
+	//			+ "where mid like '%' || ? || '%' "
+	//			+ "and CryptString.decrypt(mpw,'key') like '%' || ? || '%'";// 비번 암호화/복호화(DB 내부에서 값비교)
+	
+		String sql = "select CryptString.decrypt(mpw,'key') from lmsmember where mid =?";
+		//id 없을 때 리스트 리턴 처리를 위해 비번값 꺼내옴
 		
-		String sql = "select mid from lmsmember "
-				+ "where mid like '%' || ? || '%' "
-				+ "and CryptString.decrypt(mpw,'key') like '%' || ? || '%'";// 비번 암호화/복호화(DB 내부에서 값비교)
-		
-		
+
 	//	System.out.println("mid"+":"+mid+"mpw"+":"+mpw);
 	//	System.out.println(sql);
 		
+		LoginDto bean = new LoginDto();
 		ArrayList<LoginDto> LoginList = new  ArrayList<LoginDto>();
+		
 		boolean loginResult=false;
 		
 		try {
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, mid);
-			pstmt.setString(2, mpw);
+		//	pstmt.setString(2, mpw);
 			
 			rs=pstmt.executeQuery();
 			
-			
 			System.out.println(mid+"로그인 창에서 입력된 정보"+mpw);
 			
-			while(rs.next()){
-		
-				
-				System.out.println(mid+"맞는 정보 찾았음"+mpw);
 			
-
-				LoginDto bean = new LoginDto();	
-				loginResult=true;
-				
-				bean.setMid(rs.getString("mid")); 
+			if(rs.next()){ //id가 있을 경우
+				if(rs.getString(1).equals(mpw)){ //비번을 매칭한다
+					System.out.println("pw 맞음 ");
+					loginResult=true;			
+					bean.setMid(mid); 
+					bean.setloginResult(loginResult);
+					
+					LoginList.add(bean);	
+					
+				}else{
+					
+					System.out.println("pw 틀림");
+					loginResult=false;			
+					bean.setMid(""); 
+					bean.setloginResult(loginResult);
+					
+					LoginList.add(bean);
+				}
+			}else{ //id 가 없을 경우
+				System.out.println("id 없음");
+				loginResult=false;			
+				bean.setMid(""); 
 				bean.setloginResult(loginResult);
 				
-				LoginList.add(bean);	
-				
-				}
-			
-			
+				LoginList.add(bean);
+			}
+
 			return LoginList;
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			
+			bean.setMid(""); 
+			bean.setloginResult(false); //false 
+			LoginList.add(bean);
+			
 			return LoginList;
+			
 		}finally{
 			destroy();
-			System.out.println(loginResult);
+			
+			System.out.println("dao result"+loginResult);
 		}
 		
 	}

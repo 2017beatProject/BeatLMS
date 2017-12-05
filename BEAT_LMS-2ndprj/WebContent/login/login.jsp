@@ -1,12 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 	
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>·Î±×ÀÎ ÆäÀÌÁö</title>
+
+<title>ë¡œê·¸ì¸ í˜ì´ì§€</title>
+
 <link rel="stylesheet" href="./css/960.css">
 <link rel="stylesheet" href="./css/menu.css">
 <link rel="stylesheet" href="./css/header.css">
@@ -15,73 +17,93 @@
 </style>
 <script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
 <script type="text/javascript">
-	var xhr = new XMLHttpRequest(); 
-	var radioNum;
-	
-	function ajaxSend(){
-		
-	//id/pw/radio °ª post ·Î ³Ñ±è
-		xhr.open("Post", "./login.lms?mid="+encodeURIComponent(document.getElementById("mid").value) + "&mpw=" + encodeURIComponent(document.getElementById("mpw").value)+ "&radio=" + encodeURIComponent(radioNum), true);
-		xhr.onreadystatechange = loginProcess; 
-		xhr.send(null);	
-	}
-	
-	
-	function loginProcess(){ 
-		
-		var entireField = document.getElementById("entireForm");
-		var errField = document.getElementById("errMsg1");
-		
-		errField.innerHTML = "";
-		
-		if(xhr.readyState == 4 && xhr.status == 200){
-			var obj = eval('('+xhr.responseText+')'); 
-			var result = obj.result; 
 
-			if(result.length==0){	
-					
-					errField.innerText = "ID¿Í ºñ¹Ğ¹øÈ£¸¦ È®ÀÎÇÏ¼¼¿ä"; 
-			}
+var loginResult, logintf, err;
+
+function er(){
+	err = document.getElementById('errMsg1');
+	err.innerText='IDì™€ ë¹„ë°€ë²ˆí˜¸ë¥¼ í™•ì¸í•˜ì„¸ìš”';
+}
+
+
+window.onload= function(){
+	
+	loginResult = <%= request.getAttribute("loginChk") %>;
+	
+	//alert(loginResult);
+	if(loginResult==false){
+	  	er();
+	}
+}
+
+
+
+
+//	var xhr = new XMLHttpRequest(); 
+//	var radioNum;
+	
+//	function ajaxSend(){
+		
+	//id/pw/radio ê°’ post ë¡œ ë„˜ê¹€
+//		xhr.open("Post", "./login.lms?mid="+encodeURIComponent(document.getElementById("mid").value) + "&mpw=" + encodeURIComponent(document.getElementById("mpw").value)+ "&radio=" + encodeURIComponent(radioNum), true);
+//		xhr.onreadystatechange = loginProcess; 
+//		xhr.send(null);	
+//	}
+	
+	
+//	function refresh(){
+//		$('#loadLogin').load("logoutmypage.jsp");
+//	}
+	
+//	function loginProcess(){ 
+		
+//		var entireField = document.getElementById("entireForm");
+//		var errField = document.getElementById("errMsg1");
+		
+//		errField.innerHTML = "";
+		
+//		if(xhr.readyState == 4 && xhr.status == 200){
+//			var obj = eval('('+xhr.responseText+')'); 
+//			var result = obj.result; 
+	
+			//window.location.reload(true);
 			
-			for(var i=0; i<result.length; i++){
-				for(var j=0; j<result[i].length; j++){
-					
-					if(result[i][1].value==true){
-						
-						
-						entireField.innerHTML= sessionID+"´Ô È¯¿µÇÕ´Ï´Ù";
-
-					}
-				}
-			}
+//			if(result.length==0){	
+//					errField.innerText = "IDì™€ ë¹„ë°€ë²ˆí˜¸ë¥¼ í™•ì¸í•˜ì„¸ìš”"; 
+//			}
 			
+//			for(var i=0; i<result.length; i++){
+			
+//					if(result[i][1].value==true){
+						//refresh();
+//						entireField.innerHTML= result[i][0].value+"ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤";
+//					}	
+//			}
+//		}		
+//	}
 	
-		}		
-	}
+//	function rdoChk(){
+//		var check = false;
+//		for(var i = 0; i < document.getElementsByName("radioName").length; ++i ){
+//	       if ( document.getElementsByName("radioName")[i].checked == true ) { 
+//	    	   radioNum=document.getElementsByName("radioName")[i].value;
+//	           check = true;
+//	           break;
+//	        }
+//	     }
+//	     if(check == false){  
+//	    	 document.getElementById("radio").append('(ì„ íƒí•˜ì„¸ìš”)'); 	 
+//	      } else{
+//	    	  ajaxSend();
+//	      }
 	
-	function rdoChk(){
-		var check = false;
-		var i = 0;
-		for( i = 0; i < document.getElementsByName("radioName").length; ++i ){
-	       if ( document.getElementsByName("radioName")[i].checked == true ) { 
-	    	   radioNum=document.getElementsByName("radioName")[i].value;
-	           check = true;
-	           break;
-	        }
-	     }
-		
-	     if(check == false){  
-	    	 document.getElementById("radio").append('(¼±ÅÃÇÏ¼¼¿ä)'); 	 
-	      } else{
-	    	  ajaxSend();
-	      }
-	    return;	
-
-	}
+//	}
 
 </script>
 </head>
 <body>
+
+	
 	<jsp:include page="../template/header.jsp"></jsp:include>
 	<jsp:include page="../template/loginjoin.jsp"></jsp:include>
 	<jsp:include page="../template/menu.jsp"></jsp:include>
@@ -89,7 +111,7 @@
 	<!-- content -->
 	<div class="content">
 	
-	<!-- <form action="login.lms" method="post"> -->
+	 <form action="login.lms" method="post">
 		
 	<div id="entireForm">
 		
@@ -102,24 +124,24 @@
 			</div>
 			
 			<div id="id">
-				<label for="id">¾ÆÀÌµğ</label>
-				<input type="text" id="mid" />
+				<label for="id">ì•„ì´ë””</label>
+				<input type="text" name="mid" />
 			</div>
 			<div id="pw">
-				<label for="password">ºñ¹Ğ¹øÈ£</label> 
-				<input type="password" id="mpw" />
+				<label for="password">ë¹„ë°€ë²ˆí˜¸</label> 
+				<input type="password" name="mpw" />
 			</div>
 			<div id="radio">
-				<input type="radio" name="radioName" value="1">ÀÏ¹İ È¸¿ø 
-				<input type="radio"	name="radioName" value="2">Á÷¿ø
+				<input type="radio" name="radioName" name="1">ì¼ë°˜ íšŒì› 
+				<input type="radio"	name="radioName" name="2">ì§ì›
 			</div>
 			<div id="btn">
-				<button type="submit" onClick="rdoChk();">·Î±×ÀÎ</button>
+				<button type="submit" onClick="rdoChk();">ë¡œê·¸ì¸</button>
 			</div>
 			
 		</div>
 		
-	<!--  	</form>-->
+		</form>
 	</div>
 	<div class="clear"></div>
 

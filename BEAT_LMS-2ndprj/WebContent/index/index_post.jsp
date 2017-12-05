@@ -5,25 +5,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>로그인 후 페이지</title>
-<link rel="stylesheet" href="../css/960.css">
-<link rel="stylesheet" href="../css/menu.css">
-<link rel="stylesheet" href="../css/header.css">
+<link rel="stylesheet" href="./css/960.css">
+<link rel="stylesheet" href="./css/menu.css">
+<link rel="stylesheet" href="./css/header.css">
 <style type="text/css">
 
-
-.bxslider>div>img{
-  width: 960px;
+.bxslider>div>img {
+  	width: 960px;
  
 }
-.bxslider{
- z-index: -1;
+.bxslider {
+	 z-index: -1;
 }
-.bx-next{
+.bx-next {
 
 }
+
 </style>
-<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="../js/jquery.bxslider.js"></script>
+<script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="./js/jquery.bxslider.js"></script>
 <script type="text/javascript">
 $(function() {
 	$('.bxslider').bxSlider({
@@ -38,23 +38,23 @@ $(function() {
 </head>
 <body>
     <jsp:include page="../template/header.jsp"></jsp:include>
-	<jsp:include page="../template/logoutmypage.jsp"></jsp:include>
+   <jsp:include page="../template/loginjoin.jsp"></jsp:include>
 	<jsp:include page="../template/menu.jsp"></jsp:include>
 		
 		<!-- content -->
 		<div class="content">
 		<div class="bxslider">
 				<div>
-					<img alt="bx01" src="../imgs/bx01.jpg"/>
+					<img alt="bx01" src="./imgs/bx01.jpg"/>
 				</div>
 				<div>
-					<img alt="bx02" src="../imgs/bx02.jpg"/>
+					<img alt="bx02" src="./imgs/bx02.jpg"/>
 				</div>
 				<div>
-					<img alt="bx03" src="../imgs/bx03.jpg"/>
+					<img alt="bx03" src="./imgs/bx03.jpg"/>
 				</div>
 				<div>
-					<img alt="bx04" src="../imgs/bx04.jpg"/>
+					<img alt="bx04" src="./imgs/bx04.jpg"/>
 				</div>
 			</div>
 		

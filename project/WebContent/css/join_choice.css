@@ -64,11 +64,11 @@ display: inline-block;
 }
 
 #join{
-top:130px;
+top:110px;
 left: 350px;
 }
 #memberJoin{
-top:130px;
+top:110px;
 left: 450px;
 }
 #sabun{
@@ -102,7 +102,7 @@ border-radius:1px;
  border-top: 3px dotted #DDD;
  color: gray;
  width: 830px;
- top: 300px;
+ top: 200px;
  left: 80px;
  position: relative;
 }

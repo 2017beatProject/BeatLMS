@@ -2,8 +2,6 @@ package com.beat.Member.Controller;
 
 import java.io.IOException;
 import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,21 +14,28 @@ import com.beat.Member.model.AccountantAdminDao;
 @WebServlet("/join.lms")
 public class AccountantController extends HttpServlet {
 	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException ,IOException {
-		
-		req.getRequestDispatcher("/login/join.jsp").forward(req, resp);
-	};
 	
-	
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp){
+		try {
+			req.getRequestDispatcher("/login/join.jsp").forward(req, resp);
+		} catch (ServletException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		req.setCharacterEncoding("UTF-8");
+		req.setCharacterEncoding("UTF-8");		
 		
-		int snum = Integer.parseInt(req.getParameter("snum"));
+//		int snum = Integer.parseInt(req.getParameter("snum").trim());
+		//직원은 1, 일반회원은 2		
+		
+		String snum = req.getParameter("snum");
+		System.out.println(snum);
 		
 		String mid = req.getParameter("mid");
 		
@@ -40,8 +45,9 @@ public class AccountantController extends HttpServlet {
 		
 		//Date 변환 문제
 		String mbirthStr = req.getParameter("mbirth");
-		
+		//DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date mbirth = java.sql.Date.valueOf(mbirthStr);
+		
 		
 		int mzen = Integer.parseInt(req.getParameter("mzen"));
 		
@@ -56,10 +62,11 @@ public class AccountantController extends HttpServlet {
 		
 		AccountantAdminDao accountantDao = new AccountantAdminDao();
 		
-		accountantDao.memberJoin(snum, mid, mpw, mname, mbirth, mzen, mphone, mmail, maddress, maddnum);
+		accountantDao.memberJoin(4, mid, mpw, mname, mbirth, mzen, mphone, mmail, maddress, 234);
 		
-		req.getRequestDispatcher("/index_post.jsp").forward(req, resp);
-	
+		req.getRequestDispatcher("/login/joinInfo.jsp").forward(req, resp);
+		
+			
 	}
 
 }

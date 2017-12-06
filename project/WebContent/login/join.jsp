@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>È¸¿ø°¡ÀÔ ÆäÀÌÁö</title>
+<title>íšŒì›ê°€ì… í˜ì´ì§€</title>
 <link rel="stylesheet" href="./css/960.css">
 <link rel="stylesheet" href="./css/menu.css">
 <link rel="stylesheet" href="./css/header.css">
@@ -12,143 +12,145 @@
 <style type="text/css">
 </style>
 <script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="./js/address.js"></script>
+<script src="./js/joinValidation.js"></script>
 <script>
-        var errList = [
-            "idErr",
-            "pwInputErr",
-            "pwInputReErr",
-            "nameErr",
-            "bDayErr",
-            "genErr",
-            "phoErr",
-            "emErr",
-            "loErr"
-        ];
-        var inputList = [
-            "idInput",
-            "pwInput",
-            "pwInputRe",
-            "userName",
-            "bDay",
-            "gender",
-            "phoneFirst",
-            "email",
-            "location"
-        ];
-        var returnTfCount;
-        var pwToggle;
-        function submitButton() {
-            submitCheck();
-            if (returnTfCount > 0) {
-                location.href = "join.lms";
-            }
-        }
-        function submitCheck() {
-            returnTfCount = 0;
-            for (var j = 0; j < inputList.length; j++) {
-                if (document.getElementById(inputList[j]).value == "") {
-                    document.getElementById(errList[j]).style.opacity = "1";
-                    document.getElementById(errList[j]).style.color = "deeppink";
-                    //document.getElementById(inputList[j]).style.backgroundColor = "deeppink";
-                    returnTfCount++;
-                }
-            }
-            
-            if (document.getElementById("pwInput").value != document.getElementById("pwInputRe").value) {
-                document.getElementById("pwInputReErr").style.opacity = "1";
-                document.getElementById("pwInputReErr").style.color = "deeppink";
-                returnTfCount++;
-            }
-        }
-        function resetText() {
-            for (var i = 0; i < errList.length; i++) {
-                document.getElementById(errList[i]).style.opacity = "0";
-                //document.getElementById(inputList[i]).style.backgroundColor = "white";
-            }
-        }
-        function showPW() {
-            pwToggle = !pwToggle;
-            if (pwToggle) {
-                document.getElementById("pwInput").setAttribute('type', 'text');
-                document.getElementById("pwInputRe").setAttribute('type', 'text');
-            } else {
-                document.getElementById("pwInput").setAttribute('type', 'password');
-                document.getElementById("pwInputRe").setAttribute('type', 'password');
-            }
-        }
-        window.onload = function() {
-            resetText();
-        }
-    </script>
+	var errList = [ "idErr", "pwInputErr", "pwInputReErr", "nameErr",
+    			"bDayErr", "genErr", "phoErr", "emErr"];
+    var inputList = [ "idInput", "pwInput", "pwInputRe", "userName", "bDay",
+    			"gender", "phoneFirst", "email"];    
+    var pwToggle;
+
+	/*  ì•„ë˜ë¶€í„°ëŠ” ë©”ì¸*/
+	var returnTfCount;
+	var datakit="";
+	var midlist="";
+	var mid;
+		$(function() {
+		resetText();	
+		
+		$('#id button').on('click',function() {		
+			 mid= $('#id').find('input').eq(0).val();
+					$.ajax({
+						'url' : '/BEAT_LMS-re/target/join.json',
+						'type' : 'POST',						
+						'error' : function() {
+							alert("ê²½ê³ ");
+						},
+						'success' : function(data) {
+							$("#id span").remove();
+							var tf=true;
+							datakit=data.list[0].mid;
+							
+							for(var i=0;i<data.list.length;i++){
+								midlist=data.list[i].mid;
+								if(mid==midlist){
+									tf=false;
+									break;
+								}
+							}// ë°˜ë³µë¬¸ìœ¼ë¡œ ì¤‘ë³µê°’ì´ ìˆëŠ”ì§€ ê²€ì‚¬							
+							
+							if(tf==true){$('<span>ì¤‘ë³µë˜ì§€ ì•Šì€ ì•„ì´ë””ì…ë‹ˆë‹¤</span>').appendTo('#id');
+							}else if(tf==false)$('<span>ì¤‘ë³µëœ ì•„ì´ë””ì…ë‹ˆë‹¤</span>').appendTo('#id');
+							}							
+						
+					});
+				});
+		
+		$('#btn button').on('click',function() {				
+			resetText();		
+			submitCheck();
+			
+			var result = false;
+			
+			if (returnTfCount == 0) {
+				result=true;
+			}
+			
+			returnTfCount=0;
+			return result;
+		});
+	});
+	
+</script>
 </head>
 <body>
 	<jsp:include page="../template/header.jsp"></jsp:include>
 	<jsp:include page="../template/loginjoin.jsp"></jsp:include>
-	<jsp:include page="../template/menu.jsp"></jsp:include> 
+	<jsp:include page="../template/menu.jsp"></jsp:include>
 
 	<!-- content -->
 	<div class="content">
-		<form name="join" action="join.lms" method="post">
-		<div id="logo">
-		<img alt="logo" src="./imgs/joinlogo.jpg">
-		</div>
-		<div id="id">
-			<label for="id">¾ÆÀÌµğ</label>
-			<input type="text" name="id" id="idInput"/>
-			<input type="submit" value="Áßº¹È®ÀÎ" id="idCheck">
-			<div id="idErr">¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä</div>
-		</div>
-		<div id="pw">
-			<label for="password">ºñ¹Ğ¹øÈ£</label>
-			<input type="password" name="password" id="pwInput"/>
-        	<div id="pwInputErr">¾ÏÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä</div>
-		</div>
-		
-		<div id="pw2">
-			<label for="password2">ºñ¹Ğ¹øÈ£ È®ÀÎ</label>
-			<input type="password" id="pwInputRe" name="password2"/> 
-			<input type="button" value="º¸±â" onclick="showPW();">
-        	<div id="pwInputReErr">¾ÏÈ£¸¦ È®ÀÎÇØÁÖ¼¼¿ä</div>
-		</div>
-		<div id="name">
-			<label for="name">ÀÌ¸§</label>
-			<input type="text" id="userName" name="name">
-			<div id="nameErr">ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä</div>
-		</div>
-		<div id="birth">
-			<label for="birth">»ı³â¿ùÀÏ</label>
-			<input type="date" id="bDay" name="birth"/>
-			<div id="bDayErr">»ı³â¿ùÀÏÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä</div>
-		</div>
-		<div id="number">
-			<label for="number">¿¬¶ôÃ³</label>
-			<input type="text" id="phoneFirst" name="number">
-        	<div id="phoErr">ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä</div>
-		</div>
-		<div id="mail">
-			<label for="mail">e_mail</label>
-			<input type="email" name="email" id="email"/>
-			<input type="submit" value="ÀÎÁõ¸ŞÀÏÀü¼Û" id="send"/>
-        	<div id="emErr">¿Ã¹Ù¸¥ ÀÌ¸ŞÀÏ ÁÖ¼Ò¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä</div>
-		</div>	
-		<div id="address">
-			<label for="address">ÁÖ¼Ò</label>
-			<input type="text" name="address" id="location"/>
-        	<div id="loErr">¿Ã¹Ù¸¥ ÁÖ¼Ò¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä</div>
-		</div>	
-		<div id="radio">
-		    <label for="gender">¼ºº°</label>
-			<select name="gender" id="gender" > 
-          		<option value="">¼ºº°À» ¼±ÅÃÇØÁÖ¼¼¿ä</option>
-           		<option value="1">³²¼º</option>
-           		<option value="2">¿©¼º</option>           		
-       		</select>
-       		<div id="genErr">¼ºº°À» ¼±ÅÃÇØÁÖ¼¼¿ä</div>
-		</div>
-		<div id="btn">
-			<input type="button" id="submit" value="°¡ÀÔ"/>
-        	<input type="reset" id="cancel" value="Ãë¼Ò" onclick="resetText();"/>
-		</div>
+		<form action="join.lms" method="post">
+			<div id="logo">
+				<img alt="logo" src="./imgs/joinlogo.jpg">
+			</div>
+			<div id="status">
+			    <label>íšŒì›êµ¬ë¶„</label>
+				<input disabled="disabled" type="radio" name="snum"
+					checked="checked">ì¼ë°˜íšŒì›<input type="radio" name="snum"
+					disabled="disabled">ì§ì›
+			</div>
+			<div id="id">
+				<label for="id">ì•„ì´ë””</label> <input type="text" name="mid"
+					id="idInput" />
+				<button type="button" id="idDoubleCheck">ì¤‘ë³µí™•ì¸</button>
+				<div id="idErr">ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.</div>
+			</div>
+			<div id="pw">
+				<label for="password">ë¹„ë°€ë²ˆí˜¸</label> <input type="password" name="mpw"
+					id="pwInput" />
+				<div id="pwInputErr">ì•”í˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.</div>
+			</div>
+
+			<div id="pw2">
+				<label for="password2">ë¹„ë°€ë²ˆí˜¸ í™•ì¸</label> <input type="password"
+					id="pwInputRe" name="password2" />
+				<button type="button" onclick="showPW();">ë³´ê¸°</button>
+				<div id="pwInputReErr">ì•”í˜¸ë¥¼ í™•ì¸í•´ì£¼ì„¸ìš”.</div>
+			</div>
+			<div id="name">
+				<label for="name">ì´ë¦„</label> <input type="text" id="userName"
+					name="name">
+				<div id="nameErr">ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.</div>
+			</div>
+			<div id="birth">
+				<label for="birth">ìƒë…„ì›”ì¼</label> <input type="date" id="bDay"
+					name="mbirth" />
+				<div id="bDayErr">ìƒë…„ì›”ì¼ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.</div>
+			</div>
+			<div id="number">
+				<label for="number">ì—°ë½ì²˜</label> <input type="text" id="phoneFirst"
+					name="mphone">
+				<div id="phoErr">ì „í™”ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.</div>
+			</div>
+			<div id="mail">
+				<label for="mail">e_mail</label> <input type="email" name="mmail"
+					id="email" />
+				<button type="button" id="send">ì¸ì¦ë©”ì¼ì „ì†¡</button>
+				<div id="emErr">ì˜¬ë°”ë¥¸ ì´ë©”ì¼ ì£¼ì†Œë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.</div>
+			</div>
+			<div id="address">
+				<label for="address">ì£¼ì†Œ</label> <input type="text" id="postcode"
+					placeholder="ìš°í¸ë²ˆí˜¸" name="maddnum"> <input type="button"
+					onclick="execDaumPostcode()" value="ìš°í¸ë²ˆí˜¸ ì°¾ê¸°"><br> <input
+					type="text" id="roadAddress" placeholder="ë„ë¡œëª…ì£¼ì†Œ" name="maddress"><br>
+				<input type="text" id="jibunAddress" placeholder="ì§€ë²ˆì£¼ì†Œ"> <span
+					id="guide" style="color: #999"></span>
+			</div>
+			<div id="gender">
+				<label for="gender">ì„±ë³„</label> <select name="mzen">
+					<option value="">ì„±ë³„ì„ ì„ íƒí•´ì£¼ì„¸ìš”</option>
+					<option value="1">ë‚¨ì„±</option>
+					<option value="2">ì—¬ì„±</option>
+				</select>
+				<div id="genErr">ì„±ë³„ì„ ì„ íƒí•´ì£¼ì„¸ìš”.</div>
+			</div>
+			<div id="btn">
+				<button type="submit" id="jbtn">ê°€ì…</button>
+				<button type="reset" id="cbtn">ì·¨ì†Œ</button>
+			</div>
 		</form>
 	</div>
 	<div class="clear"></div>

@@ -118,7 +118,31 @@
             var div3Loc;
             var offset;
             var height;
+			
+         	// get방식 가져오기
+            var getParameters = function (paramName) {
+                // 리턴값을 위한 변수 선언
+                var returnValue;
 
+                // 현재 URL 가져오기
+                var url = location.href;
+
+                // get 파라미터 값을 가져올 수 있는 ? 를 기점으로 slice 한 후 split 으로 나눔
+                var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split('&');
+
+                // 나누어진 값의 비교를 통해 paramName 으로 요청된 데이터의 값만 return
+                for (var i = 0; i < parameters.length; i++) {
+                    var varName = parameters[i].split('=')[0];
+                    if (varName.toUpperCase() == paramName.toUpperCase()) {
+                        returnValue = parameters[i].split('=')[1];
+                        return decodeURIComponent(returnValue);
+                    }
+                }
+            };
+            
+            // 링크 받고 들어온 위치로 이동
+            
+            
             function imgSize(seq) {
                 for (var i = 1; i <= 3; i++) {
                     $('#menu' + i + ">li").css('background-color', 'bisque');
@@ -152,7 +176,7 @@
             $(document).ready(function() {
                 imgSize(1);
                 imgOpc();
-                fnMove(0);
+                fnMove(getParameters('idx'));
             });
 
             $(window).scroll(function() {
@@ -160,6 +184,8 @@
                 
                 setTimeout(function () { $("#sideMenu").animate({top: $(document).scrollTop()},10); }, 10);
             });
+            
+            
             
 
         </script>
@@ -202,14 +228,14 @@
         <div class="content grid_10">
             <div class="layout">
                 <div id="div1">
-                    <p>The standard Lorem Ipsum passage, used since the 1500s</p>
+                    <h1>조직도</h1>
 
                     <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
                     <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
                     <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
                 </div>
                 <div id="div2">
-                    <p>Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC</p>
+                    <h1>강사소개</h1>
 
                     <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
                     </p>
@@ -219,7 +245,7 @@
                     </p>
                 </div>
                 <div id="div3">
-                    <p>1914 translation by H. Rackham</p>
+                    <h1>약력</h1>
 
                     <p>"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"</p>
                     <p>"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"</p>

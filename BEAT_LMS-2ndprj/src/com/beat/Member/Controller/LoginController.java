@@ -47,6 +47,7 @@ public class LoginController extends HttpServlet {
 				req.setAttribute("loginChk", true);
 				session.setAttribute("result", true);
 				session.setAttribute("mid", list.get(0).getMid()); //성공시 세션에 아이디 넣어줌
+				session.setMaxInactiveInterval(30*60);
 				
 			}else{ //로그인 실패시 다시 로그인 창으로
 				

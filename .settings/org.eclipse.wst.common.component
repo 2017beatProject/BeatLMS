@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="BeatLMS">
+    <wb-module deploy-name="BEAT_LMS-re">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="BeatLMS"/>
-        <property name="java-output-path" value="/BeatLMS/build/classes"/>
+        <dependent-module archiveName="cos.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/cos/cos">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ojdbc14.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/ojdbc14/ojdbc14">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="standard-1.1.2.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/standard-1.1.2/standard-1.1.2">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jstl-1.2.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/jstl-1.2/jstl-1.2">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="BEAT_LMS-re"/>
+        <property name="java-output-path" value="/BEAT_LMS-re/build/classes"/>
     </wb-module>
 </project-modules>

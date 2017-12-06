@@ -48,7 +48,7 @@ position: relative;
 top: 250px;
 left: 377px;
 }
-#radio{
+#gender{
 position: relative;
 top: 270px;
 left: 377px;
@@ -64,53 +64,52 @@ top: 310px;
 left: 440px;
 }
 #location{
-	width: 300px;
+   width: 300px;
 }
 #idErr{
-	position: relative;
-	top: 10px;
-	left: 50px;
+   position: relative;
+   top: 10px;
+   left: 50px;
 }
 #pwInputErr{
-	position: relative;
-	top: 10px;
-	left: 67px;
+   position: relative;
+   top: 10px;
+   left: 67px;
 }
 #pwInputReErr{
-	position: relative;
-	top: 10px;
-	left: 105px;
+   position: relative;
+   top: 10px;
+   left: 105px;
 }
 #nameErr{
-	position: relative;
-	top: 10px;
-	left: 40px;
+   position: relative;
+   top: 10px;
+   left: 40px;
 }
 #bDayErr{
-	position: relative;
-	top: 10px;
-	left: 60px;
+   position: relative;
+   top: 10px;
+   left: 60px;
 }
 #phoErr{
-	position: relative;
-	top: 10px;
-	left: 45px;
+   position: relative;
+   top: 10px;
+   left: 45px;
 }
 #emErr{
-	position: relative;
-	top: 10px;
-	left: 35px;
+   position: relative;
+   top: 10px;
+   left: 35px;
 }
 #loErr{
-	position: relative;
-	top:10px;
-	left:35px;
+   position: relative;
+   top:10px;
+   left:35px;
 }
 #genErr{
-	position: relative;
-	top: 10px;
-	left: 37px;
+   position: relative;
+   top: 10px;
+   left: 37px;
 }
-
 
 

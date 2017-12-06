@@ -56,20 +56,19 @@ border-radius:5px;
 }
 
 #join,#memberJoin{
-position: relative;
+position: absolute;
 width: 100px;
 height: 100px;
 border-radius:50px;
-display: inline-block;
 }
 
 #join{
-top:130px;
-left: 350px;
+top:450px;
+left: 650px;
 }
 #memberJoin{
-top:130px;
-left: 450px;
+top:450px;
+left: 850px;
 }
 #sabun{
  width: 130px;
@@ -109,5 +108,3 @@ border-radius:1px;
 .content{
 height: 450px;
 }
-
-

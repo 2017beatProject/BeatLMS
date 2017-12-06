@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>BeatLMS</name>
+	<name>BEAT_LMS-re</name>
 	<comment></comment>
 	<projects>
+		<project>cos</project>
+		<project>ojdbc14</project>
+		<project>standard-1.1.2</project>
+		<project>jstl-1.2</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

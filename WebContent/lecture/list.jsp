@@ -8,101 +8,13 @@
 <link rel="stylesheet" href="../css/960.css">
 <link rel="stylesheet" href="../css/menu.css">
 <link rel="stylesheet" href="../css/header.css">
+<link rel="stylesheet" href="../css/lecture_aside.css">
+<link rel="stylesheet" href="../css/lecture_list.css">
 <link rel="stylesheet" href="../css/footer.css">
+
 <style type="text/css">
-#aside ul {
-	position: relative;
-	text-align: center;
-	margin-left: 40px;
-	padding: 0px;
-}
 
-#aside>ul li {
-	position: relative;
-	list-style: none;
-	left: -40px;
-	width: 140px;
-	height: 50px;
-}
 
-#aside>ul>li>a {
-	position: relative;
-	text-decoration: none;
-	top: 15px;
-	color: black;
-}
-
-#mainmenu {
-	text-align: center;
-	margin-top: 40px;
-	margin-bottom: 40px;
-}
-
-#menu1>li {
-	background-color: orange;
-	text-align: center;
-}
-
-#menu2>li {
-	position: relative;
-	top: -16px;
-}
-
-#menu3>li {
-	position: relative;
-	top: -32px;
-}
-
-.aside {
-	background-color: bisque;
-	height: 300px;
-	width: 100%;
-	margin-left: 0px;
-	border-bottom: 5px solid orange;
-}
-
-.content {
-	position: relative;
-	/* background-color: azure; */
-	width: 820px;
-}
-
-/*------------------------------------------------  */
-.layout {
-	position: relative;
-	left: 25px;
-	margin: 50px;
-}
-
-table {
-	position: relative;
-	text-align: center;
-	padding-top:20px; 
-	padding-bottom: 20px; 
-}
-
-td {
-	border-bottom: 0.5px solid #E1E1E1;
-	padding: 17px;
-	
-}
-tr:last-child>td{
-  border-bottom: 3px solid #E1E1E1;
-}
-td>a {
-    list-style: none;
-	text-decoration: none;
-}
-
-th {
-	background-color: silver;
-	border-radius: 2px;
-	color: white;
-}
-#topimg {
-	position: relative;
-	left: -20px;
-}
 </style>
 </head>
 <body>

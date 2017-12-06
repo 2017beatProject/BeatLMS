@@ -93,7 +93,7 @@
 		<%
 			String mid = "";
 				int presentRatio = 0;
-				String presentImg = "";
+				String presentImg = ""; 
 				while (rs.next()) {
 
 					out.print("<tr>");

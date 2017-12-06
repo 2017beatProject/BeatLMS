@@ -31,30 +31,30 @@
 	Statement stmt = null;
 	ResultSet rs = null;
 
-	String mname=null;
-	int mzen=0;
-	String mzenText=null;
-	
-	int mphone=0;
-	Date mbirth=null;
-	String mmail=null;
-	String maddress=null;
-	int maddnum=0;
-	String lectureName=null;
-	String teacherName=null;
-	Date lectureStart=null;
-	Date lectureEnd=null;
-	int studentTotal=0;
-	int javaPoint=0;
-	int webPoint=0;
-	int dbPoint=0;
-	double pointAvr=0;
-	int pointSum=0;
-	int presentDays=0;
-	int absentDays=0;
-	int lateEarly=0;
-	double presentRatio=0;
-	
+	String mname = null;
+	int mzen = 0;
+	String mzenText = null;
+
+	int mphone = 0;
+	Date mbirth = null;
+	String mmail = null;
+	String maddress = null;
+	int maddnum = 0;
+	String lectureName = null;
+	String teacherName = null;
+	Date lectureStart = null;
+	Date lectureEnd = null;
+	int studentTotal = 0;
+	int javaPoint = 0;
+	int webPoint = 0;
+	int dbPoint = 0;
+	double pointAvr = 0;
+	int pointSum = 0;
+	int presentDays = 0;
+	int absentDays = 0;
+	int lateEarly = 0;
+	double presentRatio = 0;
+
 	try {
 
 		String driverName = "oracle.jdbc.driver.OracleDriver";
@@ -68,8 +68,10 @@
 		while (rs.next()) {
 			mname = rs.getString(1); // 이름
 			mzen = rs.getInt(2); // 성별
-			if(mzen==1)mzenText="남";
-			else if(mzen==2)mzenText="여";
+			if (mzen == 1)
+				mzenText = "남";
+			else if (mzen == 2)
+				mzenText = "여";
 			mphone = rs.getInt(3); // 연락처
 			mbirth = rs.getDate(4); // 생일
 			mmail = rs.getString(5); // 이메일
@@ -118,30 +120,30 @@
 			<th>이름</th>
 			<td><%=mname%></td>
 			<th>성별</th>
-			<td><%=mzenText %></td>
+			<td><%=mzenText%></td>
 			<th>연락처</th>
-			<td>0<%=mphone %></td>
+			<td>0<%=mphone%></td>
 		</tr>
 		<tr>
 			<th>생년월일</th>
-			<td><%=mbirth %></td>
+			<td><%=mbirth%></td>
 			<th>e-mail</th>
-			<td><%=mmail %></td>
+			<td><%=mmail%></td>
 			<th>주소</th>
-			<td><%=maddress %>/<%=maddnum %></td>
+			<td><%=maddress%>/<%=maddnum%></td>
 		</tr>
 	</table>
 	<h2>수강중인 강의</h2>
 	<table>
 		<tr>
 			<th>강의명</th>
-			<td><%=lectureName %></td>
+			<td><%=lectureName%></td>
 			<th>강사</th>
-			<td><%=teacherName %></td>
+			<td><%=teacherName%></td>
 			<th>기간</th>
-			<td><%=lectureStart %>~<%=lectureEnd %></td>
+			<td><%=lectureStart%>~<%=lectureEnd%></td>
 			<th>수강인원</th>
-			<td><%=studentTotal %></td>
+			<td><%=studentTotal%></td>
 		</tr>
 	</table>
 	<h2>성적</h2>
@@ -154,11 +156,11 @@
 			<th>총합</th>
 		</tr>
 		<tr>
-			<td><%=javaPoint %></td>
-			<td><%=webPoint %></td>
-			<td><%=pointAvr %></td>
-			<td><%=pointAvr %></td>
-			<td><%=pointSum %></td>
+			<td><%=javaPoint%></td>
+			<td><%=webPoint%></td>
+			<td><%=pointAvr%></td>
+			<td><%=pointAvr%></td>
+			<td><%=pointSum%></td>
 		</tr>
 	</table>
 	<h2>출석</h2>
@@ -170,10 +172,10 @@
 			<th>출석률</th>
 		</tr>
 		<tr>
-			<td><%=presentDays %></td>
-			<td><%=absentDays %></td>
-			<td><%=lateEarly %></td>
-			<td><%=presentRatio %></td>
+			<td><%=presentDays%></td>
+			<td><%=absentDays%></td>
+			<td><%=lateEarly%></td>
+			<td><%=presentRatio%></td>
 		</tr>
 	</table>
 </body>

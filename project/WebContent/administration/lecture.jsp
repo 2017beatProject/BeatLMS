@@ -49,7 +49,7 @@
 				<img alt="" src="">
 			</div>
 			<p>
-				<b>강의관리</b>
+				<b>강의목록</b>
 			</p>
 			<div>
 				<table class="list">

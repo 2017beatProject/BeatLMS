@@ -49,7 +49,7 @@
 				<img alt="" src="">
 			</div>
 			<p>
-				<b>회원관리</b>
+				<b>회원목록</b>
 			</p>
 			<div id="select">
 				<select name="select">
@@ -76,21 +76,21 @@
 						<td>아이디</td>
 						<td>이름</td>
 						<td>부서</td>
-						<td><a href="#">상세보기</a></td>
+						<td></td>
 					</tr>
 					<tr>
 						<td>0000</td>
 						<td>아이디</td>
 						<td>이름</td>
 						<td>부서</td>
-						<td><a href="#">상세보기</a></td>
+						<td></td>
 					</tr>
 					<tr>
 						<td>0000</td>
 						<td>아이디</td>
 						<td>이름</td>
 						<td>부서</td>
-						<td><a href="#">상세보기</a></td>
+						<td></td>
 					</tr>
 
 				</table>

@@ -8,34 +8,33 @@
 <link rel="stylesheet" href="../css/960.css">
 <link rel="stylesheet" href="../css/menu.css">
 <link rel="stylesheet" href="../css/header.css">
-<link rel="stylesheet" href="../css/administration_student_grade_detail.css">
+<link rel="stylesheet" href="../css/contactus_counsel.css">
 <link rel="stylesheet" href="../css/footer.css">
 
+<style type="text/css">
+</style>
 </head>
 <body>
 	<jsp:include page="../template/header.jsp"></jsp:include>
 	<jsp:include page="../template/loginjoin.jsp"></jsp:include>
-	<jsp:include page="../template/admenu.jsp"></jsp:include>
+	<jsp:include page="../template/menu.jsp"></jsp:include>
 
 	<!-- aside -->
 	<div class="aside grid_2">
 		<div id="mainmenu">
-			<label><strong>ADMINI<br>STRATION
+			<label><strong>CONTACT<br>US
 			</strong></label>
 		</div>
 		<div id="aside">
 			<ul id="menu1">
-				<li><a href="#">회원관리</a></li>
+				<li><a href="#">상담신청</a></li>
 			</ul>
 			<ul id="menu2">
-				<li><a href="#">강의관리</a></li>
+				<li><a href="#">질문사항</a></li>
 			</ul>
-			<ul id="menu3">
-				<li><a href="#">상담관리</a></li>
-			</ul>
-			<ul id="menu4">
-				<li><a href="#">수강생관리</a></li>
-			</ul>
+			<!-- <ul id="menu3">
+				<li><a href="#"></a></li>
+			</ul> -->
 		</div>
 	</div>
 	<!-- aside END -->
@@ -46,29 +45,9 @@
 		<img class="imgs" id="topimg" alt="" src="../imgs/menu_topimg1.jpg">
 		<div class="layout">
 			<div>
-				<img alt="" src="">
+				<img alt="" src="../imgs/counsel.jpg">
 			</div>
-			<p>
-				<b>성적관리</b>
-			</p>
-			<div>
-			    <table id="grade">
-					<tr>
-						<th>JAVA</th>
-						<th>WEB</th>
-						<th>DB</th>
-						<th>평균</th>
-					</tr>
-					<tr>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-					</tr>
-			  </table>
-       		  <a href="" id="edbtn1">성적입력</a>
-			</div>
-		
+			
 		</div>
 
 

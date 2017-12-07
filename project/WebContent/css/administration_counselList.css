@@ -34,6 +34,7 @@
 }
 
 #menu1>li {
+	
 	text-align: center;
 }
 
@@ -43,11 +44,11 @@
 }
 
 #menu3>li {
+	background-color: orange;
 	position: relative;
 	top: -32px;
 }
 #menu4>li{
-	background-color: orange;
 	position: relative;
 	top: -48px;
 }
@@ -85,8 +86,11 @@ table {
 	position: relative;
 	text-align: center;
 	padding-top:30px; 
-	padding-bottom: 20px; 
-	
+	padding-bottom: 70px; 
+	padding-left: 40px;
+}
+select{
+	margin-left: -60px;
 }
 
 td {
@@ -96,7 +100,7 @@ td {
 	padding-bottom:  10px;
 	
 }
-tr:last-child > td{
+tr:last-child>td{
   border-bottom: 3px solid #E1E1E1;
 }
 td>a {
@@ -109,33 +113,23 @@ th {
 	border-radius: 2px;
 	color: white;
 	padding: 3px;
-	width: 80px;
+	width: 100px;
 	height: 20px;
 }
-th:nth-child(4){
-	width: 300px;	
+th:nth-child(3) {
+	width:400px;
 }
-th:nth-child(5){
-	width: 50px;	
-}
-th:nth-child(6){
-	width: 50px;	
-}
-th:nth-child(7){
-	width: 50px;	
-}
-
 p {
 	border-bottom: 3px solid #F39C12;
 	color: #2C3E50;
-	width: 140px;
+	width: 130px;
 	font-size: 2em;
 	border-radius:5px;
 	padding-bottom: 3px;
 }
 
 #select{
-	margin-top: 70px;
+	padding-left: 100px;
 }
 #select>select{
 	height: 25px;
@@ -144,11 +138,7 @@ p {
  height: 18px;
 }
 
-#btn{
-	margin-left: 700px;
-	
-	
-}
+
 
 
 

@@ -8,9 +8,12 @@
 <link rel="stylesheet" href="../css/960.css">
 <link rel="stylesheet" href="../css/menu.css">
 <link rel="stylesheet" href="../css/header.css">
-<link rel="stylesheet" href="../css/administration_student_attendance.css">
+<link rel="stylesheet" href="../css/notice_admin_notice_general_edit.css">
 <link rel="stylesheet" href="../css/footer.css">
 
+<style type="text/css">
+
+</style>
 </head>
 <body>
 	<jsp:include page="../template/header.jsp"></jsp:include>
@@ -20,22 +23,18 @@
 	<!-- aside -->
 	<div class="aside grid_2">
 		<div id="mainmenu">
-			<label><strong>ADMINI<br>STRATION
-			</strong></label>
+			<label><strong>NOTICE</strong></label>
 		</div>
 		<div id="aside">
 			<ul id="menu1">
-				<li><a href="#">회원관리</a></li>
+				<li><a href="#">학사공지</a></li>
 			</ul>
 			<ul id="menu2">
-				<li><a href="#">강의관리</a></li>
+				<li><a href="#">일반공지</a></li>
 			</ul>
-			<ul id="menu3">
-				<li><a href="#">상담관리</a></li>
-			</ul>
-			<ul id="menu4">
-				<li><a href="#">수강생관리</a></li>
-			</ul>
+			<!-- <ul id="menu3">
+				<li><a href="#"></a></li>
+			</ul> -->
 		</div>
 	</div>
 	<!-- aside END -->
@@ -49,43 +48,21 @@
 				<img alt="" src="">
 			</div>
 			<p>
-				<b>출석체크</b>
+				<b>공지수정</b>
 			</p>
-			<div id="select">
-				<select name="select">
-					<option value="">선택</option>
-					<option value="1">번호</option>
-					<option value="2">이름</option>
-					<option value="3">강의장</option>
-					<option value="4">강의명</option>
-				</select> <input type="text">
-				<button>검색</button>
-			</div>
-			<div>
-				<table class="list">
-					<tr>
-						<th>번호</th>
-						<th>이름</th>
-						<th>강의장</th>
-						<th>강의명</th>
-						<th>출석</th>
-						<th>지각</th>
-						<th>조퇴</th>
-						<th>비고</th>
-					</tr>
-					<tr>
-						<td>번호</td>
-						<td>이름</td>
-						<td>강의장</td>
-						<td>강의명</td>
-						<td><input type="radio" name=""/></td>
-						<td><input type="radio" name=""/></td>
-						<td><input type="radio" name=""/></td>
-						<td></td>
-					</tr>
-				</table>
-				<div>
-				   <button id="btn">출석체크</button>
+			<div id="contentlayout">
+				<div id="insidelayout">
+					<form action="">
+						<div class="title">
+							<label>제목</label><input type="text" id="title">
+						</div>
+						<div class="contents">
+							<textarea rows="" cols="" id="contents"></textarea>
+						</div>
+					</form>
+				</div>
+				<div id="addbtn">
+					<a href="#">완료</a>
 				</div>
 			</div>
 		</div>

@@ -120,10 +120,11 @@
 			&& ((Number($('#dbPoint').val()))>=0 && (Number($('#dbPoint').val()))<=100)
 			){
 				$('#pointAvr').val(
-						(Number($('#javaPoint').val())+ Number($('#webPoint').val())+ Number($('#dbPoint').val()))/3
-					);
+					(Number($('#javaPoint').val())+ Number($('#webPoint').val())+ Number($('#dbPoint').val()))/3
+				);
+				location.href='gradeUpdate.jsp?';
 			}else{
-				//$('#pointAvr').val('잘못된 값이 입력되었습니다');
+				$('#pointAvr').val('잘못된 값이 입력되었습니다');
 			}
 		});
 		$('#pointSubmit').click(function() {
@@ -131,8 +132,6 @@
 		});
 		$('#presentUpdate').click(function() {
 			alert('#presentUpdate');
-			// 출석 수정방식 1. 직접입력 2. 따로 페이지 만들어 결석일 계산(?)
-			// 그냥 1로 해서 쉽게 가고싶은 마음 500%이긴 한데요...
 		});
 		$('#presentSubmit').click(function() {
 			alert('출석 확정 버튼 클릭(임시)');

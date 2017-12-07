@@ -93,7 +93,7 @@
 			<td><%=bean.getMnum() %></td>
 			<td><%=bean.getMid() %></td>
 			<td><%=bean.getMname() %></td>
-			<td><%=bean.getRightCode() %></td>
+			<td><%=bean.getTeam() %></td>
 		</tr>
 <%
 }

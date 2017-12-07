@@ -68,7 +68,7 @@ public class MemberManagementDao extends LMSDao{
 					bean.setMnum(rs.getInt(2));
 					bean.setMid(rs.getString(3));
 					bean.setMname(rs.getString(4));
-					bean.setRightCode(rs.getInt(5)); 
+					bean.setTeam(rs.getInt(5)); 
 						
 					list.add(bean);	
 				}

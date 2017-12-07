@@ -45,7 +45,8 @@ public class MemberManagementController extends HttpServlet{
 		 req.setAttribute("keyword", keyword);
 		 req.setAttribute("total", entireCnt);
 		
-		 req.getRequestDispatcher("/Adm_Adm/testMNG.jsp").forward(req, resp);
+	//	 req.getRequestDispatcher("/Adm_Adm/testMNG.jsp").forward(req, resp);
+		 req.getRequestDispatcher("/administration/member.jsp").forward(req, resp);
 		 
 	}
 	

@@ -91,10 +91,6 @@
 			</ul>
 			</div>
 		
-		
-		
-		
-			
 	<%} else if(session.getAttribute("snum").equals("2")){ //직원이면~ 
 	%>
 		

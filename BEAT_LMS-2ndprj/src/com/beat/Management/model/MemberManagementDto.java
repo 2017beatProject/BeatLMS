@@ -7,7 +7,7 @@ public class MemberManagementDto {
 	int mnum;
 	String mid;
 	String mname;
-	int rightCode;
+	int team;
 	
 	
 	public int getMnum() {
@@ -28,11 +28,11 @@ public class MemberManagementDto {
 	public void setMname(String mname) {
 		this.mname = mname;
 	}
-	public int getRightCode() {
-		return rightCode;
+	public int getTeam() {
+		return team;
 	}
-	public void setRightCode(int rightCode) {
-		this.rightCode = rightCode;
+	public void setTeam(int team) {
+		this.team = team;
 	}
 	
 	

@@ -1,26 +1,33 @@
+@font-face {
+	font-family: 'ARLRDBD';
+	src: url(../font/ARLRDBD.TTF) format('truetype');
+}
+
 .menu, .menu div  ul, .menu div ul li, .men udiv  ul li ul {
-   margin: 0px auto;
-   padding: 0px;
-   text-align: center;
+	margin: 0px auto;
+	padding: 0px;
+	text-align: center;
 }
 
 .menu div ul{
    background:#2d3e50;
    list-style: none;
+   width: 160px;
+   
 }
 .menu div ul li{
    float: left;
    position: relative;
-   text-align: center;
-}
+   font-family: ARLRDBD;
+   font-size: 1em;
+} 
 .menu div ul li a{
   padding: 23px 26px;
   display: block;
   color:  white;
-  font-family:'Arial Rounded MT Bold',sans-rerif;
-  font-size:13px;
   text-decoration: none;
   line-height: 16px;
+  text-align: center;
 }
 .menu div  > ul > li:hover > a{
  color:#f39c11;
@@ -40,6 +47,7 @@
  top: 62px;
  left: 0;
  color: #f39c11;
+ border-radius: 3px;
  z-index: 1;
 }
 
@@ -50,9 +58,9 @@
 .menu div > ul ul li a{
 padding: 18px 26px;
 display: block;
+font-family: ARLRDBD;
+font-size: 15px;
 color: white;
-font-family:'HY¾èÀº»ù¹°M',sans-rerif;
-font-size: 18px;
 text-decoration:none;
 border-left: 4px solid tarnsparent;
 transition:all 0.5s sase-in-out;
@@ -64,6 +72,6 @@ transition:all 0.5s sase-in-out;
 }
 
 .menu {
-   background-image: url("../imgs/menuimg.jpg");
-   height: 70px;
+	background-image: url("../imgs/menuimg.jpg");
+	height: 70px;
 }

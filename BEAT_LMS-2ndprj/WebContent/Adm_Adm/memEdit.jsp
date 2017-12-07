@@ -73,7 +73,7 @@ for(OneMemManagementDto bean : oneList){
 		</tr>
 		<tr>
 			<th>joindate</th>
-			<td><input type="text" name = "joindates" value="<%=bean.getJoinDate() %>"/></td>
+			<td><input type="text" name = "joindate" value="<%=bean.getJoinDate() %>"/></td>
 		</tr>
 		<tr>
 			<th>rightcode</th>

@@ -11,7 +11,9 @@
 <link rel="stylesheet" href="./css/960.css">
 <link rel="stylesheet" href="./css/menu.css">
 <link rel="stylesheet" href="./css/header.css">
-<link rel="stylesheet" href="./css/login.css">
+<link rel="stylesheet" href="./css/administration_member.css">
+<link rel="stylesheet" href="./css/footer.css">
+
 
 <style type="text/css">
 </style>

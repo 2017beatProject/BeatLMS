@@ -23,7 +23,7 @@
 	String selectColumn = request.getParameter("selectColumn");
 	String searchText = request.getParameter("text");
 	if (selectColumn != null && searchText != null) {
-		System.out.println("searchText=" + searchText);
+		//System.out.println("searchText=" + searchText);
 		if (selectColumn.equals("lectSeriNum"))
 			sql += " and Lecture_Room.lectSeriNum like '%" + searchText + "%'";
 		// 강의번호
@@ -40,6 +40,7 @@
 			sql += " and lmsMember.MID like '%" + searchText + "%'";
 		// 아이디
 	}
+	System.out.println(sql);
 
 	Connection con = null;
 	Statement stmt = null;
@@ -91,7 +92,7 @@
 			<th>비고</th>
 		</tr>
 		<%
-			String mid = "";
+		String mnum ="";
 				int presentRatio = 0;
 				String presentImg = ""; 
 				while (rs.next()) {
@@ -100,10 +101,10 @@
 
 					out.print("<td>" + rs.getInt(1) + "</td>"); // 강의번호
 					out.print("<td>" + rs.getString(2) + "</td>"); // 강의명
-					out.print("<td>" + rs.getInt(3) + "</td>"); // 회원번호
-					mid = rs.getString(4);
-					out.print("<td>" + mid + "</td>"); // 아이디
-					out.print("<td> <a href='memberDetail.jsp?mid=" + mid + "'>" + rs.getString(5) + "</a></td>"); // 이름
+					mnum = rs.getString(3);
+					out.print("<td>" + mnum + "</td>"); // 회원번호
+					out.print("<td>" + rs.getString(4) + "</td>"); // 아이디
+					out.print("<td> <a href='memberDetail.jsp?mnum=" + mnum + "'>" + rs.getString(5) + "</a></td>"); // 이름
 
 					presentRatio = rs.getInt(6);
 					if (presentRatio / 20 == 0)

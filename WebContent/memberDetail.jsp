@@ -19,8 +19,8 @@
 	sql += "CLASS_INFORMATION.EARLYHOME + CLASS_INFORMATION.LATETIMES, ";
 	sql += "trunc(Class_Information.presentDays/20*100) ";
 	sql += "from lmsMember, Lecture_Room, Class_Grade, CLASS_INFORMATION ";
-	sql += "where lmsMember.mid = '";
-	sql += request.getParameter("mid");
+	sql += "where lmsMember.mnum = '";
+	sql += request.getParameter("mnum");
 	sql += "' ";
 	sql += "and lmsMember.mnum = Class_Grade.mnum ";
 	sql += "and Lecture_Room.LECTSERINUM = Class_Grade.LECTSERINUM ";
@@ -107,12 +107,44 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title><%=request.getParameter("mid")%>의 상세페이지</title>
+<title><%=request.getParameter("mnum")%>의 상세페이지</title>
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('#pointUpdate').click(function() { // 성적 수정 밸리데이션 미완성
+			if((Number($('#javaPoint').val())+ Number($('#webPoint').val())+ Number($('#dbPoint').val()))/3 >=0
+			&& (Number($('#javaPoint').val())+ Number($('#webPoint').val())+ Number($('#dbPoint').val()))/3 <=100
+			&& ((Number($('#javaPoint').val()))>=0 && (Number($('#javaPoint').val()))<=100)
+			&& ((Number($('#webPoint').val()))>=0 && (Number($('#webPoint').val()))<=100)
+			&& ((Number($('#dbPoint').val()))>=0 && (Number($('#dbPoint').val()))<=100)
+			){
+				$('#pointAvr').val(
+						(Number($('#javaPoint').val())+ Number($('#webPoint').val())+ Number($('#dbPoint').val()))/3
+					);
+			}else{
+				//$('#pointAvr').val('잘못된 값이 입력되었습니다');
+			}
+		});
+		$('#pointSubmit').click(function() {
+			// alert('성적 확정 버튼 클릭(임시)');
+		});
+		$('#presentUpdate').click(function() {
+			alert('#presentUpdate');
+			// 출석 수정방식 1. 직접입력 2. 따로 페이지 만들어 결석일 계산(?)
+			// 그냥 1로 해서 쉽게 가고싶은 마음 500%이긴 한데요...
+		});
+		$('#presentSubmit').click(function() {
+			alert('출석 확정 버튼 클릭(임시)');
+		});
+	})
+</script>
+<style>
+/* table, th, td {
+	border: 1px solid black;
+} */
+</style>
 </head>
-<!-- 
-
-성적출석 각각 (수정 / 확정) 버튼
- -->
 <body>
 	<h2>수강생 정보</h2>
 	<table>
@@ -153,17 +185,28 @@
 			<th>WEB</th>
 			<th>DB</th>
 			<th>평균</th>
-			<th>총합</th>
+			<!--  <th>총합</th> -->
 		</tr>
 		<tr>
 			<td><%=javaPoint%></td>
 			<td><%=webPoint%></td>
+			<td><%=dbPoint%></td>
 			<td><%=pointAvr%></td>
-			<td><%=pointAvr%></td>
-			<td><%=pointSum%></td>
+			<!-- 합계점수 <td><%=pointSum%></td> -->
+		</tr>
+		<tr>
+			<td><input type="text" id="javaPoint" /></td>
+			<td><input type="text" id="webPoint" /></td>
+			<td><input type="text" id="dbPoint" /></td>
+			<td><input type="text" readonly="readonly" id="pointAvr" /></td>
+			<td><input type="button" value="수정" id="pointUpdate" /></td>
+			<td><input type="button" value="확정" id="pointSubmit" /></td>
 		</tr>
 	</table>
 	<h2>출석</h2>
+	<%
+	if(presentRatio<60)out.print("<p>출석률 60% 미만, 중도탈락 대상자입니다</p>");
+	%>
 	<table>
 		<tr>
 			<th>출석</th>
@@ -175,7 +218,15 @@
 			<td><%=presentDays%></td>
 			<td><%=absentDays%></td>
 			<td><%=lateEarly%></td>
-			<td><%=presentRatio%></td>
+			<td><%=presentRatio%>%</td>
+		</tr>
+		<tr>
+			<td><input type="text" id="presentDays"/></td>
+			<td><input type="text" id="absentDays"/></td>
+			<td><input type="text" id="lateEarly"/></td>
+			<td><input type="text" readonly="readonly" /></td>
+			<td><input type="button" value="수정" id="presentUpdate" /></td>
+			<td><input type="button" value="확정" id="presentSubmit" /></td>
 		</tr>
 	</table>
 </body>

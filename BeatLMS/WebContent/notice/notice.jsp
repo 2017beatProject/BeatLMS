@@ -1,3 +1,5 @@
+<%@page import="com.beat.Notice.model.LMSNoticeDto"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -48,9 +50,29 @@
 				<img alt="" src="">
 			</div>
 			<p><b>학사공지</b></p>
+			<input name="lmsbcode" value="학사 공지 코드" disabled="disabled"/>
 			<div id="listlayout">
 				<table>
 					<tr>
+						<th>번호</th>
+						<th>제목</th>
+						<th>내용</th>
+						<th>작성자</th>
+						<th>작성일</th>
+					</tr>
+		<%
+		ArrayList<LMSNoticeDto> noticeList = (ArrayList<LMSNoticeDto>)request.getAttribute("noticeList");
+		for(LMSNoticeDto bean : noticeList) {
+		%>
+					<tr>
+						<td><%=bean.getLmsblog() %></td>
+						<td><%=bean.getLmstitle() %></td>
+						<td><%=bean.getLmsbcontent() %></td>
+						<td><%=bean.getLmsbauthor() %></td>
+						<td><%=bean.getLmsbdate() %></td>
+					</tr>
+		<% } %>
+					<!-- <tr>
 						<th>번호</th>
 						<th>제목</th>
 						<th>작성자</th>
@@ -77,7 +99,7 @@
 						<td>아이디</td>
 						<td>2018-01-01</td>
 						<td>조회수</td>
-					</tr>
+					</tr> -->
 					
 				</table>
 			</div>

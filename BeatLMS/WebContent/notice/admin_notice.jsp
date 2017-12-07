@@ -10,17 +10,16 @@
 <link rel="stylesheet" href="./css/960.css">
 <link rel="stylesheet" href="./css/menu.css">
 <link rel="stylesheet" href="./css/header.css">
-<link rel="stylesheet" href="./css/notice_notice_general.css">
+<link rel="stylesheet" href="./css/notice_admin_notice.css">
 <link rel="stylesheet" href="./css/footer.css">
 
 <style type="text/css">
-
 </style>
 </head>
 <body>
 	<jsp:include page="../template/header.jsp"></jsp:include>
 	<jsp:include page="../template/loginjoin.jsp"></jsp:include>
-	<jsp:include page="../template/menu.jsp"></jsp:include>
+	<jsp:include page="../template/admenu.jsp"></jsp:include>
 
 	<!-- aside -->
 	<div class="aside grid_2">
@@ -29,10 +28,10 @@
 		</div>
 		<div id="aside">
 			<ul id="menu1">
-				<li><a href="notice.lms">학사공지</a></li>
+				<li><a href="notice_admin.lms">학사공지</a></li>
 			</ul>
 			<ul id="menu2">
-				<li><a href="notice_general.lms">일반공지</a></li>
+				<li><a href="#">일반공지</a></li>
 			</ul>
 			<!-- <ul id="menu3">
 				<li><a href="#"></a></li>
@@ -49,11 +48,13 @@
 			<div>
 				<img alt="" src="">
 			</div>
-			<p><b>일반공지</b></p>
-			<input name="lmsbcode" value="일반 공지 코드" disabled="disabled"/>
+			<p>
+				<b>학사공지</b>
+			</p>
+				<input name="lmsbcode" value="학사 공지 코드" disabled="disabled"/>
 			<div id="listlayout">
 				<table>
-				<tr>
+					<tr>
 						<th>번호</th>
 						<th>제목</th>
 						<th>내용</th>
@@ -61,8 +62,8 @@
 						<th>작성일</th>
 					</tr>
 		<%
-		ArrayList<LMSNoticeDto> noticeGenList = (ArrayList<LMSNoticeDto>)request.getAttribute("noticeGenList");
-		for(LMSNoticeDto bean : noticeGenList) {
+		ArrayList<LMSNoticeDto> noticeAdminList = (ArrayList<LMSNoticeDto>)request.getAttribute("noticeAdminList");
+		for(LMSNoticeDto bean : noticeAdminList) {
 		%>
 					<tr>
 						<td><%=bean.getLmsblog() %></td>
@@ -72,6 +73,9 @@
 						<td><%=bean.getLmsbdate() %></td>
 					</tr>
 		<% } %>
+				
+				
+				
 					<!-- <tr>
 						<th>번호</th>
 						<th>제목</th>
@@ -81,27 +85,30 @@
 					</tr>
 					<tr>
 						<td>3</td>
-						<td>일반공지3</td>
+						<td>학사공지3</td>
 						<td>아이디</td>
 						<td>2018-01-01</td>
 						<td>조회수</td>
 					</tr>
 					<tr>
 						<td>2</td>
-						<td>일반공지2</td>
+						<td>학사공지2</td>
 						<td>아이디</td>
 						<td>2018-01-01</td>
 						<td>조회수</td>
 					</tr>
 					<tr>
 						<td>1</td>
-						<td>일반공지1</td>
+						<td>학사공지1</td>
 						<td>아이디</td>
 						<td>2018-01-01</td>
 						<td>조회수</td>
 					</tr> -->
-					
+
 				</table>
+				<div id="addbtn">
+					<a href="notice_admin_add.lms">글쓰기</a>
+				</div>
 			</div>
 		</div>
 

@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.beat.Notice.model.LMSNoticeDao;
 import com.beat.Notice.model.LMSNoticeDto;
 
-@WebServlet("/notice.lms")
-public class NoticeController extends HttpServlet {
+@WebServlet("/notice_admin.lms")
+public class NoticeAdminController extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -25,11 +25,11 @@ public class NoticeController extends HttpServlet {
 		
 		LMSNoticeDao lmsNoticeDao = new LMSNoticeDao();
 		
-		ArrayList<LMSNoticeDto> noticeList = lmsNoticeDao.bbsListAll(lmsbcode);
-		req.setAttribute("noticeList", noticeList);
+		ArrayList<LMSNoticeDto> noticeAdminList = lmsNoticeDao.bbsListAll(lmsbcode);
+		req.setAttribute("noticeAdminList", noticeAdminList);
 		
 		// notice - 학사공지 페이지 이동
-		req.getRequestDispatcher("/notice/notice.jsp").forward(req, resp);
+		req.getRequestDispatcher("/notice/admin_notice.jsp").forward(req, resp);
 	}
 
 }

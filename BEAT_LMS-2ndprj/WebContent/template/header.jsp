@@ -6,6 +6,8 @@
 <div class="container_12">
 
 		<%=session.getAttribute("mid")%> 님의 세션임
+		<%=session.getAttribute("snum") %> :권한 확인~ 
+		
 		<%=session.getCreationTime() %>
 		<%=session.getMaxInactiveInterval() %>
 		<%=session.toString() %>

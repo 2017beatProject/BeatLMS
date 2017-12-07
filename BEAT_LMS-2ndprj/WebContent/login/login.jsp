@@ -132,8 +132,8 @@ window.onload= function(){
 				<input type="password" name="mpw" />
 			</div>
 			<div id="radio">
-				<input type="radio" name="radioName" name="1">일반 회원 
-				<input type="radio"	name="radioName" name="2">직원
+				<input type="radio" name="radioName" value="1"/>일반 회원 
+				<input type="radio"	name="radioName" value="2"/>직원
 			</div>
 			<div id="btn">
 				<button type="submit" onClick="rdoChk();">로그인</button>

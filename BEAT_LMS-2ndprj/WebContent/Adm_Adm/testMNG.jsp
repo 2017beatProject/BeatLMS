@@ -3,12 +3,20 @@
     import="java.util.ArrayList"
     import="com.beat.Management.model.MemberManagementDto"
     %>
-    
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>list page</title>
+
+<link rel="stylesheet" href="./css/960.css">
+<link rel="stylesheet" href="./css/menu.css">
+<link rel="stylesheet" href="./css/header.css">
+<link rel="stylesheet" href="./css/login.css">
+
+<style type="text/css">
+</style>
+<script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
 <script>
 	 function mouseOver(obj){
 		 obj.style.cursor='pointer';
@@ -45,12 +53,26 @@
 %>
 
 <body>
+	
+	<jsp:include page="../template/header.jsp"></jsp:include>
+	<jsp:include page="../template/loginjoin.jsp"></jsp:include>
+	<jsp:include page="../template/menu.jsp"></jsp:include>
+
 
 <h1>리스트페이지 </h1>
+<!-- 셀렉트박스 -->
 
 <form action="">
-	검색<input type="text" name="keyword">
-<!-- 	<input type="hidden" name="plimit" value=<plimit %>> -->
+ 
+<!-- 	<select>
+		<option>행정팀</option>
+		<option>영업팀</option>
+		<option>강사팀</option>
+	</select>
+	 이부분은 마스터 권한일때직원 관리로 권한주기 기능할때 파라미터 넘길 수 있을듯
+	-->
+	
+	<input type="text" name="keyword">
 	<input type="submit" value="검색">
 </form>
 
@@ -66,14 +88,8 @@
 
 	ArrayList<MemberManagementDto> alist = (ArrayList<MemberManagementDto>)request.getAttribute("AllList");
 	
-
-//	int total = alist.size();
-	//System.out.println(total);
-	
 	for(MemberManagementDto bean : alist){
-
-%>		
-		<tr onmouseover="mouseOver(this);" onmouseout="mouseOut(this);" onclick="location.href='mngdetail.lms=<%=bean.getMnum()%>'">
+%>			<tr onmouseover="mouseOver(this);" onmouseout="mouseOut(this);" onclick="location.href='mngDetail.lms?mnum=<%=bean.getMnum()%>'">
 			<td><%=bean.getMnum() %></td>
 			<td><%=bean.getMid() %></td>
 			<td><%=bean.getMname() %></td>
@@ -115,5 +131,6 @@
 <a href="#"> [입력 기능은 없음] </a>
 
 
+	<jsp:include page="../template/footer.jsp"></jsp:include>
 </body>
 </html>

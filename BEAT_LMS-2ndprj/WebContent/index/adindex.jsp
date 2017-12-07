@@ -22,8 +22,8 @@
 
 }
 </style>
-<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="../js/jquery.bxslider.js"></script>
+<script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="./js/jquery.bxslider.js"></script>
 <script type="text/javascript">
 $(function() {
 	$('.bxslider').bxSlider({
@@ -39,7 +39,7 @@ $(function() {
 <body>
     <jsp:include page="../template/header.jsp"></jsp:include>
    <jsp:include page="../template/loginjoin.jsp"></jsp:include>
-	<jsp:include page="../template/admenu.jsp"></jsp:include>
+	<jsp:include page="../template/menu.jsp"></jsp:include>
 		
 		<!-- content -->
 		<div class="content">

@@ -32,22 +32,41 @@ public class LoginController extends HttpServlet {
 		
 		String mid = req.getParameter("mid");
 		String mpw = req.getParameter("mpw");
-		String snum = req.getParameter("radio");
+		String snum = req.getParameter("radioName");
+		
+		
+		System.out.println(snum+"받은 라디오값음?");
+	
 		
 		String sendTo = "";
 		
 		LoginDao loginDao = new LoginDao();
-		ArrayList<LoginDto> list = loginDao.memberLogin(mid, mpw); //로그인 처리 
+		ArrayList<LoginDto> list = loginDao.memberLogin(mid, mpw, snum); //로그인 처리 
 		HttpSession session = req.getSession(); 
 		
 			
 			if(list.get(0).getloginResult()==true){ //로그인 성공시 메인으로 넘어감
-				sendTo ="/index/index_post.jsp";
 				
-				req.setAttribute("loginChk", true);
+				
+				//dao에서 snum검사 처리 완료
+				
+				if(snum.equals("1")){ //일반 회원 
+					sendTo ="/index/index_post.jsp";
+					
+				}else if(snum.equals("2")){//직원
+					sendTo ="/index/adindex.jsp";
+				}
+				
+				
+				
+				req.setAttribute("loginChk", true);				
+				
 				session.setAttribute("result", true);
 				session.setAttribute("mid", list.get(0).getMid()); //성공시 세션에 아이디 넣어줌
+				session.setAttribute("snum", snum); //성공시 세션에 snum 넣어줌
+				
 				session.setMaxInactiveInterval(30*60);
+				
 				
 			}else{ //로그인 실패시 다시 로그인 창으로
 				

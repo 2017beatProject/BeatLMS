@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import oracle.jdbc.driver.ArrayLocatorResultSet;
-
 import com.beat.util.LMSDao;
 
 
@@ -18,7 +16,7 @@ public class MemberManagementDao extends LMSDao{
 		private PreparedStatement pstmt;
 		private ResultSet rs;
 		
-		public int entireCnt;
+		private int entireCnt;
 		
 		public MemberManagementDao(){
 			conn=super.conn;
@@ -51,7 +49,7 @@ public class MemberManagementDao extends LMSDao{
 				
 				if(rs.next()){
 					entireCnt = rs.getInt("cnt");
-					System.out.println(entireCnt);
+					System.out.println("รั ผ๖ "+entireCnt);
 				}
 				
 				if(rs!=null) rs.close();
@@ -80,8 +78,6 @@ public class MemberManagementDao extends LMSDao{
 				
 			}finally{
 				destroy();
-				
-				System.out.println("dao result");
 				
 			}
 			return list;

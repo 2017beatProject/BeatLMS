@@ -42,7 +42,7 @@
 			<ul>
 				<li><a href="#">ADMINISTRATION</a>
 					<ul>
-						<li><a href="#">雀盔包府</a></li>
+						<li><a href="mnglist.lms">雀盔包府</a></li>
 						<li><a href="#">碍狼包府</a></li>
 						<li><a href="#">惑淬包府</a></li>
 						<li><a href="#">荐碍积包府</a></li>

@@ -12,11 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.beat.Management.model.OneMemManagementDao;
 import com.beat.Management.model.OneMemManagementDto;
 
-@WebServlet(value="/mngDetail.lms")
-public class MemberManagementDetailController extends HttpServlet{
+@WebServlet(value="/oneMemEdit.lms")
+public class MemberManagementEditController extends HttpServlet {
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 	
 		String mnum = req.getParameter("mnum");
@@ -24,10 +24,10 @@ public class MemberManagementDetailController extends HttpServlet{
 		OneMemManagementDao dao = new OneMemManagementDao();
 		
 		ArrayList<OneMemManagementDto> list = dao.getOne(mnum);
-		req.setAttribute("oneList", list);
+
+		req.setAttribute("listForEdit", list);
 		
-	 req.getRequestDispatcher("/Adm_Adm/memDetail.jsp").forward(req, resp);
-	
+		 req.getRequestDispatcher("/Adm_Adm/memEdit.jsp").forward(req, resp);
 	}
 	
 }

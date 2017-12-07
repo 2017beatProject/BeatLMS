@@ -10,14 +10,14 @@
 		<div class="grid_12 loginjoin">
 
 			<% if(session.getAttribute("mid")==null){ %>
-			<a href="./login.lms"><img alt="login" src="./imgs/login.jpg"></a> 
-			<a href="./join.lms"><img alt="join" src="./imgs/join.jpg"></a>
+				<a href="./login.lms"><img alt="login" src="./imgs/login.jpg"></a> 
+				<a href="./join.lms"><img alt="join" src="./imgs/join.jpg"></a>
 			
 			<%} else { 
-			session.setMaxInactiveInterval(30*60);%>
-			<a href="./logout.lms"><img alt="logout" src="./imgs/logout.jpg"></a> 
-			<a href="#"><img alt="mypage" src="./imgs/mypage.jpg"></a>
-					
+				session.setMaxInactiveInterval(30*60);%>
+				<a href="./logout.lms"><img alt="logout" src="./imgs/logout.jpg"></a> 
+				<a href="#"><img alt="mypage" src="./imgs/mypage.jpg"></a>
+						
 			<%} %>
 			
 	</div>	

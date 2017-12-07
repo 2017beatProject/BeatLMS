@@ -8,80 +8,48 @@
 <link rel="stylesheet" href="./css/960.css">
 <link rel="stylesheet" href="./css/menu.css">
 <link rel="stylesheet" href="./css/header.css">
+<link rel="stylesheet" href="./css/lecture_detail.css">
 <link rel="stylesheet" href="./css/footer.css">
-<link rel="stylesheet" href="./css/aside_lecture.css">
 <style type="text/css">
 
-/*------------------------------------------------  */
-.layout {
-	position: relative;
-	margin: 35px;
-}
-
-table {
-	margin-left: 15px;
-}
-
-th {
-	text-align: left;
-	border-bottom: 2px solid black;
-}
-
-tr>td:nth-child(1) {
-	border-bottom: 1px solid silver;
-	text-align: center;
-	padding: 5px;
-}
-
-tr>td:nth-child(2) {
-	border-bottom: 0.5px solid #E1E1E1;
-}
-
-.imgs, table {
-	display: inline-block;
-}
-
-.info {
-	border-bottom: 1px solid silver;
-	border-top: 1px solid silver;
-	margin-bottom: 10px;
-	margin-top: 10px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
-
-.btn {
-	float: right;
-	margin-bottom: 50px;
-}
-
-#addbtn {
-	background-color: #4C4C4C;
-	border: 2px solid #4C4C4C;
-	border-radius: 3px;
-	text-decoration: none;
-	color: white;
-	font-size: 15px;
-	padding: 3px;
-	margin-top: 10px;
-}
-
-#addbtn:HOVER {
-	border: 2px solid orange;
-	color: orange;
-}
-
-#topimg {
-	position: relative;
-	left: -20px;
-}
-
-p {
-	border-bottom: 3px solid black;
-	width: 130px;
-	font-size: 2em;
-}
 </style>
+<script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	function layer_open(el) {
+
+		var temp = $('#' + el); //레이어의 id를 temp변수에 저장
+		var bg = temp.prev().hasClass('bg'); //dimmed 레이어를 감지하기 위한 boolean 변수
+
+		if (bg) {
+			$('.layer').fadeIn();
+		} else {
+			temp.fadeIn(); //bg 클래스가 없으면 일반레이어로 실행한다.
+		}
+
+		// 화면의 중앙에 레이어를 띄운다.
+		
+			temp.css('top', '150px');
+		if (temp.outerWidth() < $(document).width())
+			temp.css('margin-left', '-' + temp.outerWidth() / 2 + 'px');
+		else
+			temp.css('left', '0px');
+
+		temp.find('a.cbtn').click(function(e) {
+			if (bg) {
+				$('.layer').fadeOut();
+			} else {
+				temp.fadeOut(); //'닫기'버튼을 클릭하면 레이어가 사라진다.
+			}
+			e.preventDefault();
+		});
+
+		$('.layer .bg').click(function(e) {
+			$('.layer').fadeOut();
+			e.preventDefault();
+		});
+
+	}
+</script>
 </head>
 <body>
 	<jsp:include page="../template/header.jsp"></jsp:include>
@@ -98,7 +66,7 @@ p {
 				<li><a href="lecture.lms">강의소개</a></li>
 			</ul>
 			<ul id="menu2">
-				<li><a href="lecture_detail.lms">수강신청</a></li>
+				<li><a href="lecture_detail.lms">수강강의</a></li>
 			</ul>
 			<!-- <ul id="menu3">
 				<li><a href="#"></a></li>
@@ -110,7 +78,7 @@ p {
 
 	<!-- content -->
 	<div class="content grid_10">
-		<img class="imgs" id="topimg" alt="" src="./imgs/infoTopImg.jpg">
+		<img class="imgs" id="topimg" alt="" src="./imgs/menu_topimg1.jpg">
 		<div class="layout">
 			<p>
 				<b>과정소개</b>
@@ -118,6 +86,7 @@ p {
 			<div>
 				<img class="imgs" alt="" src="./imgs/info_img1.jpg">
 				<!-- 이미지크기 400/223 픽셀 -->
+				
 				<table>
 					<tr>
 						<th colspan="2">JAVA개발자 양성과정</th>
@@ -151,7 +120,22 @@ p {
 			</div>
 			<div class="info">
 				<div class="btn">
-					<a href="#" id="addbtn">수강신청</a>
+					<a href="#" class="detailPop"
+						onclick="layer_open('layer');return false;">
+						<button type="button" id="applybtn">수강신청</button>
+					</a>
+				</div>
+				<div id="layer" class="pop-layer">
+					<div class="pop-container">
+						<div class="pop-conts">
+							<!--content //-->
+							<div class="ctxt mb20">
+								<div id="">
+									수강신청 되었습니다. <a href="#" class="cbtn">닫기</a>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 				<p>
 					<b>과정목표</b>
@@ -170,11 +154,11 @@ p {
 				<p>
 					<b>수강혜택</b>
 				</p>
-				<br> <img alt="" src="./imgs/info_img1-1.jpg"> <br>
+				<br> <img alt="" src="./imgs/info_img2.jpg"> <br>
 				<p>
 					<b>수강절차</b>
 				</p>
-				<br> <img alt="" src="./imgs/info_img1-2.jpg">
+				<br> <img alt="" src="./imgs/info_img3.jpg">
 
 			</div>
 		</div>

@@ -8,9 +8,12 @@
 <link rel="stylesheet" href="./css/960.css">
 <link rel="stylesheet" href="./css/menu.css">
 <link rel="stylesheet" href="./css/header.css">
-<link rel="stylesheet" href="./css/lecture_list.css">
+<link rel="stylesheet" href="./css/notice_notice.css">
 <link rel="stylesheet" href="./css/footer.css">
 
+<style type="text/css">
+
+</style>
 </head>
 <body>
 	<jsp:include page="../template/header.jsp"></jsp:include>
@@ -20,14 +23,14 @@
 	<!-- aside -->
 	<div class="aside grid_2">
 		<div id="mainmenu">
-			<label><strong>LECTURE</strong></label>
+			<label><strong>NOTICE</strong></label>
 		</div>
 		<div id="aside">
 			<ul id="menu1">
-				<li><a href="lecture.lms">강의소개</a></li>
+				<li><a href="notice.lms">학사공지</a></li>
 			</ul>
 			<ul id="menu2">
-				<li><a href="lecture_detail.lms">수강강의</a></li>
+				<li><a href="notice_general.lms">일반공지</a></li>
 			</ul>
 			<!-- <ul id="menu3">
 				<li><a href="#"></a></li>
@@ -44,44 +47,38 @@
 			<div>
 				<img alt="" src="">
 			</div>
-			<p><b>강의목록</b></p>
-			<div>
-				<table class="list">
+			<p><b>학사공지</b></p>
+			<div id="listlayout">
+				<table>
 					<tr>
-						<th>강의명</th>
-						<th>강의실</th>
-						<th>강&nbsp;사</th>
-						<th>기&nbsp;간</th>
-						<th>&nbsp;총&nbsp;원&nbsp;</th>
-						<th>&nbsp;현제원&nbsp;</th>
+						<th>번호</th>
+						<th>제목</th>
+						<th>작성자</th>
+						<th>작성일</th>
+						<th>조회수</th>
 					</tr>
 					<tr>
-						<td><a href="lecture_detail.lms">JAVA 개발자양성
-						</a></td>
-						<td>강의실1</td>
-						<td>강사1</td>
-						<td>2018-01-01~2018-01-01</td>
-						<td>20</td>
+						<td>3</td>
+						<td>학사공지3</td>
+						<td>아이디</td>
+						<td>2018-01-01</td>
+						<td>조회수</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>학사공지2</td>
+						<td>아이디</td>
+						<td>2018-01-01</td>
+						<td>조회수</td>
+					</tr>
+					<tr>
 						<td>1</td>
+						<td>학사공지1</td>
+						<td>아이디</td>
+						<td>2018-01-01</td>
+						<td>조회수</td>
 					</tr>
-					<tr>
-						<td><a href="lecture_detail.lms">JAVA 개발자양성
-						</a></td>
-						<td>강의실2</td>
-						<td>강사2</td>
-						<td>2018-01-01~2018-01-01</td>
-						<td>20</td>
-						<td>1</td>
-					</tr>
-					<tr>
-						<td><a href="lecture_detail.lms">JAVA 개발자양성
-						</a></td>
-						<td>강의실3</td>
-						<td>강사3</td>
-						<td>2018-01-01~2018-01-01</td>
-						<td>20</td>
-						<td>1</td>
-					</tr>
+					
 				</table>
 			</div>
 		</div>

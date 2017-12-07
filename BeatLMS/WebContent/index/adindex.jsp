@@ -5,9 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>관리자페이지</title>
-<link rel="stylesheet" href="../css/960.css">
-<link rel="stylesheet" href="../css/menu.css">
-<link rel="stylesheet" href="../css/header.css">
+<link rel="stylesheet" href="./css/960.css">
+<link rel="stylesheet" href="./css/menu.css">
+<link rel="stylesheet" href="./css/header.css">
 <style type="text/css">
 
 
@@ -22,8 +22,8 @@
 
 }
 </style>
-<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="../js/jquery.bxslider.js"></script>
+<script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="./js/jquery.bxslider.js"></script>
 <script type="text/javascript">
 $(function() {
 	$('.bxslider').bxSlider({
@@ -45,16 +45,16 @@ $(function() {
 		<div class="content">
 		<div class="bxslider">
 				<div>
-					<img alt="bx01" src="../imgs/bx01.jpg"/>
+					<img alt="bx01" src="./imgs/bx01.jpg"/>
 				</div>
 				<div>
-					<img alt="bx02" src="../imgs/bx02.jpg"/>
+					<img alt="bx02" src="./imgs/bx02.jpg"/>
 				</div>
 				<div>
-					<img alt="bx03" src="../imgs/bx03.jpg"/>
+					<img alt="bx03" src="./imgs/bx03.jpg"/>
 				</div>
 				<div>
-					<img alt="bx04" src="../imgs/bx04.jpg"/>
+					<img alt="bx04" src="./imgs/bx04.jpg"/>
 				</div>
 			</div>
 		

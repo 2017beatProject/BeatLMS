@@ -1,16 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <link rel="stylesheet" href="./css/960.css">
 <link rel="stylesheet" href="./css/menu.css">
 <link rel="stylesheet" href="./css/header.css">
-<link rel="stylesheet" href="./css/lecture_list.css">
+<link rel="stylesheet" href="./css/contactus_Q&A.css">
 <link rel="stylesheet" href="./css/footer.css">
 
+<style type="text/css">
+
+</style>
 </head>
 <body>
 	<jsp:include page="../template/header.jsp"></jsp:include>
@@ -20,14 +23,14 @@
 	<!-- aside -->
 	<div class="aside grid_2">
 		<div id="mainmenu">
-			<label><strong>LECTURE</strong></label>
+			<label><strong>CONTACT<br>US</strong></label>
 		</div>
 		<div id="aside">
 			<ul id="menu1">
-				<li><a href="lecture.lms">ê°•ì˜ì†Œê°œ</a></li>
+				<li><a href="counsel.lms">»ó´ã½ÅÃ»</a></li>
 			</ul>
 			<ul id="menu2">
-				<li><a href="lecture_detail.lms">ìˆ˜ê°•ê°•ì˜</a></li>
+				<li><a href="QnA.lms">Áú¹®»çÇ×</a></li>
 			</ul>
 			<!-- <ul id="menu3">
 				<li><a href="#"></a></li>
@@ -44,45 +47,42 @@
 			<div>
 				<img alt="" src="">
 			</div>
-			<p><b>ê°•ì˜ëª©ë¡</b></p>
-			<div>
-				<table class="list">
+			<p><b>Áú¹®»çÇ×</b></p>
+			<div id="listlayout">
+				<table>
 					<tr>
-						<th>ê°•ì˜ëª…</th>
-						<th>ê°•ì˜ì‹¤</th>
-						<th>ê°•&nbsp;ì‚¬</th>
-						<th>ê¸°&nbsp;ê°„</th>
-						<th>&nbsp;ì´&nbsp;ì›&nbsp;</th>
-						<th>&nbsp;í˜„ì œì›&nbsp;</th>
+						<th>¹øÈ£</th>
+						<th>Á¦¸ñ</th>
+						<th>ÀÛ¼ºÀÚ</th>
+						<th>ÀÛ¼ºÀÏ</th>
+						<th>Á¶È¸¼ö</th>
 					</tr>
 					<tr>
-						<td><a href="lecture_detail.lms">JAVA ê°œë°œìžì–‘ì„±
-						</a></td>
-						<td>ê°•ì˜ì‹¤1</td>
-						<td>ê°•ì‚¬1</td>
-						<td>2018-01-01~2018-01-01</td>
-						<td>20</td>
+						<td>3</td>
+						<td>Áú¹®3</td>
+						<td>¾ÆÀÌµð</td>
+						<td>2018-01-01</td>
+						<td>Á¶È¸¼ö</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Áú¹®2</td>
+						<td>¾ÆÀÌµð</td>
+						<td>2018-01-01</td>
+						<td>Á¶È¸¼ö</td>
+					</tr>
+					<tr>
 						<td>1</td>
+						<td>Áú¹®1</td>
+						<td>¾ÆÀÌµð</td>
+						<td>2018-01-01</td>
+						<td>Á¶È¸¼ö</td>
 					</tr>
-					<tr>
-						<td><a href="lecture_detail.lms">JAVA ê°œë°œìžì–‘ì„±
-						</a></td>
-						<td>ê°•ì˜ì‹¤2</td>
-						<td>ê°•ì‚¬2</td>
-						<td>2018-01-01~2018-01-01</td>
-						<td>20</td>
-						<td>1</td>
-					</tr>
-					<tr>
-						<td><a href="lecture_detail.lms">JAVA ê°œë°œìžì–‘ì„±
-						</a></td>
-						<td>ê°•ì˜ì‹¤3</td>
-						<td>ê°•ì‚¬3</td>
-						<td>2018-01-01~2018-01-01</td>
-						<td>20</td>
-						<td>1</td>
-					</tr>
+					
 				</table>
+				<div id="addbtn">
+				  <a href="QnA_add.lms">±Û¾²±â</a>
+				</div>
 			</div>
 		</div>
 

@@ -6,8 +6,8 @@
 <body>
 	<!-- logout mypage  -->
 	<div class="grid_12 loginjoin">
-		<a href="#"><img alt="logout" src="../imgs/logout.jpg"></a> 
-		<a href="#"><img alt="mypage" src="../imgs/mypage.jpg"></a>
+		<a href="#"><img alt="logout" src="./imgs/logout.jpg"></a> 
+		<a href="#"><img alt="mypage" src="./imgs/mypage.jpg"></a>
 	</div>
 	<div class="clear"></div>
 </body>

@@ -22,7 +22,7 @@
 			<ul>
 				<li><a href="#">CONTACT US</a>
 					<ul>
-						<li><a href="#">상담신청확인</a></li>
+						<li><a href="#">상담신청</a></li>
 						<li><a href="#">질문사항</a></li>
 					</ul>
 				</li>

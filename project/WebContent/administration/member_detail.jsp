@@ -1,102 +1,106 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@page import="com.beat.Management.model.OneMemManagementDto"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-<link rel="stylesheet" href="../css/960.css">
-<link rel="stylesheet" href="../css/menu.css">
-<link rel="stylesheet" href="../css/header.css">
-<link rel="stylesheet" href="../css/administration_member_detail.css">
-<link rel="stylesheet" href="../css/footer.css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ÌöåÏõê Ï†ïÎ≥¥ ÏÉÅÏÑ∏ÌéòÏù¥ÏßÄ</title>
 
+<link rel="stylesheet" href="./css/960.css">
+<link rel="stylesheet" href="./css/menu.css">
+<link rel="stylesheet" href="./css/header.css">
+<link rel="stylesheet" href="./css/administration_member.css">
+<link rel="stylesheet" href="./css/footer.css">
+
+
+<style type="text/css">
+</style>
+<script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
+<script>
+
+<% String mnum = request.getParameter("mnum");%>
+
+   function toList(){
+      location.href="mnglist.lms";   //Îí§Î°úÍ∞ÄÍ∏∞ Í∞ÄÎä•   
+   }
+   
+
+</script>
 </head>
 <body>
-	<jsp:include page="../template/header.jsp"></jsp:include>
-	<jsp:include page="../template/loginjoin.jsp"></jsp:include>
-	<jsp:include page="../template/admenu.jsp"></jsp:include>
 
-	<!-- aside -->
-	<div class="aside grid_2">
-		<div id="mainmenu">
-			<label><strong>ADMINI<br>STRATION
-			</strong></label>
-		</div>
-		<div id="aside">
-			<ul id="menu1">
-				<li><a href="#">»∏ø¯∞¸∏Æ</a></li>
-			</ul>
-			<ul id="menu2">
-				<li><a href="#">∞≠¿«∞≠¿«</a></li>
-			</ul>
-			<ul id="menu3">
-				<li><a href="#">ªÛ¥„∞¸∏Æ</a></li>
-			</ul>
-			<ul id="menu4">
-				<li><a href="#">ºˆ∞≠ª˝∞¸∏Æ</a></li>
-			</ul>
-		</div>
-	</div>
-	<!-- aside END -->
+   <jsp:include page="../template/header.jsp"></jsp:include>
+   <jsp:include page="../template/loginjoin.jsp"></jsp:include>
+   <jsp:include page="../template/menu.jsp"></jsp:include>
 
 
-	<!-- content -->
-	<div class="content grid_10">
-		<img class="imgs" id="topimg" alt="" src="../imgs/menu_topimg1.jpg">
-		<div class="layout">
-			<div>
-				<img alt="" src="">
-			</div>
-			<p>
-				<b>»∏ø¯¡§∫∏</b>
-			</p>
-
-			<div id="inside">
-				<div id="name">
-					<label for="name">¿Ã∏ß</label> 
-					<input type="text" id="userName" name="name">
-				</div>
-				<div id="birth">
-					<label for="birth">ª˝≥‚ø˘¿œ</label> 
-					<input type="date" id="bDay" name="mbirth" />
-				</div>
-				<div id="number">
-					<label for="number">ø¨∂Ù√≥</label> 
-					<input type="text" id="phoneFirst" name="mphone">
-				</div>
-				<div id="mail">
-					<label for="mail">e_mail</label> 
-					<input type="email" name="mmail" id="email" />
-				</div>
-				<div id="address">
-					<label for="address">¡÷º“</label> 
-					<input type="text" id="postcode" placeholder="øÏ∆Ìπ¯»£" name="maddnum"> 
-					<input type="button" onclick="execDaumPostcode()" value="øÏ∆Ìπ¯»£ √£±‚"><br> 
-					<input type="text" id="roadAddress" placeholder="µµ∑Œ∏Ì¡÷º“" name="maddress"><br>
-					<input type="text" id="jibunAddress" placeholder="¡ˆπ¯¡÷º“"> 
-					<span id="guide" style="color: #999"></span>
-				</div>
-				<div id="gender">
-					<label for="gender">º∫∫∞</label> <select name="mzen">
-						<option value="">º±≈√</option>
-						<option value="1">≥≤º∫</option>
-						<option value="2">ø©º∫</option>
-					</select>
-				</div>
-				<div id="btn">
-					<button type="submit" id="jbtn">ºˆ¡§</button>
-					<button type="reset" id="cbtn">ªË¡¶</button>
-				</div>
-			</div>
-		</div>
-
-
-	</div>
-	<!-- content END  -->
-	<div class="clear"></div>
-
-
-	<jsp:include page="../template/footer.jsp"></jsp:include>
+<form action="oneMemEdit.lms?mnum=<%=mnum%>" method="post">
+<%
+   ArrayList<OneMemManagementDto> oneList = (ArrayList<OneMemManagementDto>)request.getAttribute("oneList");
+   for(OneMemManagementDto bean : oneList){
+%>
+      <table>
+         <tr>
+            <th>mnum</th>
+            <td><%=bean.getmNum() %></td>
+         </tr>
+         <tr>
+            <th>snum</th>
+            <td><%=bean.getsNum() %></td>   
+         </tr>
+         <tr>
+            <th>mid</th>
+            <td><%=bean.getmId() %></td>
+         </tr>
+         <tr>
+            <th>mname</th>
+            <td><%=bean.getmName() %></td>
+         </tr>
+         <tr>
+            <th>mbirth</th>
+            <td><%=bean.getmBirth() %></td>
+         </tr>
+         <tr>
+            <th>zen</th>
+            <td><%=bean.getmZen() %></td>
+         </tr>
+         <tr>
+            <th>phone</th>
+            <td><%=bean.getmPhone()%></td>
+         </tr>
+         <tr>
+            <th>mmail</th>
+            <td><%=bean.getmMail() %></td>
+         </tr>
+         <tr>
+            <th>maddress</th>
+            <td><%=bean.getMAddress() %></td>
+         </tr>
+         <tr>
+            <th>maddnum</th>
+            <td><%=bean.getmAddnum() %></td>
+         </tr>
+         <tr>
+            <th>joindate</th>
+            <td><%=bean.getJoinDate() %></td>
+         </tr>
+         <tr>
+            <th>rightcode</th>
+            <td><%=bean.getRightCode()%></td>
+         </tr>
+<%
+}
+%>   
+      </table>
+      
+      <p>
+         <input type="submit" value="ÏàòÏ†ï">
+         <input type="button" onclick="toList();" value="Î™©Î°ù">
+      </p>
+      
+      </form>
+   <jsp:include page="../template/footer.jsp"></jsp:include>
 </body>
 </html>

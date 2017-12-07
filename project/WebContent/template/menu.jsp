@@ -18,7 +18,7 @@
 					<ul>
 						<li><a href="#">조직도</a></li>
 						<li><a href="#">강사소개</a></li>
-						<li><a href="#">약력</a></li>
+						<li><a href="#">회사연혁</a></li>
 					</ul>
 				</li>
 			</ul>

@@ -33,7 +33,7 @@
 				<li><a href="#">강사소개</a></li>
 			</ul>
 			<ul id="menu3">
-				<li><a href="#">약력</a></li>
+				<li><a href="#">회사연혁</a></li>
 			</ul>
 		</div>
 	</div>
@@ -45,17 +45,23 @@
 		<img class="imgs" id="topimg" alt="" src="../imgs/menu_topimg1.jpg">
 		<div class="layout">
 			<p>
+			  <b>조직도</b>
+			</p>
+			<div>
+			   <img alt="" src="../imgs/organization.jpg">
+			</div>
+			<p>
+			  <b>강사소개</b>
+			</p>
+			<div>
+			   <img alt="" src="../imgs/teacher.jpg">
+			</div>
+			<p>
 			  <b>회사연혁</b>
 			</p>
 			<div>
 				<img alt="" src="../imgs/history.jpg">
 			</div>
-			<p>
-			  <b>조직도</b>
-			</p>
-			<p>
-			  <b>강사소개</b>
-			</p>
 			
 		</div>
 

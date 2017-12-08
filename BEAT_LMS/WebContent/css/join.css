@@ -1,0 +1,153 @@
+.content{
+width: 960px;
+height: 1000px;
+background-color: #fcfddf;
+}
+#logo{
+position: relative;
+top:50px;
+left: 340px;
+}
+#status{
+position: relative;
+top:80px;
+left: 350px;
+	
+}
+#id{
+position: relative;
+top: 110px;
+left: 365px;
+}
+#pw{
+position: relative;
+top: 130px;
+left: 348px;
+}
+#pw2{
+position: relative;
+top: 150px;
+left: 310px;
+}
+#name{
+position: relative;
+top: 170px;
+left: 380px;
+}
+#birth{
+position: relative;
+top: 190px;
+left: 348px;
+}
+#number{
+position: relative;
+top: 210px;
+left: 363px;
+}
+#mail{
+position: relative;
+top: 230px;
+left: 365px;
+}
+#address{
+position: relative;
+top: 250px;
+left: 377px;
+}
+#gender{
+position: relative;
+top: 290px;
+left: 377px;
+}
+#radio2{
+position: relative;
+top: 290px;
+left: 377px;
+}
+#btn{
+position: relative;
+top: 310px;
+left: 400px;
+
+}
+#jbtn, #cbtn{
+	
+	width: 70px;
+	height: 40px;
+	margin: 10px;
+}
+
+
+
+#roadAddress,#jibunAddress{
+position: relative;	
+	left: 35px;
+	width: 270px;
+	margin: 3px;
+}
+
+
+#idErr{
+   position: relative;
+   top: 10px;
+   left: 55px;
+   font-size: 13px;
+}
+#pwInputErr{
+   position: relative;
+   top: 10px;
+   left: 72px;
+   font-size: 13px;
+}
+#pwInputReErr{
+   position: relative;
+   top: 10px;
+   left: 110px;
+   font-size: 13px;
+}
+#nameErr{
+   position: relative;
+   top: 10px;
+   left: 40px;
+   font-size: 13px;
+}
+#bDayErr{
+   position: relative;
+   top: 10px;
+   left: 70px;
+   font-size: 13px;
+}
+#phoErr{
+   position: relative;
+   top: 10px;
+   left: 55px;
+   font-size: 13px;
+}
+#emErr{
+   position: relative;
+   top: 10px;
+   left: 53px;
+   font-size: 13px;
+}
+#loErr{
+   position: relative;
+   top:10px;
+   left:35px;
+   font-size: 13px;
+}
+#genErr{
+   position: relative;
+   top: 10px;
+   left: 37px;
+   font-size: 13px;
+}
+input{
+	border-radius:3px;
+	
+}
+button {
+	border-radius:3px;
+	background-color: white;
+}
+
+

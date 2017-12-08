@@ -1,0 +1,147 @@
+@font-face {
+	font-family: 'ARLRDBD';
+	src: url(../font/ARLRDBD.TTF) format('truetype');
+}
+
+#aside ul {
+	position: relative;
+	text-align: center;
+	margin-left: 40px;
+	padding: 0px;
+}
+
+#aside>ul li {
+	position: relative;
+	list-style: none;
+	left: -40px;
+	width: 140px;
+	height: 50px;
+}
+
+#aside>ul>li>a {
+	position: relative;
+	text-decoration: none;
+	top: 15px;
+	color: black;
+}
+
+#mainmenu {
+	text-align: center;
+	font-family: ARLRDBD;
+	font-size: 1.3em;
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+#menu1>li {
+	text-align: center;
+}
+
+#menu2>li {
+	background-color: orange;
+	position: relative;
+	top: -16px;
+}
+
+#menu3>li {
+	position: relative;
+	top: -32px;
+}
+
+#menu4>li {
+	position: relative;
+	top: -48px;
+}
+
+#topimg {
+	position: relative;
+	left: -20px;
+}
+
+.aside {
+	background-color: bisque;
+	height: 350px;
+	width: 100%;
+	margin-left: 0px;
+	border-bottom: 5px solid orange;
+}
+
+.content {
+	position: relative;
+	/* background-color: azure; */
+	/* width: 820px; */
+}
+/* ---------------------aside-------------------------  */
+.layout {
+	position: relative;
+	left: 0px;
+	margin-top: 30px;
+	margin-bottom: 250px;
+}
+
+table {
+	position: relative;
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 20px;
+}
+
+td {
+	border-bottom: 0.5px solid #E1E1E1;
+	padding: 7px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+tr:last-child>td {
+	border-bottom: 3px solid #E1E1E1;
+}
+
+td>a {
+	list-style: none;
+	text-decoration: none;
+}
+
+th {
+	background-color: #2C3E50;
+	border-radius: 2px;
+	color: white;
+	padding: 3px;
+	width: 70px;
+	height: 20px;
+}
+
+th:nth-child(1) {
+	width: 260px;
+}
+
+th:nth-child(4) {
+	width: 200px;
+}
+
+p {
+	border-bottom: 3px solid #F39C12;
+	color: #2C3E50;
+	width: 140px;
+	font-size: 2em;
+	border-radius: 5px;
+	padding-bottom: 3px;
+}
+
+#addbtn{
+	text-align:center;
+	float: right;
+	margin-right: 5px;
+	margin-top: 6px;
+	background-color: #2C3E50;
+	width: 70px; 
+	height: 20px;
+	border-radius:3px;
+	padding: 2px;
+	
+}
+#addbtn a{
+	text-decoration: none;
+	color: white;
+	font-size: 14px;
+	

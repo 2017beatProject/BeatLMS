@@ -29,7 +29,7 @@
 				<li><a href="notice_admin.lms">학사공지</a></li>
 			</ul>
 			<ul id="menu2">
-				<li><a href="#">일반공지</a></li>
+				<li><a href="notice_admin_gen.lms">일반공지</a></li>
 			</ul>
 			<!-- <ul id="menu3">
 				<li><a href="#"></a></li>
@@ -54,7 +54,7 @@
 			<div id="contentlayout">
 				<div id="insidelayout">
 					<input name="lmsbcode" value="학사 공지 코드" disabled="disabled"/>
-					<input name="mnum" value="임시로 학생번호 입력"/>
+					<!-- <input name="mnum" value="임시로 학생번호 입력"/> -->
 					<input name="noticeWriter" value="작성자명 입력"/>
 						<div class="title">
 							<label>제목</label><input type="text" id="title" name="noticeTitle">

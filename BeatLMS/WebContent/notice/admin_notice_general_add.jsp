@@ -30,7 +30,7 @@
 				<li><a href="notice_admin.lms">학사공지</a></li>
 			</ul>
 			<ul id="menu2">
-				<li><a href="#">일반공지</a></li>
+				<li><a href="notice_admin_gen.lms">일반공지</a></li>
 			</ul>
 			<!-- <ul id="menu3">
 				<li><a href="#"></a></li>
@@ -50,21 +50,23 @@
 			<p>
 				<b>공지올리기</b>
 			</p>
+			<form action="notice_admin_gen_add.lms" method="post">
 			<div id="contentlayout">
 				<div id="insidelayout">
-					<form action="">
+				<input name="lmsbcode" value="일반 공지 코드" disabled="disabled"/>
+				<input name="noticeWriter" value="작성자명 입력"/>
 						<div class="title">
-							<label>제목</label><input type="text" id="title">
+							<label>제목</label><input type="text" id="title" name="noticeTitle">
 						</div>
 						<div class="contents">
-							<textarea rows="" cols="" id="contents"></textarea>
+							<textarea rows="" cols="" id="contents" name="noticeCont"></textarea>
 						</div>
-					</form>
 				</div>
 				<div id="addbtn">
 					<button type="submit">글쓰기</button>
 				</div>
 			</div>
+			</form>
 		</div>
 
 

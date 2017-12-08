@@ -31,7 +31,7 @@
 				<li><a href="notice_admin.lms">학사공지</a></li>
 			</ul>
 			<ul id="menu2">
-				<li><a href="#">일반공지</a></li>
+				<li><a href="notice_admin_gen.lms">일반공지</a></li>
 			</ul>
 			<!-- <ul id="menu3">
 				<li><a href="#"></a></li>
@@ -74,37 +74,6 @@
 					</tr>
 		<% } %>
 				
-				
-				
-					<!-- <tr>
-						<th>번호</th>
-						<th>제목</th>
-						<th>작성자</th>
-						<th>작성일</th>
-						<th>조회수</th>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>학사공지3</td>
-						<td>아이디</td>
-						<td>2018-01-01</td>
-						<td>조회수</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>학사공지2</td>
-						<td>아이디</td>
-						<td>2018-01-01</td>
-						<td>조회수</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>학사공지1</td>
-						<td>아이디</td>
-						<td>2018-01-01</td>
-						<td>조회수</td>
-					</tr> -->
-
 				</table>
 				<div id="addbtn">
 					<a href="notice_admin_add.lms">글쓰기</a>

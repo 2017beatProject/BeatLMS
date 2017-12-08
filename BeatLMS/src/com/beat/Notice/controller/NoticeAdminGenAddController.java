@@ -10,22 +10,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.beat.Notice.model.LMSNoticeDao;
 
-@WebServlet("/notice_admin_add.lms")
-public class NoticeAdminAddController extends HttpServlet {
-	
+@WebServlet("/notice_admin_gen_add.lms")
+public class NoticeAdminGenAddController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		// 학사공지 - 글쓰기 버튼 페이지 이동
-		req.getRequestDispatcher("/notice/admin_notice_add.jsp").forward(req, resp);
+		// 일반공지 - 글쓰기 버튼 페이지 이동
+		req.getRequestDispatcher("/notice/admin_notice_general_add.jsp").forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		int lmsbcode = 9002;
+		int lmsbcode = 9001;
 		System.out.println(lmsbcode);
 		
 		String noticeWriter = req.getParameter("noticeWriter");
@@ -37,16 +36,11 @@ public class NoticeAdminAddController extends HttpServlet {
 		String noticeCont = req.getParameter("noticeCont");
 		System.out.println(noticeCont);
 		
-//		int mnum = Integer.parseInt(req.getParameter("mnum"));
-//		System.out.println(mnum);
-		
 		LMSNoticeDao lmsNoticeDao = new LMSNoticeDao();
-//		lmsNoticeDao.insertNotice(lmsbcode, noticeWriter, noticeTitle, noticeCont, mnum);
 		lmsNoticeDao.insertNotice(lmsbcode, noticeWriter, noticeTitle, noticeCont);
 		
-		// 공지 올리기 - 올리면 학사공지 페이지로 이동
-		resp.sendRedirect("notice_admin.lms");
+		// 공지 올리기 - 올리면 일반공지 페이지로 이동
+		resp.sendRedirect("notice_admin_gen.lms");
 	}
-	
 
 }

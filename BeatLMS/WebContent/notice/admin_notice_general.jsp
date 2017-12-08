@@ -1,3 +1,5 @@
+<%@page import="com.beat.Notice.model.LMSNoticeDto"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -5,11 +7,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../css/960.css">
-<link rel="stylesheet" href="../css/menu.css">
-<link rel="stylesheet" href="../css/header.css">
-<link rel="stylesheet" href="../css/notice_admin_notice_general.css">
-<link rel="stylesheet" href="../css/footer.css">
+<link rel="stylesheet" href="./css/960.css">
+<link rel="stylesheet" href="./css/menu.css">
+<link rel="stylesheet" href="./css/header.css">
+<link rel="stylesheet" href="./css/notice_admin_notice_general.css">
+<link rel="stylesheet" href="./css/footer.css">
 
 <style type="text/css">
 
@@ -27,10 +29,10 @@
 		</div>
 		<div id="aside">
 			<ul id="menu1">
-				<li><a href="#">학사공지</a></li>
+				<li><a href="notice_admin.lms">학사공지</a></li>
 			</ul>
 			<ul id="menu2">
-				<li><a href="#">일반공지</a></li>
+				<li><a href="notice_admin_gen.lms">일반공지</a></li>
 			</ul>
 			<!-- <ul id="menu3">
 				<li><a href="#"></a></li>
@@ -42,46 +44,38 @@
 
 	<!-- content -->
 	<div class="content grid_10">
-		<img class="imgs" id="topimg" alt="" src="../imgs/menu_topimg1.jpg">
+		<img class="imgs" id="topimg" alt="" src="./imgs/menu_topimg1.jpg">
 		<div class="layout">
 			<div>
 				<img alt="" src="">
 			</div>
 			<p><b>일반공지</b></p>
+			<input name="lmsbcode" value="일반 공지 코드" disabled="disabled"/>
 			<div id="listlayout">
 				<table>
 					<tr>
 						<th>번호</th>
 						<th>제목</th>
+						<th>내용</th>
 						<th>작성자</th>
 						<th>작성일</th>
-						<th>조회수</th>
 					</tr>
+		<%
+		ArrayList<LMSNoticeDto> noticeAdminGenList = (ArrayList<LMSNoticeDto>)request.getAttribute("noticeAdminGenList");
+		for(LMSNoticeDto bean : noticeAdminGenList) {
+		%>
 					<tr>
-						<td>3</td>
-						<td>일반공지3</td>
-						<td>아이디</td>
-						<td>2018-01-01</td>
-						<td>조회수</td>
+						<td><%=bean.getLmsblog() %></td>
+						<td><%=bean.getLmstitle() %></td>
+						<td><%=bean.getLmsbcontent() %></td>
+						<td><%=bean.getLmsbauthor() %></td>
+						<td><%=bean.getLmsbdate() %></td>
 					</tr>
-					<tr>
-						<td>2</td>
-						<td>일반공지2</td>
-						<td>아이디</td>
-						<td>2018-01-01</td>
-						<td>조회수</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>일반공지1</td>
-						<td>아이디</td>
-						<td>2018-01-01</td>
-						<td>조회수</td>
-					</tr>
+		<% } %>
 					
 				</table>
 				<div id="addbtn">
-					<a href="#">글쓰기</a>
+					<a href="notice_admin_gen_add.lms">글쓰기</a>
 				</div>
 			</div>
 		</div>

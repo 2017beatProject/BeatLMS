@@ -20,11 +20,18 @@ public class LMSNoticeDao extends LMSDao{
 	
 	
 	//게시판 입력
-	public void insertNotice(int lmsbcode, String noticeWriter, String noticeTitle, String noticeCont, int mnum) {
+//	public void insertNotice(int lmsbcode, String noticeWriter, String noticeTitle, String noticeCont, int mnum) {
+	public void insertNotice(int lmsbcode, String noticeWriter, String noticeTitle, String noticeCont) {
 		String sql="insert into "
-				+ "lmsBbsAll(lmsbcode, lmsbcode, lmsbauthor, lmsbdate, lmsbtitle, "
-				+ "lmsbcontent, lmsmember.mnum)"
-				+ " values(lms_bbs_sq.nextval, ?, ?, sysdate, ?, ?, ?)";
+				+ "lmsBbsAll(lmsblog, lmsbcode, lmsbauthor, lmsbdate, lmsbtitle, "
+				+ "lmsbcontent)"
+				+ " values(lms_bbs_sq.nextval, ?, ?, sysdate, ?, ?)";
+		
+//		String sql = "insert all "
+//				+ "into lmsBbsAll(lmsblog, lmsbcode, lmsbauthor, lmsbdate, lmsbtitle, lmsbcontent) "
+//				+ "values(lms_bbs_sq.nextval, ?, ?, sysdate, ?, ?) "
+//				+ "into lmsmember(mnum, snum) values(?, 1) "
+//				+ "select  from dual";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -37,7 +44,7 @@ public class LMSNoticeDao extends LMSDao{
 			// 제목
 			pstmt.setString(4, noticeCont);
 			//내용
-			pstmt.setInt(5, mnum);
+//			pstmt.setInt(5, mnum);
 			// 글쓴이 이름을 식별하는 mnum // 굳이 mnum mname을 데이터베이스에 입력하는 이유는 보기 편하기 위함.
 			//mnum은 구별하기 쉽게 하기 위함.
 			pstmt.executeUpdate();	
@@ -55,11 +62,15 @@ public class LMSNoticeDao extends LMSDao{
 	}
 	
 	public ArrayList<LMSNoticeDto> bbsListAll(int lmsbcode){
+//		String sql="select lmsblog, lmsbcode, lmsbauthor, lmsbdate, lmsbtitle, "
+//				+ "lmsbcontent, lmsmember.mnum from lmsBbsAll, lmsmember";
 		String sql="select lmsblog, lmsbcode, lmsbauthor, lmsbdate, lmsbtitle, "
-				+ "lmsbcontent, lmsmember.mnum from lmsBbsAll, lmsmember";
+				+ "lmsbcontent from lmsBbsAll where lmsbcode=? order by lmsblog desc";
+		
 		ArrayList<LMSNoticeDto> list=new ArrayList<LMSNoticeDto>();
 		try {
 			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, lmsbcode);
 			rs=pstmt.executeQuery();
 			
 			System.out.println(sql);
@@ -72,9 +83,9 @@ public class LMSNoticeDao extends LMSDao{
 				bean.setLmsbdate(rs.getDate("lmsbdate"));//작성일
 				bean.setLmstitle(rs.getString("lmsbtitle"));//제목
 				bean.setLmsbcontent(rs.getString("lmsbcontent"));//내용
-				bean.setLmsnum(rs.getInt("mnum"));//회원번호
+//				bean.setLmsnum(rs.getInt("mnum"));//회원번호
 				
-				list.add(bean);				
+				list.add(bean);
 			}
 			System.out.println("목록 출력");
 		} catch (SQLException e) {

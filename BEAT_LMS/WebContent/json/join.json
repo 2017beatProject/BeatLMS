@@ -1,9 +1,0 @@
-{'mid' : id, 
-'mpw' : mpw,
-'mname' : mname,
-'mbirth' : mbirth,
-'mzen' :mzen,
-'mphone': mphone,
-'mmail' :mmail,
-'maddress':maddress,
-'maddnum':maddnum}

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,17 +14,6 @@
 <style type="text/css">
 
 </style>
-<script>
-function mouseOver(obj){
-	 obj.style.cursor='pointer';
-	 obj.style.backgroundColor="#dddddd";
-}
-
-function mouseOut(obj){
-	 obj.style.backgroundColor="";
-}
-
-</script>
 </head>
 <body>
 	<jsp:include page="../template/header.jsp"></jsp:include>
@@ -48,24 +36,31 @@ function mouseOut(obj){
 						<th>제목</th>
 						<th>작성자</th>
 						<th>작성일</th>
-						<th>비고</th>
+						<th>조회수</th>
 					</tr>
-					<c:forEach items="${list}" var="list">
-				
-					<tr onmouseover="mouseOver(this);" onmouseout="mouseOut(this);" onclick="location.href='qnadetail.lms?lmsblog=${list.lmsblog}'">
-					
-						<td>${list.qnaLog}</td>
-						<td>${list.qnaTitle }</td>
-						<td>${list.mid }</td>
-						<td>${list.qnaDate}</td>
-						<td></td>
+					<tr>
+						<td>3</td>
+						<td>질문3</td>
+						<td>아이디</td>
+						<td>2018-01-01</td>
+						<td>조회수</td>
 					</tr>
-					</c:forEach>
-				
+					<tr>
+						<td>2</td>
+						<td>질문2</td>
+						<td>아이디</td>
+						<td>2018-01-01</td>
+						<td>조회수</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>질문1</td>
+						<td>아이디</td>
+						<td>2018-01-01</td>
+						<td>조회수</td>
+					</tr>
 				</table>
-				<div id="addbtn">
-				  <a href="qnaAdd.lms">글쓰기</a>
-				</div>
+				
 			</div>
 		</div>
 

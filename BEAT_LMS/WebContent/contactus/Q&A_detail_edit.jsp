@@ -9,63 +9,67 @@
 <link rel="stylesheet" href="./css/960.css">
 <link rel="stylesheet" href="./css/menu.css">
 <link rel="stylesheet" href="./css/header.css">
-<link rel="stylesheet" href="./css/contactus_Q&A.css">
+<link rel="stylesheet" href="./css/contactus_Q&A_add.css">
 <link rel="stylesheet" href="./css/footer.css">
 
 <style type="text/css">
-
 </style>
-<script>
-function mouseOver(obj){
-	 obj.style.cursor='pointer';
-	 obj.style.backgroundColor="#dddddd";
-}
-
-function mouseOut(obj){
-	 obj.style.backgroundColor="";
-}
-
-</script>
 </head>
 <body>
 	<jsp:include page="../template/header.jsp"></jsp:include>
 	<jsp:include page="../template/loginjoin.jsp"></jsp:include>
 	<jsp:include page="../template/menu.jsp"></jsp:include>
-	<jsp:include page="../template/aside_menu_contact.jsp"></jsp:include>
-	
+
+	<!-- aside -->
+	<div class="aside grid_2">
+		<div id="mainmenu">
+			<label><strong>CONTACT<br>US
+			</strong></label>
+		</div>
+		<div id="aside">
+			<ul id="menu1">
+				<li><a href="#">상담신청</a></li>
+			</ul>
+			<ul id="menu2">
+				<li><a href="#">질문사항</a></li>
+			</ul>
+			<!-- <ul id="menu3">
+				<li><a href="#"></a></li>
+			</ul> -->
+		</div>
+	</div>
+	<!-- aside END -->
+
+
 	<!-- content -->
 	<div class="content grid_10">
-		<img class="imgs" id="topimg" alt="" src="./imgs/menu_topimg1.jpg">
+		<img class="imgs" id="topimg" alt="" src="../imgs/menu_topimg1.jpg">
 		<div class="layout">
 			<div>
 				<img alt="" src="">
 			</div>
-			<p><b>질문사항</b></p>
-			<div id="listlayout">
-				<table>
-					<tr>
-						<th>번호</th>
-						<th>제목</th>
-						<th>작성자</th>
-						<th>작성일</th>
-						<th>비고</th>
-					</tr>
-					<c:forEach items="${list}" var="list">
+			<p>
+				<b>질문수정</b>
+			</p>
+			<div id="contentlayout">
+				<div id="insidelayout">
 				
-					<tr onmouseover="mouseOver(this);" onmouseout="mouseOut(this);" onclick="location.href='qnadetail.lms?lmsblog=${list.lmsblog}'">
+				<c:forEach items="${list}" var="list">
+					<form action="qnaedit.lms?lmsblog=${list.lmsblog}" method="post">					
+						<div class="title">
+							<label>제목</label><input type="text" name="title" value="${list.qnaTitle }"/>
+						</div>
+						<div class="contents">
+							<textarea rows="" cols="" name="contents">${list.qnaContent}</textarea>
+						</div>
+			</c:forEach>
 					
-						<td>${list.qnaLog}</td>
-						<td>${list.qnaTitle }</td>
-						<td>${list.mid }</td>
-						<td>${list.qnaDate}</td>
-						<td></td>
-					</tr>
-					</c:forEach>
-				
-				</table>
-				<div id="addbtn">
-				  <a href="qnaAdd.lms">글쓰기</a>
 				</div>
+				<div id="addbtn">
+					<button type="reset">취소</button>
+					<button type="submit">수정</button>
+				</div>
+				</form>
 			</div>
 		</div>
 

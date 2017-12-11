@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,23 +8,12 @@
 <link rel="stylesheet" href="./css/960.css">
 <link rel="stylesheet" href="./css/menu.css">
 <link rel="stylesheet" href="./css/header.css">
-<link rel="stylesheet" href="./css/contactus_Q&A.css">
+<link rel="stylesheet" href="./css/contactus_administration_Q&A_detail.css">
 <link rel="stylesheet" href="./css/footer.css">
 
 <style type="text/css">
 
 </style>
-<script>
-function mouseOver(obj){
-	 obj.style.cursor='pointer';
-	 obj.style.backgroundColor="#dddddd";
-}
-
-function mouseOut(obj){
-	 obj.style.backgroundColor="";
-}
-
-</script>
 </head>
 <body>
 	<jsp:include page="../template/header.jsp"></jsp:include>
@@ -33,6 +21,7 @@ function mouseOut(obj){
 	<jsp:include page="../template/menu.jsp"></jsp:include>
 	<jsp:include page="../template/aside_menu_contact.jsp"></jsp:include>
 	
+
 	<!-- content -->
 	<div class="content grid_10">
 		<img class="imgs" id="topimg" alt="" src="./imgs/menu_topimg1.jpg">
@@ -40,32 +29,27 @@ function mouseOut(obj){
 			<div>
 				<img alt="" src="">
 			</div>
-			<p><b>질문사항</b></p>
-			<div id="listlayout">
-				<table>
-					<tr>
-						<th>번호</th>
-						<th>제목</th>
-						<th>작성자</th>
-						<th>작성일</th>
-						<th>비고</th>
-					</tr>
-					<c:forEach items="${list}" var="list">
-				
-					<tr onmouseover="mouseOver(this);" onmouseout="mouseOut(this);" onclick="location.href='qnadetail.lms?lmsblog=${list.lmsblog}'">
-					
-						<td>${list.qnaLog}</td>
-						<td>${list.qnaTitle }</td>
-						<td>${list.mid }</td>
-						<td>${list.qnaDate}</td>
-						<td></td>
-					</tr>
-					</c:forEach>
-				
-				</table>
-				<div id="addbtn">
-				  <a href="qnaAdd.lms">글쓰기</a>
+			<p><b>질문내용</b></p>
+			<div id="contentlayout">
+				<div id="insidelayout">
+				<form action="">
+					    <div>
+					     <label>이름</label><input type="text" id="name"/>
+					     <label>아이디</label><input type="text" id="id"/>
+					     <label>연락처</label><input type="text" id="Pnumber"/>
+					    </div>
+						<div class="title">
+							<label>제목</label><input type="text" id="title"/>
+						</div>
+						<div class="contents">
+							<textarea rows="" cols="" id="contents"></textarea>
+						</div>
+					</form>
 				</div>
+				<div id="addbtn">
+					<button type="submit">목록</button>
+					<button type="submit">답글</button>
+			</div>
 			</div>
 		</div>
 

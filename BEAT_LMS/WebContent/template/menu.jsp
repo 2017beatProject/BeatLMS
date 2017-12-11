@@ -59,7 +59,9 @@
 				
 	<%}
 	%>			
-			
+				<%
+	if(session.getAttribute("snum")==null || session.getAttribute("snum").equals("1") ){//처음 들어왔거나 snum 1이면
+		%>	
 			<div class="grid_2">
 			<ul>
 				<li><a href="acaNotice.lms">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOTICE&nbsp;</a>
@@ -70,7 +72,25 @@
 				</li>
 			</ul>
 			</div>
-			
+			<%} else if(session.getAttribute("snum").equals("2")){ //직원이면~ 
+		%>	
+			<div class="grid_2">
+			<ul>
+				<li><a href="Notice_admin.lms">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOTICE&nbsp;</a>
+					<ul>
+						<li><a href="Notice_admin.lms">학사공지</a></li>
+						<li><a href="notice_admin_gen.lms">일반공지</a></li>
+					</ul>
+				</li>
+			</ul>
+			</div>
+		
+		
+		
+			<%}
+	%>	
+		
+		
 			
 	<%
 	if(session.getAttribute("snum")==null || session.getAttribute("snum").equals("1") ){//처음 들어왔거나 snum 1이면

@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="./css/960.css">
 <link rel="stylesheet" href="./css/menu.css">
@@ -12,13 +12,32 @@
 <link rel="stylesheet" href="./css/footer.css">
 
 <style type="text/css">
+
 </style>
 </head>
 <body>
 	<jsp:include page="../template/header.jsp"></jsp:include>
 	<jsp:include page="../template/loginjoin.jsp"></jsp:include>
 	<jsp:include page="../template/menu.jsp"></jsp:include>
-	<jsp:include page="../template/aside_menu_notice.jsp"></jsp:include>
+
+	<!-- aside -->
+	<div class="aside grid_2">
+		<div id="mainmenu">
+			<label><strong>NOTICE</strong></label>
+		</div>
+		<div id="aside">
+			<ul id="menu1">
+				<li><a href="notice_admin.lms">학사공지</a></li>
+			</ul>
+			<ul id="menu2">
+				<li><a href="notice_admin_gen.lms">일반공지</a></li>
+			</ul>
+			<!-- <ul id="menu3">
+				<li><a href="#"></a></li>
+			</ul> -->
+		</div>
+	</div>
+	<!-- aside END -->
 
 
 	<!-- content -->
@@ -29,23 +48,25 @@
 				<img alt="" src="">
 			</div>
 			<p>
-				<b>�����ø���</b>
+				<b>공지올리기</b>
 			</p>
+			<form action="notice_admin_gen_add.lms" method="post">
 			<div id="contentlayout">
 				<div id="insidelayout">
-					<form action="">
+				<input name="lmsbcode" value="일반 공지 코드" disabled="disabled"/>
+				<input name="noticeWriter" value="작성자명 입력"/>
 						<div class="title">
-							<label>����</label><input type="text" id="title">
+							<label>제목</label><input type="text" id="title" name="noticeTitle">
 						</div>
 						<div class="contents">
-							<textarea rows="" cols="" id="contents"></textarea>
+							<textarea rows="" cols="" id="contents" name="noticeCont"></textarea>
 						</div>
-					</form>
 				</div>
 				<div id="addbtn">
-					<button type="submit">�۾���</button>
+					<button type="submit">글쓰기</button>
 				</div>
 			</div>
+			</form>
 		</div>
 
 

@@ -26,7 +26,7 @@ public class GradeAdminController extends HttpServlet {
 		
 		req.setAttribute("listAllAdmin", gradeListAdmin);
 		
-		req.getRequestDispatcher("/lecture/testGradeAdmin.jsp").forward(req, resp);
+		req.getRequestDispatcher("/lecture/lecture_add.jsp").forward(req, resp);
 		
 	}
 	

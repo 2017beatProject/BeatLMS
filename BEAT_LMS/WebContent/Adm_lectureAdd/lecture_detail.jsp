@@ -69,7 +69,7 @@ function toDeletePage(lecseri){
 						<option value="3">강의장3</option>
 					</select>
 					<label>강사</label><select name="lectureteacher">
-						<option value="<%=bean.getReLecTeacher()%>"><%=bean.getLecTeacher()%></option>
+						<option value="<%=bean.getReLecTeacher() %>"><%=bean.getLecTeacher()%></option>
 						<option value="1">강사1</option>
 						<option value="2">강사2</option>
 						<option value="3">강사3</option>

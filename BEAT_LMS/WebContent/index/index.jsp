@@ -8,19 +8,24 @@
 <link rel="stylesheet" href="./css/960.css">
 <link rel="stylesheet" href="./css/menu.css">
 <link rel="stylesheet" href="./css/header.css">
+<link rel="stylesheet" href="./css/jquery.bxslider.css">
 <style type="text/css">
 
 .bxslider>div>img {
 	width: 960px;
 }
-
-.bxslider {
-	z-index: -1;
+.bx-next,.bx-prev{
+ visibility: hidden;
 }
 
-.bx-next {
-	
+.bx-wrapper:HOVER .bx-next{
+visibility: visible;
 }
+.bx-wrapper:HOVER .bx-prev{
+visibility: visible;
+}
+
+
 </style>
 <script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="./js/jquery.bxslider.js"></script>
@@ -29,8 +34,9 @@
 		$('.bxslider').bxSlider({
 			'auto' : true,
 			'mode' : 'fade',
-			'pause' : '5000'
-
+			'pause' : '5000',
+			'pager':'true'
+		   
 		});
 	});
 </script>
@@ -44,16 +50,19 @@
 	<div class="content">
 		<div class="bxslider">
 			<div>
-				<img alt="bx01" src="./imgs/bx01.jpg" />
+				<img alt="bx01" src="./imgs/bx_01.jpg" />
 			</div>
 			<div>
-				<img alt="bx02" src="./imgs/bx02.jpg" />
+				<img alt="bx02" src="./imgs/bx_02.jpg" />
 			</div>
 			<div>
-				<img alt="bx03" src="./imgs/bx03.jpg" />
+				<img alt="bx03" src="./imgs/bx_03.jpg" />
 			</div>
 			<div>
-				<img alt="bx04" src="./imgs/bx04.jpg" />
+				<img alt="bx04" src="./imgs/bx_04.jpg" />
+			</div>
+			<div>
+				<img alt="bx05" src="./imgs/bx_05.jpg" />
 			</div>
 		</div>
 	</div>

@@ -26,45 +26,70 @@ public class MemberManagementEditUpdateController extends HttpServlet {
 		
 		int mnum= Integer.parseInt(req.getParameter("mnum"));
 		
-		int snum; 
-			if(req.getParameter("snum").trim().equals("일반회원")){
-				snum=1;
-			}else if(req.getParameter("snum").trim().equals("직원")){
-				snum=2;	
-			}else{
-				snum=1; //일반회원도 직원도 아닐리는 없지만 안정하면 전부 일반회원되는거... 
-			}
+	//	System.out.println(mnum);
 		
-		String mid=req.getParameter("mid").trim();
-		String mname=req.getParameter("mname").trim();
+//		int snum; 
+//			if(req.getParameter("snum").trim().equals("일반회원")){
+//				snum=1;
+//			}else if(req.getParameter("snum").trim().equals("직원")){
+//				snum=2;	
+//			}else{
+//				snum=1; //일반회원도 직원도 아닐리는 없지만 안정하면 전부 일반회원되는거... 
+//			}
+		
+//		String mid=req.getParameter("mid").trim();
+		String mname=req.getParameter("name").trim();
+		
+		//System.out.println("mname"+mname);
+		
 		Date mbirth = java.sql.Date.valueOf(req.getParameter("mbirth"));
+	//	System.out.println("mbirth"+mbirth);
 		
-		int mzen; //라디오박스로 하면 프론트가 좀 힘들 거 같은..
-			if(req.getParameter("mzen").trim().equals("남")){
-				mzen=1;
-			}else if(req.getParameter("mzen").trim().equals("여")){
-				mzen=2;	
-			}else{
-				mzen=1; //안정하면 그냥 남자
-			}	
+		int mzen=Integer.parseInt(req.getParameter("mzen")); //라디오박스로 하면 프론트가 좀 힘들 거 같은..
+//			if(req.getParameter("mzen").trim().equals("남")){
+//				mzen=1;
+//			}else if(req.getParameter("mzen").trim().equals("여")){
+//				mzen=2;	
+//			}else{
+//				mzen=1; //안정하면 그냥 남자
+//			}	
+	//	System.out.println("mzen"+mzen);
 			
 		int mphone=Integer.parseInt(req.getParameter("mphone"));
+	//	System.out.println("mphone"+mphone);
+		
 		String mmail=req.getParameter("mmail");
-		String maddress=req.getParameter("maddress");
-		int maddnum=Integer.parseInt(req.getParameter("maddnum"));
-		Date joindate = java.sql.Date.valueOf(req.getParameter("joindate"));
-		String team=req.getParameter("team");
+	//	System.out.println("mmail"+mmail);
+		
+		String maddress=req.getParameter("maddress"); //도로명주소
+		if(maddress.isEmpty()){maddress="임시주소";}
+	//	System.out.println("maddress"+maddress);
+		
+		String adn = req.getParameter("maddnum");
+		int maddnum;
+		if(adn.isEmpty()){ 
+			maddnum = 111111;
+		}else{
+			maddnum=Integer.parseInt(adn);
+		}
+		
+		//System.out.println("maddnum"+maddnum);
+		
+		
+		
+	
+		
 		
 		OneMemManagementEditUpdateDao dao = new OneMemManagementEditUpdateDao();
-		int updateResult = dao.EditOne(mnum, snum, mid, mname, mbirth, mzen, mphone, mmail, maddress, maddnum, joindate, team);
+		int updateResult = dao.EditOne(mnum, mname, mbirth, mzen, mphone, mmail, maddress, maddnum);
 		
 		if(updateResult>0){//성공하면
 			url="mnglist.lms";
-			System.out.println("성공");
+			System.out.println("회원 정보 수정 성공");
 			
 		}else{
 			url="mngDetail.lms?mnum="+mnum;
-			System.out.println("실패");	
+			System.out.println("회원 정보 수정 실패");	
 			//실패시~~ 어쩌지?
 		}
 		

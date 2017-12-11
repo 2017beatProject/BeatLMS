@@ -4,15 +4,21 @@ import java.sql.Date;
 
 public class LMSNoticeDto {
 
+	private int bbsrow;
 	private int lmsbcode;
 	private int lmsblog;
 	private String lmsbauthor;
 	private Date lmsbdate;
 	private String lmstitle;
 	private String lmsbcontent;
-	private int lmsnum;
 	
 	
+	public int getBbsrow() {
+		return bbsrow;
+	}
+	public void setBbsrow(int bbsrow) {
+		this.bbsrow = bbsrow;
+	}
 	public int getLmsbcode() {
 		return lmsbcode;
 	}
@@ -49,13 +55,5 @@ public class LMSNoticeDto {
 	public void setLmsbcontent(String lmsbcontent) {
 		this.lmsbcontent = lmsbcontent;
 	}
-	public int getLmsnum() {
-		return lmsnum;
-	}
-	public void setLmsnum(int lmsnum) {
-		this.lmsnum = lmsnum;
-	}
-	
-	
-	
+
 }

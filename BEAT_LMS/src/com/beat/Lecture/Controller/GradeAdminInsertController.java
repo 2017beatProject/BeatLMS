@@ -55,7 +55,7 @@ public class GradeAdminInsertController extends HttpServlet {
 		GradeAdminDao gradeAdminDao = new GradeAdminDao();
 		gradeAdminDao.gradeInsert(mnum, lectSeriNum, javaPoint, webPoint, DBPoint, pointAvr, pointSum);
 		
-		resp.sendRedirect("grade_admin.lms");
+		resp.sendRedirect("/grade_admin.lms");
 	}
 
 }

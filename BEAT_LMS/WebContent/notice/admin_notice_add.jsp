@@ -18,10 +18,29 @@
 	<jsp:include page="../template/header.jsp"></jsp:include>
 	<jsp:include page="../template/loginjoin.jsp"></jsp:include>
 	<jsp:include page="../template/menu.jsp"></jsp:include>
-	<jsp:include page="../template/aside_menu_notice.jsp"></jsp:include>
-	
+
+	<!-- aside -->
+	<div class="aside grid_2">
+		<div id="mainmenu">
+			<label><strong>NOTICE</strong></label>
+		</div>
+		<div id="aside">
+			<ul id="menu1">
+				<li><a href="notice_admin.lms">학사공지</a></li>
+			</ul>
+			<ul id="menu2">
+				<li><a href="notice_admin_gen.lms">일반공지</a></li>
+			</ul>
+			<!-- <ul id="menu3">
+				<li><a href="#"></a></li>
+			</ul> -->
+		</div>
+	</div>
+	<!-- aside END -->
+
 
 	<!-- content -->
+					
 	<div class="content grid_10">
 		<img class="imgs" id="topimg" alt="" src="./imgs/menu_topimg1.jpg">
 		<div class="layout">
@@ -31,21 +50,24 @@
 			<p>
 				<b>공지올리기</b>
 			</p>
+<form action="notice_admin_add.lms" method="post">
 			<div id="contentlayout">
 				<div id="insidelayout">
-					<form action="">
+					<input name="lmsbcode" value="학사 공지 코드" disabled="disabled"/>
+					<!-- <input name="mnum" value="임시로 학생번호 입력"/> -->
+					<input name="noticeWriter" value="작성자명 입력"/>
 						<div class="title">
-							<label>제목</label><input type="text" id="title">
+							<label>제목</label><input type="text" id="title" name="noticeTitle">
 						</div>
 						<div class="contents">
-							<textarea rows="" cols="" id="contents"></textarea>
+							<textarea rows="" cols="" id="contents" name="noticeCont"></textarea>
 						</div>
-					</form>
 				</div>
 				<div id="addbtn">
 					<button type="submit">글쓰기</button>
 				</div>
 			</div>
+					</form>
 		</div>
 
 

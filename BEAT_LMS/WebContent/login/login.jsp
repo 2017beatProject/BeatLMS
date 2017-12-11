@@ -33,23 +33,9 @@ window.onload= function(){
 	//alert(loginResult);
 	if(loginResult==false){
 	  	er();
-	}	
+	}
 }
 
-function rdoChk(){
-var check = false;
-for(var i = 0; i < document.getElementsByName("radioName").length; ++i ){
-   if ( document.getElementsByName("radioName")[i].checked == true ) { 
-	   radioNum=document.getElementsByName("radioName")[i].value;
-       check = true;
-       break;
-    }
- }
- if(check == false){  
-	 document.getElementById("rdoerr").innerHTML='(선택하세요)'; 
-	 return false;
-  } 
-}
 
 
 </script>
@@ -87,11 +73,9 @@ for(var i = 0; i < document.getElementsByName("radioName").length; ++i ){
 			<div id="radio">
 				<input type="radio" name="radioName" value="1"/>일반 회원 
 				<input type="radio"	name="radioName" value="2"/>직원
-				<p id="rdoerr"></p>
 			</div>
 			<div id="btn">
-				<button type="submit" onClick="return rdoChk();">로그인</button>
-				
+				<button type="submit" onClick="rdoChk();">로그인</button>
 			</div>
 			
 		</div>

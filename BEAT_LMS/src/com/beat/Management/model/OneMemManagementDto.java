@@ -49,11 +49,11 @@ public class OneMemManagementDto {
 			public void setmZen(int mZen) {
 				
 				if(mZen==1){
-					this.mZen = "남";
+					this.mZen = "남성";
 				}else if(mZen==2){
-					this.mZen = "여";
+					this.mZen = "여성";
 				}else{
-					this.mZen = "기타";
+					this.mZen = "남성";
 				}
 				
 			}

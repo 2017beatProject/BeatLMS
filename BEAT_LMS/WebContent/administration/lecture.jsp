@@ -16,7 +16,7 @@
 	<jsp:include page="../template/header.jsp"></jsp:include>
 	<jsp:include page="../template/loginjoin.jsp"></jsp:include>
 	<jsp:include page="../template/menu.jsp"></jsp:include>
-<jsp:include page="../template/aside_menu_administration.jsp"></jsp:include>
+	<jsp:include page="../template/aside_menu_administration.jsp"></jsp:include>
 	
 
 	<!-- content -->
@@ -68,7 +68,7 @@
 					</tr>
 				</table>
 				<div id="addbtn">
-				  <a href="toAddLecture.lms">강의개설</a>
+				  <a href="grade_insert.lms">강의개설</a>
 				</div>
 			</div>
 		</div>

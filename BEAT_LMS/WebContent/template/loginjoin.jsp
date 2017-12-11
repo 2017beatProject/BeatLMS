@@ -9,7 +9,7 @@
 
 		<div class="grid_12 loginjoin">
 
-			<% if(session.getAttribute("mid")==null){ %>
+			<% if(session.getAttribute("mid")==null || session.getAttribute("mid").equals("guest")){ %>
 				<a href="./login.lms"><img alt="login" src="./imgs/login.jpg"></a> 
 				<a href="./join.lms"><img alt="join" src="./imgs/join.jpg"></a>
 			

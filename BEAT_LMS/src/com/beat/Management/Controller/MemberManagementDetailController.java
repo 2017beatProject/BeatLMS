@@ -28,7 +28,7 @@ public class MemberManagementDetailController extends HttpServlet{
 		
 	 //req.getRequestDispatcher("/Adm_Adm/memDetail.jsp").forward(req, resp);
 		
-	req.getRequestDispatcher("/Adm_Adm/memDetail.jsp").forward(req, resp);
+	req.getRequestDispatcher("/administration/member_detail.jsp").forward(req, resp);
 	
 	}
 	

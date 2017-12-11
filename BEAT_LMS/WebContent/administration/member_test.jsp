@@ -86,10 +86,7 @@
             <th>joindate</th>
             <td><%=bean.getJoinDate() %></td>
          </tr>
-         <tr>
-            <th>rightcode</th>
-            <td><%=bean.getRightCode()%></td>
-         </tr>
+       
 <%
 }
 %>   

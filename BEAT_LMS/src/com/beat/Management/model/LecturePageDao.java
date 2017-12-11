@@ -92,7 +92,6 @@ public class LecturePageDao extends LMSDao {
 		}
 		
 		
-		
 		return list;
 	}
 	

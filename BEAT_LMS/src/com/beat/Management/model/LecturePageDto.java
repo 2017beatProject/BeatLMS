@@ -18,12 +18,15 @@ public class LecturePageDto {
 	int reLecTeacher;
 	
 	public String getReLecRoom(){
+		
 		if(lecRoom.equals("1")){
 			reLecRoom="강의장1";
 		}else if(lecRoom.equals("2")){
 			reLecRoom="강의장2";
 		}else if(lecRoom.equals("3")){
 			reLecRoom="강의장3";
+		}else{
+			reLecRoom="강의장1";
 		}
 		
 		return reLecRoom; 
@@ -43,6 +46,7 @@ public class LecturePageDto {
 	}
 	
 	public String getLecContent() {
+		if(lecContent==null)lecContent="";
 		return lecContent;
 	}
 	public void setLecContent(String lecContent) {

@@ -65,33 +65,8 @@
 	<jsp:include page="../template/header.jsp"></jsp:include>
 	<jsp:include page="../template/loginjoin.jsp"></jsp:include>
 	<jsp:include page="../template/menu.jsp"></jsp:include>
-
-	<!-- aside -->
-	<div class="aside grid_2">
-		<div id="mainmenu">
-			<label><strong>ADMINI<br>STRATION
-			</strong></label>
-		</div>
+	<jsp:include page="../template/aside_menu_administration.jsp"></jsp:include>
 	
-	
-
- 
-		<div id="aside">
-			<ul id="menu1">
-				<li><a href="#">회원관리</a></li>
-			</ul>
-			<ul id="menu2">
-				<li><a href="#">강의관리</a></li>
-			</ul>
-			<ul id="menu3">
-				<li><a href="#">상담관리</a></li>
-			</ul>
-			<ul id="menu4">
-				<li><a href="#">수강생관리</a></li>
-			</ul>
-		</div>
-	</div>
-	<!-- aside END -->
 
 
 	<!-- content -->
@@ -179,6 +154,7 @@
 
 <br><br>
 
+<a href="#"> [입력 기능은 없음] </a>
 				
 				
 				

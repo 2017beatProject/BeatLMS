@@ -1,9 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@page import="com.beat.Notice.model.LMSNoticeDto"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="./css/960.css">
 <link rel="stylesheet" href="./css/menu.css">
@@ -19,7 +21,7 @@
 	<jsp:include page="../template/loginjoin.jsp"></jsp:include>
 	<jsp:include page="../template/menu.jsp"></jsp:include>
 	<jsp:include page="../template/aside_menu_notice.jsp"></jsp:include>
-
+	
 	<!-- content -->
 	<div class="content grid_10">
 		<img class="imgs" id="topimg" alt="" src="./imgs/menu_topimg1.jpg">
@@ -28,42 +30,37 @@
 				<img alt="" src="">
 			</div>
 			<p>
-				<b>ÇÐ»ç°øÁö</b>
+				<b>í•™ì‚¬ê³µì§€</b>
 			</p>
+			<input name="lmsbcode" value="í•™ì‚¬ ê³µì§€ ì½”ë“œ" disabled="disabled" />
 			<div id="listlayout">
 				<table>
 					<tr>
-						<th>¹øÈ£</th>
-						<th>Á¦¸ñ</th>
-						<th>ÀÛ¼ºÀÚ</th>
-						<th>ÀÛ¼ºÀÏ</th>
-						<th>Á¶È¸¼ö</th>
+						<th>ë²ˆí˜¸</th>
+						<th>ì œëª©</th>
+						<th>ë‚´ìš©</th>
+						<th>ìž‘ì„±ìž</th>
+						<th>ìž‘ì„±ì¼</th>
 					</tr>
+					<%
+						ArrayList<LMSNoticeDto> noticeAdminList = (ArrayList<LMSNoticeDto>) request
+								.getAttribute("noticeAdminList");
+						for (LMSNoticeDto bean : noticeAdminList) {
+					%>
 					<tr>
-						<td>3</td>
-						<td>ÇÐ»ç°øÁö3</td>
-						<td>¾ÆÀÌµð</td>
-						<td>2018-01-01</td>
-						<td>Á¶È¸¼ö</td>
+						<td><%=bean.getLmsblog()%></td>
+						<td><%=bean.getLmstitle()%></td>
+						<td><%=bean.getLmsbcontent()%></td>
+						<td><%=bean.getLmsbauthor()%></td>
+						<td><%=bean.getLmsbdate()%></td>
 					</tr>
-					<tr>
-						<td>2</td>
-						<td>ÇÐ»ç°øÁö2</td>
-						<td>¾ÆÀÌµð</td>
-						<td>2018-01-01</td>
-						<td>Á¶È¸¼ö</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>ÇÐ»ç°øÁö1</td>
-						<td>¾ÆÀÌµð</td>
-						<td>2018-01-01</td>
-						<td>Á¶È¸¼ö</td>
-					</tr>
+					<%
+						}
+					%>
 
 				</table>
 				<div id="addbtn">
-					<a href="#">±Û¾²±â</a>
+					<a href="notice_admin_add.lms">ê¸€ì“°ê¸°</a>
 				</div>
 			</div>
 		</div>

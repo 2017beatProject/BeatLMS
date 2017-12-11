@@ -12,9 +12,19 @@ public class LecturePageDto {
  	String reDate;
  	int maxnum;
  	int num;
+ 	String lecContent;
  	
  	
  	
+	public String getLecContent() {
+		return lecContent;
+	}
+	public void setLecContent(String lecContent) {
+		this.lecContent = lecContent;
+	}
+	public void setReDate(String reDate) {
+		this.reDate = reDate;
+	}
 	public int getLecName() {
 		return lecName;
 	}
@@ -33,15 +43,17 @@ public class LecturePageDto {
 	public void setLecTeacher(String lecTeacher) {
 		this.lecTeacher = lecTeacher;
 	}
-//	public Date getLecStart() {
-//		return lecStart;
-//	}
+	public Date getLecStart() {
+		return lecStart;
+	}
 	public void setLecStart(Date lecStart) {
 		this.lecStart = lecStart;
 	}
-//	public Date getLecEnd() {
-//		return lecEnd;
-//	}
+	
+	public Date getLecEnd() {
+		return lecEnd;
+	}
+	
 	public void setLecEnd(Date lecEnd) {
 		this.lecEnd = lecEnd;
 	}

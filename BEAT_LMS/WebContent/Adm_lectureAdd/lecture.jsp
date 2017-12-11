@@ -66,7 +66,7 @@ for(LecturePageDto bean : list){
 %>					
 
 	<tr onmouseover="mouseOver(this);" onmouseout="mouseOut(this);" onclick="location.href='lecDetail.lms?lecname=<%=bean.getLecName()%>'">
-						
+					<!-- 여기 강의 시리얼넘버를 강의명으로 변환할 경우 : 기존에 받아온 시리얼 넘버값을 패러미터로 상세보기 페이지로 이동하므로 처리필요 -->	
 					
 						<td><%=bean.getLecName() %></td>
 						<td><%=bean.getLecRoom() %></td>

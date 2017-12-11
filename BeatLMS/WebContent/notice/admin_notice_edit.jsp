@@ -43,7 +43,7 @@ LMSNoticeDto bean=(LMSNoticeDto)request.getAttribute("noticeAdminEdit");
 <form action="notice_admin_edit.lms?lmsblog=<%=bean.getLmsblog()%>" name="adminEdit" method="post">
 			<div id="contentlayout">
 				<div id="insidelayout">
-					<input type="text" name="lmsblog" value="<%=bean.getLmsblog()%>" readonly="readonly" disabled="disabled"/>
+					<label>게시글번호 : </label><input type="text" name="lmsblog" value="<%=bean.getLmsblog()%>" readonly="readonly" disabled="disabled"/>
 						<div class="title">
 							<label>제목</label><input type="text" id="title" name="lmsbtitle" value="<%=bean.getLmsbtitle()%>" />
 						</div>

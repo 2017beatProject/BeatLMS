@@ -16,6 +16,16 @@
 <style type="text/css">
 
 </style>
+<script type="text/javascript">
+function mouseOver(obj){
+	 obj.style.cursor='pointer';
+	 obj.style.backgroundColor="#dddddd";
+}
+
+function mouseOut(obj){
+	 obj.style.backgroundColor="";
+}
+</script>
 </head>
 <body>
 	<jsp:include page="../template/header.jsp"></jsp:include>
@@ -45,12 +55,12 @@
 		ArrayList<LMSNoticeDto> noticeGenList = (ArrayList<LMSNoticeDto>)request.getAttribute("noticeGenList");
 		for(LMSNoticeDto bean : noticeGenList) {
 		%>
-					<tr>
+					<tr onmouseover="mouseOver(this);" onmouseout="mouseOut(this);" onclick="location.href='notice_general_detail.lms?lmsblog=<%=bean.getLmsblog() %>'">
 						<td><%=bean.getLmsblog() %></td>
 						<td><%=bean.getLmsbtitle() %></td>
 						<td><%=bean.getLmsbauthor() %></td>
 						<td><%=bean.getLmsbdate() %></td>
-						<td><a href="notice_general_detail.lms?lmsblog=<%=bean.getLmsblog() %>">공지 보기</a></td>
+						<%-- <td><a href="notice_general_detail.lms?lmsblog=<%=bean.getLmsblog() %>">공지 보기</a></td> --%>
 					</tr>
 		<% } %>
 				</table>

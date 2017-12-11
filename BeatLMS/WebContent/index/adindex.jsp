@@ -38,8 +38,8 @@ $(function() {
 </head>
 <body>
     <jsp:include page="../template/header.jsp"></jsp:include>
-	<jsp:include page="../template/logoutmypage.jsp"></jsp:include>
-	<jsp:include page="../template/admenu.jsp"></jsp:include>
+	<jsp:include page="../template/loginjoin.jsp"></jsp:include>
+	<jsp:include page="../template/menu.jsp"></jsp:include>
 		
 		<!-- content -->
 		<div class="content">

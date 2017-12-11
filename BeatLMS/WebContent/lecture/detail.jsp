@@ -5,15 +5,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-<link rel="stylesheet" href="./css/960.css">
-<link rel="stylesheet" href="./css/menu.css">
-<link rel="stylesheet" href="./css/header.css">
-<link rel="stylesheet" href="./css/lecture_detail.css">
-<link rel="stylesheet" href="./css/footer.css">
+<link rel="stylesheet" href="../css/960.css">
+<link rel="stylesheet" href="../css/menu.css">
+<link rel="stylesheet" href="../css/header.css">
+<link rel="stylesheet" href="../css/lecture_detail.css">
+<link rel="stylesheet" href="../css/footer.css">
 <style type="text/css">
 
 </style>
-<script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
 <script type="text/javascript">
 	function layer_open(el) {
 
@@ -55,36 +55,19 @@
 	<jsp:include page="../template/header.jsp"></jsp:include>
 	<jsp:include page="../template/loginjoin.jsp"></jsp:include>
 	<jsp:include page="../template/menu.jsp"></jsp:include>
+	<jsp:include page="../template/aside_menu_lecture.jsp"></jsp:include>
 
-	<!-- aside -->
-	<div class="aside grid_2">
-		<div id="mainmenu">
-			<label><strong>LECTURE</strong></label>
-		</div>
-		<div id="aside">
-			<ul id="menu1">
-				<li><a href="lecture.lms">강의소개</a></li>
-			</ul>
-			<ul id="menu2">
-				<li><a href="lecture_detail.lms">수강강의</a></li>
-			</ul>
-			<!-- <ul id="menu3">
-				<li><a href="#"></a></li>
-			</ul> -->
-		</div>
-	</div>
-	<!-- aside END -->
-
+	
 
 	<!-- content -->
 	<div class="content grid_10">
-		<img class="imgs" id="topimg" alt="" src="./imgs/menu_topimg1.jpg">
+		<img class="imgs" id="topimg" alt="" src="../imgs/menu_topimg1.jpg">
 		<div class="layout">
 			<p>
 				<b>과정소개</b>
 			</p>
 			<div>
-				<img class="imgs" alt="" src="./imgs/info_img1.jpg">
+				<img class="imgs" alt="" src="../imgs/info_img1.jpg">
 				<!-- 이미지크기 400/223 픽셀 -->
 				
 				<table>
@@ -154,11 +137,11 @@
 				<p>
 					<b>수강혜택</b>
 				</p>
-				<br> <img alt="" src="./imgs/info_img2.jpg"> <br>
+				<br> <img alt="" src="../imgs/info_img2.jpg"> <br>
 				<p>
 					<b>수강절차</b>
 				</p>
-				<br> <img alt="" src="./imgs/info_img3.jpg">
+				<br> <img alt="" src="../imgs/info_img3.jpg">
 
 			</div>
 		</div>

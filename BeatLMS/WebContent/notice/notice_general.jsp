@@ -21,25 +21,7 @@
 	<jsp:include page="../template/header.jsp"></jsp:include>
 	<jsp:include page="../template/loginjoin.jsp"></jsp:include>
 	<jsp:include page="../template/menu.jsp"></jsp:include>
-
-	<!-- aside -->
-	<div class="aside grid_2">
-		<div id="mainmenu">
-			<label><strong>NOTICE</strong></label>
-		</div>
-		<div id="aside">
-			<ul id="menu1">
-				<li><a href="notice.lms">학사공지</a></li>
-			</ul>
-			<ul id="menu2">
-				<li><a href="notice_general.lms">일반공지</a></li>
-			</ul>
-			<!-- <ul id="menu3">
-				<li><a href="#"></a></li>
-			</ul> -->
-		</div>
-	</div>
-	<!-- aside END -->
+	<jsp:include page="../template/aside_menu_notice.jsp"></jsp:include>
 
 
 	<!-- content -->
@@ -56,7 +38,6 @@
 				<tr>
 						<th>번호</th>
 						<th>제목</th>
-						<th>내용</th>
 						<th>작성자</th>
 						<th>작성일</th>
 					</tr>
@@ -66,41 +47,12 @@
 		%>
 					<tr>
 						<td><%=bean.getLmsblog() %></td>
-						<td><%=bean.getLmstitle() %></td>
-						<td><%=bean.getLmsbcontent() %></td>
+						<td><%=bean.getLmsbtitle() %></td>
 						<td><%=bean.getLmsbauthor() %></td>
 						<td><%=bean.getLmsbdate() %></td>
+						<td><a href="notice_general_detail.lms?lmsblog=<%=bean.getLmsblog() %>">공지 보기</a></td>
 					</tr>
 		<% } %>
-					<!-- <tr>
-						<th>번호</th>
-						<th>제목</th>
-						<th>작성자</th>
-						<th>작성일</th>
-						<th>조회수</th>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>일반공지3</td>
-						<td>아이디</td>
-						<td>2018-01-01</td>
-						<td>조회수</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>일반공지2</td>
-						<td>아이디</td>
-						<td>2018-01-01</td>
-						<td>조회수</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>일반공지1</td>
-						<td>아이디</td>
-						<td>2018-01-01</td>
-						<td>조회수</td>
-					</tr> -->
-					
 				</table>
 			</div>
 		</div>

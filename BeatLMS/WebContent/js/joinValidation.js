@@ -1,11 +1,5 @@
-var errList = [ "idErr", "pwInputErr", "pwInputReErr", "nameErr",
-    			"bDayErr", "genErr", "phoErr", "emErr", "loErr" ];
-    	var inputList = [ "idInput", "pwInput", "pwInputRe", "userName", "bDay",
-    			"gender", "phoneFirst", "email", "location" ];
-    	var returnTfCount;
-    	var pwToggle;
-    	function submitCheck() {
-    		returnTfCount = 0;
+
+    	function submitCheck() {    		
     		for (var j = 0; j < inputList.length; j++) {
     			if (document.getElementById(inputList[j]).value == "") {
     				document.getElementById(errList[j]).style.opacity = "1";
@@ -21,9 +15,14 @@ var errList = [ "idErr", "pwInputErr", "pwInputReErr", "nameErr",
     			document.getElementById("pwInputReErr").style.color = "deeppink";
     			returnTfCount++;
     		}
+    		
+    		
+    		
+    		
+    		
     	}
     	function resetText() {
-    		for (var i = 0; i < errList.length-1; i++) {
+    		for (var i = 0; i < errList.length; i++) {
     			document.getElementById(errList[i]).style.opacity = "0";
     			//document.getElementById(inputList[i]).style.backgroundColor = "white";
     		}
@@ -40,5 +39,6 @@ var errList = [ "idErr", "pwInputErr", "pwInputReErr", "nameErr",
     					'password');
     		}
     	}
-
-    	function idDoubleCheck() { 	}
+    	
+    	
+    	

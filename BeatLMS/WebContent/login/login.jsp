@@ -1,66 +1,101 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
+   
+
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>·Î±×ÀÎ ÆäÀÌÁö</title>
+
+<title>ë¡œê·¸ì¸ í˜ì´ì§€</title>
+
 <link rel="stylesheet" href="./css/960.css">
 <link rel="stylesheet" href="./css/menu.css">
 <link rel="stylesheet" href="./css/header.css">
 <link rel="stylesheet" href="./css/login.css">
 <style type="text/css">
 </style>
-<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
 <script type="text/javascript">
-//ÄÁÆ®·Ñ·¯¿¡¼­ ·Î±×ÀÎ ¼º°ø½Ã ¸®Äù½ºÆ® : successed / ½ÇÆĞ½Ã ¸®Äù½ºÆ® : failed 
+
 var loginResult, logintf, err;
+
+function er(){
+   err = document.getElementById('errMsg1');
+   err.innerText='IDì™€ ë¹„ë°€ë²ˆí˜¸ë¥¼ í™•ì¸í•˜ì„¸ìš”';
+}
+
+
+window.onload= function(){
    
-   var er = function(){
-      err.innerText='ID¿Í ºñ¹Ğ¹øÈ£¸¦ È®ÀÎÇÏ¼¼¿ä';
-   }
+   loginResult = <%= request.getAttribute("loginChk") %>;
    
-   
-   $(function(){
-      
-      loginResult = '<%=request.getAttribute("msg") %>';
-      logintf= '<%=session.getAttribute("result")%>';
-         
-      err = document.getElementById('errMsg1');
-      
-      if(loginResult=="failed"){
-           er();
-      }
-   });
-   
-   
+   //alert(loginResult);
+   if(loginResult==false){
+        er();
+   }   
+}
+
+function rdoChk(){
+var check = false;
+for(var i = 0; i < document.getElementsByName("radioName").length; ++i ){
+   if ( document.getElementsByName("radioName")[i].checked == true ) { 
+      radioNum=document.getElementsByName("radioName")[i].value;
+       check = true;
+       break;
+    }
+ }
+ if(check == false){  
+    document.getElementById("rdoerr").innerHTML='(ì„ íƒí•˜ì„¸ìš”)'; 
+    return false;
+  } 
+}
+
+
 </script>
 </head>
 <body>
+
+   
    <jsp:include page="../template/header.jsp"></jsp:include>
    <jsp:include page="../template/loginjoin.jsp"></jsp:include>
    <jsp:include page="../template/menu.jsp"></jsp:include>
 
    <!-- content -->
    <div class="content">
-      <form action="login.lms" method="post">
+   
+    <form action="login.lms" method="post">
+      
+   <div id="entireForm">
+      
          <div>
             <img id="logo" alt="logo" src="./imgs/loginlogo.jpg">
          </div>
+         
+         <div>
+            <span id="errMsg1"></span>
+         </div>
+         
          <div id="id">
-            <label for="id">¾ÆÀÌµğ</label> <input type="text" name="mid" />
+            <label for="id">ì•„ì´ë””</label>
+            <input type="text" name="mid" />
          </div>
          <div id="pw">
-            <label for="password">ºñ¹Ğ¹øÈ£</label> <input type="password"
-               name="mpw" />
+            <label for="password">ë¹„ë°€ë²ˆí˜¸</label> 
+            <input type="password" name="mpw" />
          </div>
          <div id="radio">
-            <input type="radio" name="1">ÀÏ¹İÈ¸¿ø <input type="radio"
-               name="2">Á÷¿ø
+            <input type="radio" name="radioName" value="1"/>ì¼ë°˜ íšŒì› 
+            <input type="radio"   name="radioName" value="2"/>ì§ì›
+            <p id="rdoerr"></p>
          </div>
          <div id="btn">
-            <button type="submit">·Î±×ÀÎ</button>
+            <button type="submit" onClick="return rdoChk();">ë¡œê·¸ì¸</button>
+            
          </div>
+         
+      </div>
+      
       </form>
    </div>
    <div class="clear"></div>

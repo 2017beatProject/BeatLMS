@@ -10,199 +10,238 @@
 <link rel="stylesheet" href="./css/header.css">
 <link rel="stylesheet" href="./css/join.css">
 <style type="text/css">
+.err {
+	position: absolute;
+	top: 150px;
+	width: 80%;
+	height: 50px;
+	background-color: red;
+	margin: 0px auto;
+	color: white;
+	font-size: 1.5em;
+	text-align: center;
+	opacity: 0.8;
+}
+
+#id>div {
+	color: deeppink;
+	font-size: 13px;
+	position: absolute;
+	left: 55px;
+}
 </style>
 <script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
-			<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="./js/address.js"></script>
+<script src="./js/joinValidation.js"></script>
+<script src="./js/Calender.js"></script>
+<script src="./js/IdDoubleCheck.js"></script>
+<script src="./js/idValidation.js"></script>
 
 <script>
-        var errList = [
-            "idErr",
-            "pwInputErr",
-            "pwInputReErr",
-            "nameErr",
-            "bDayErr",
-            "genErr",
-            "phoErr",
-            "emErr",
-            "loErr"
-        ];
-        var inputList = [
-            "idInput",
-            "pwInput",
-            "pwInputRe",
-            "userName",
-            "bDay",
-            "gender",
-            "phoneFirst",
-            "email",
-            "location"
-        ];
-        var returnTfCount;
-        var pwToggle;
-        function submitButton() {
-            submitCheck();
-            if (returnTfCount > 0) {
-                location.href = "join.lms";
-            }
-        }
-        function submitCheck() {
-            returnTfCount = 0;
-            for (var j = 0; j < inputList.length; j++) {
-                if (document.getElementById(inputList[j]).value == "") {
-                    document.getElementById(errList[j]).style.opacity = "1";
-                    document.getElementById(errList[j]).style.color = "deeppink";
-                    //document.getElementById(inputList[j]).style.backgroundColor = "deeppink";
-                    returnTfCount++;
-                }
-            }
-            
-            if (document.getElementById("pwInput").value != document.getElementById("pwInputRe").value) {
-                document.getElementById("pwInputReErr").style.opacity = "1";
-                document.getElementById("pwInputReErr").style.color = "deeppink";
-                returnTfCount++;
-            }
-        }
-        function resetText() {
-            for (var i = 0; i < errList.length; i++) {
-                document.getElementById(errList[i]).style.opacity = "0";
-                //document.getElementById(inputList[i]).style.backgroundColor = "white";
-            }
-        }
-        function showPW() {
-            pwToggle = !pwToggle;
-            if (pwToggle) {
-                document.getElementById("pwInput").setAttribute('type', 'text');
-                document.getElementById("pwInputRe").setAttribute('type', 'text');
-            } else {
-                document.getElementById("pwInput").setAttribute('type', 'password');
-                document.getElementById("pwInputRe").setAttribute('type', 'password');
-            }
-        }
-        window.onload = function() {
-            resetText();
-        }
-    </script>
+	var errList = [ "pwInputErr", "pwInputReErr", "nameErr", "bDayErr",
+			"genErr", "phoErr", "emErr", "addressErr" ];
+	var inputList = [ "pwInput", "pwInputRe", "userName", "bDay", "gender",
+			"phoneFirst", "email", "address" ];
+	var pwToggle;
+
+	/*  아래부터는 메인*/
+	var returnTfCount;
+	var datakit = "";
+	var midlist = "";
+	var mid;
+	var tmp;
+	var idchk;
+	var mmail;
+	var maildata;
+	var mailchk;
+
+	var stringRegx = new RegExp(/[~!@\#$%<>^&*\()\-=+_\’]|[ㄱ-ㅎ]|[가-힣]/gi);
+	var EngRegx = new RegExp(/[a-zA-Z]/gi);
+	var numRegx =new RegExp(/[0-9]/gi);
+
+
+	function getTextLength(str) {
+		var len = 0;
+		for (var i = 0; i < str.length; i++) {
+			if (escape(str.charAt(i)).length == 6) {
+				len++;
+			}
+			len++;
+		}
+		return len;
+	}
+
+	function waitingConfirm() {
+		$.ajax({
+			'url' : '/BEAT_LMS/confirm.lms',
+			'type' : 'POST',						
+			'success' : function(conData) {
+				maildata = conData.confirm[0].mail;			
+				if (conData.confirm[0].mail == "check") {
+					mailchk=true;
+					$('span').remove();					
+					$('<span>본인이 인증되었습니다</span>').appendTo('#mail');
+					$('span').css({
+						"color" : "deeppink",
+						"font-size" : "13px",
+						"position" : "absolute",
+						"left" : "350px",
+						"top" : "0px"
+					});
+				}
+			}
+		});
+	}
+
+	
+	
+	$(function() {
+		idchk = false;
+		mailchk= false;
+		resetText();
+		dateSelect();
+		IddoubleCheck();
+		var idChk = $('#id input').eq(0).val();
+		$('#btn button').on('click', function() {
+			var result = false;
+			resetText();
+			idValidation();//id validation 검사
+			submitCheck();//id를 제외한 나머지 text부분 null값 검사		
+
+			if (returnTfCount == 0 && idchk && mailchk) {
+				result = true;
+			}
+			returnTfCount = 0;
+			return result;
+		});
+
+		$("#mail button").on(
+				'click',
+				function() {
+					mmail = $('#email').find('input').eq(0).val();
+					$.ajax({
+						'url' : 'target/mailchk.lms',
+						'type' : 'POST',
+						'data' : $('#email').serialize(),
+						'error' : function() {
+							alert('발송실패');
+						},
+						'success' : function(data) {
+							var tf = true;
+							maildata = data.list[0].result;
+							<%
+							session=request.getSession();
+							session.setAttribute("confirm","uncheck");%>
+							if (maildata == "success") {
+								$('<span>이메일이 발송되었습니다</span>')
+										.appendTo('#mail');
+								$('span').css({
+									"color" : "deeppink",
+									"font-size" : "13px",
+									"position" : "absolute",
+									"left" : "350px",
+									"top" : "0px"
+								});
+								
+								setInterval(waitingConfirm, 1000);
+
+							} else if (data.response[0].result == "failure") {
+								$('<span>이메일 발송 실패, 다시 시도해주세요</span>')
+										.appendTo('#mail');
+								$('span').css({
+									"color" : "deeppink",
+									"font-size" : "13px",
+									"position" : "absolute",
+									"left" : "350px",
+									"top" : "0px"
+								});
+							}
+						}
+					});
+
+				});
+
+	});
+</script>
 </head>
 <body>
 	<jsp:include page="../template/header.jsp"></jsp:include>
 	<jsp:include page="../template/loginjoin.jsp"></jsp:include>
-	<jsp:include page="../template/menu.jsp"></jsp:include> 
+	<jsp:include page="../template/menu.jsp"></jsp:include>
 
 	<!-- content -->
 	<div class="content">
-		<form name="join" action="join.lms" method="post">
-		<div id="logo">
-		<img alt="logo" src="./imgs/joinlogo.jpg">
-		</div>
-		<div id="id">
-			<label for="id">아이디</label>
-			<input type="text" name="id" id="idInput"/>
-			<input type="submit" value="중복확인" id="idCheck">
-			<div id="idErr">아이디를 입력해주세요</div>
-		</div>
-		<div id="pw">
-			<label for="password">비밀번호</label>
-			<input type="password" name="password" id="pwInput"/>
-        	<div id="pwInputErr">암호를 입력해주세요</div>
-		</div>
-		
-		<div id="pw2">
-			<label for="password2">비밀번호 확인</label>
-			<input type="password" id="pwInputRe" name="password2"/> 
-			<input type="button" value="보기" onclick="showPW();">
-        	<div id="pwInputReErr">암호를 확인해주세요</div>
-		</div>
-		<div id="name">
-			<label for="name">이름</label>
-			<input type="text" id="userName" name="name">
-			<div id="nameErr">이름을 입력해주세요</div>
-		</div>
-		<div id="birth">
-			<label for="birth">생년월일</label>
-			<input type="date" id="bDay" name="birth"/>
-			<div id="bDayErr">생년월일을 입력해주세요</div>
-		</div>
-		<div id="number">
-			<label for="number">연락처</label>
-			<input type="text" id="phoneFirst" name="number">
-        	<div id="phoErr">전화번호를 입력해주세요</div>
-		</div>
-		<div id="mail">
-			<label for="mail">e_mail</label>
-			<input type="email" name="email" id="email"/>
-			<input type="submit" value="인증메일전송" id="send"/>
-        	<div id="emErr">올바른 이메일 주소를 입력해주세요</div>
-		</div>	
-		<div id="address">
-			<label for="address">주소</label>
-<input type="text" id="sample4_postcode" placeholder="우편번호" name="maddnum">
-<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-<input type="text" id="sample4_roadAddress" placeholder="도로명주소" name="maddress">
-<input type="text" id="sample4_jibunAddress" placeholder="지번주소">
-<span id="guide" style="color:#999"></span>
+		<form id="joinForm" name="JoinForm" role="form" action="join.lms"
+			method="post">
+			<div id="logo">
+				<img alt="logo" src="./imgs/joinlogo.jpg">
+			</div>
+			<div id="status">
+				<label>회원구분</label> <input type="radio" name="snum"
+					checked="checked" value='2'>일반회원<input type="radio"
+					name="snum" value='2'>직원
+			</div>
+			<div id="id">
+				<label for="id">아이디</label> <input type="text" name="mid"
+					id="idInput" />
+				<button type="button" id="idDoubleCheck">중복확인</button>
+			</div>
+			<div id="pw">
+				<label for="password">비밀번호</label> <input type="password" name="mpw"
+					id="pwInput" />
+				<div id="pwInputErr">암호를 입력해주세요.</div>
+			</div>
 
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script>
-    //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
-    function sample4_execDaumPostcode() {
-        new daum.Postcode({
-            oncomplete: function(data) {
-                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-                // 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
-                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-                var fullRoadAddr = data.roadAddress; // 도로명 주소 변수
-                var extraRoadAddr = ''; // 도로명 조합형 주소 변수
-                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-                    extraRoadAddr += data.bname;
-                }
-                // 건물명이 있고, 공동주택일 경우 추가한다.
-                if(data.buildingName !== '' && data.apartment === 'Y'){
-                   extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                }
-                // 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-                if(extraRoadAddr !== ''){
-                    extraRoadAddr = ' (' + extraRoadAddr + ')';
-                }
-                // 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
-                if(fullRoadAddr !== ''){
-                    fullRoadAddr += extraRoadAddr;
-                }
-                // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('sample4_postcode').value = data.zonecode; //5자리 새우편번호 사용
-                document.getElementById('sample4_roadAddress').value = fullRoadAddr;
-                document.getElementById('sample4_jibunAddress').value = data.jibunAddress;
-                // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
-                if(data.autoRoadAddress) {
-                    //예상되는 도로명 주소에 조합형 주소를 추가한다.
-                    var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
-                    document.getElementById('guide').innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
-                } else if(data.autoJibunAddress) {
-                    var expJibunAddr = data.autoJibunAddress;
-                    document.getElementById('guide').innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
-                } else {
-                    document.getElementById('guide').innerHTML = '';
-                }
-            }
-        }).open();
-    }
-    </script>
-        	
-		</div>	
-		<div id="radio">
-		    <label for="gender">성별</label>
-			<select name="gender" id="gender" > 
-          		<option value="">성별을 선택해주세요</option>
-           		<option value="1">남성</option>
-           		<option value="2">여성</option>           		
-       		</select>
-       		<div id="genErr">성별을 선택해주세요</div>
-		</div>
-		<div id="btn">
-			<input type="submit" id="submit" value="가입"/>
-        	<input type="reset" id="cancel" value="취소" onclick="resetText();"/>
-		</div>
+			<div id="pw2">
+				<label for="password2">비밀번호 확인</label> <input type="password"
+					id="pwInputRe" name="password2" />
+				<button type="button" onclick="showPW();">보기</button>
+				<div id="pwInputReErr">암호를 확인해주세요.</div>
+			</div>
+			<div id="name">
+				<label for="name">이름</label> <input type="text" id="userName"
+					name="mname">
+				<div id="nameErr">이름을 입력해주세요.</div>
+			</div>
+			<div id="birth">
+				<label for="birth">생년월일</label> <input type="text" id="bDay"
+					name="mbirth" readonly="readonly">
+				<div id="bDayErr">생년월일을 입력해주세요.</div>
+			</div>
+			<div id="number">
+				<label for="number">연락처</label> <input type="text" id="phoneFirst"
+					name="mphone">
+				<div id="phoErr">전화번호를 입력해주세요.</div>
+			</div>
+			<div id="mail">
+				<label for="mail">e_mail</label> <input type="email" name="mmail"
+					id="email" />
+				<button type="button" id="send">인증메일전송</button>
+				<div id="emErr">올바른 이메일 주소를 입력해주세요.</div>
+			</div>
+			<div id="address">
+				<label for="address">주소</label> <input type="text" id="postcode"
+					placeholder="우편번호" name="maddnum"> <input type="button"
+					onclick="execDaumPostcode()" value="우편번호 찾기"><br> <input
+					type="text" id="roadAddress" placeholder="도로명주소" name="maddress"><br>
+				<input type="text" id="jibunAddress" placeholder="지번주소"> <span
+					id="guide" style="color: #999"></span>
+				<div id="addressErr">올바른 주소를 입력해주세요.</div>
+			</div>
+			<div id="gender">
+				<label for="gender">성별</label> <select name="mzen">
+					<option value="">성별을 선택해주세요</option>
+					<option value="1">남성</option>
+					<option value="2">여성</option>
+				</select>
+				<div id="genErr">성별을 선택해주세요.</div>
+			</div>
+			<div id="btn">
+				<button type="submit" id="jbtn">가입</button>
+				<button type="reset" i{}d="cbtn">취소</button>
+			</div>
 		</form>
 	</div>
 	<div class="clear"></div>

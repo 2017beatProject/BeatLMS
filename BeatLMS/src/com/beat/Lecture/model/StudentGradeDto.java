@@ -3,11 +3,14 @@ package com.beat.Lecture.model;
 public class StudentGradeDto {
 
 	private int mnum;
-	private int javaGrade;
-	private int DBGrade;
-	private int webGrade;
-	private int sumGrade;
-	private int avgGrade;
+	private String mname;
+	private int mphone;
+	private String mmail;
+	private int javapoint;
+	private int webpoint;
+	private int dbpoint;
+	private long pointavr;
+	private int pointsum;
 	
 	public int getMnum() {
 		return mnum;
@@ -15,26 +18,53 @@ public class StudentGradeDto {
 	public void setMnum(int mnum) {
 		this.mnum = mnum;
 	}
-	public int getJavaGrade() {
-		return javaGrade;
+	public String getMname() {
+		return mname;
 	}
-	public void setJavaGrade(int javaGrade) {
-		this.javaGrade = javaGrade;
+	public void setMname(String mname) {
+		this.mname = mname;
 	}
-	public int getDBGrade() {
-		return DBGrade;
+	public int getMphone() {
+		return mphone;
 	}
-	public void setDBGrade(int dBGrade) {
-		DBGrade = dBGrade;
+	public void setMphone(int mphone) {
+		this.mphone = mphone;
 	}
-	public int getWebGrade() {
-		return webGrade;
+	public String getMmail() {
+		return mmail;
 	}
-	public void setWebGrade(int webGrade) {
-		this.webGrade = webGrade;
+	public void setMmail(String mmail) {
+		this.mmail = mmail;
 	}
-	
-	
-	
+	public int getJavapoint() {
+		return javapoint;
+	}
+	public void setJavapoint(int javapoint) {
+		this.javapoint = javapoint;
+	}
+	public int getWebpoint() {
+		return webpoint;
+	}
+	public void setWebpoint(int webpoint) {
+		this.webpoint = webpoint;
+	}
+	public int getDbpoint() {
+		return dbpoint;
+	}
+	public void setDbpoint(int dbpoint) {
+		this.dbpoint = dbpoint;
+	}
+	public long getPointavr() {
+		return pointavr;
+	}
+	public void setPointavr(long pointavr) {
+		this.pointavr = pointavr;
+	}
+	public int getPointsum() {
+		return pointsum;
+	}
+	public void setPointsum(int pointsum) {
+		this.pointsum = pointsum;
+	}
 	
 }

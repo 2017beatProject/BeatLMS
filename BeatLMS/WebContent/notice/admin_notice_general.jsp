@@ -16,30 +16,22 @@
 <style type="text/css">
 
 </style>
+<script type="text/javascript">
+function mouseOver(obj){
+	 obj.style.cursor='pointer';
+	 obj.style.backgroundColor="#dddddd";
+}
+
+function mouseOut(obj){
+	 obj.style.backgroundColor="";
+}
+</script>
 </head>
 <body>
 	<jsp:include page="../template/header.jsp"></jsp:include>
 	<jsp:include page="../template/loginjoin.jsp"></jsp:include>
-	<jsp:include page="../template/admenu.jsp"></jsp:include>
-
-	<!-- aside -->
-	<div class="aside grid_2">
-		<div id="mainmenu">
-			<label><strong>NOTICE</strong></label>
-		</div>
-		<div id="aside">
-			<ul id="menu1">
-				<li><a href="notice_admin.lms">학사공지</a></li>
-			</ul>
-			<ul id="menu2">
-				<li><a href="notice_admin_gen.lms">일반공지</a></li>
-			</ul>
-			<!-- <ul id="menu3">
-				<li><a href="#"></a></li>
-			</ul> -->
-		</div>
-	</div>
-	<!-- aside END -->
+	<jsp:include page="../template/menu.jsp"></jsp:include>
+	<jsp:include page="../template/aside_menu_notice.jsp"></jsp:include>
 
 
 	<!-- content -->
@@ -56,7 +48,6 @@
 					<tr>
 						<th>번호</th>
 						<th>제목</th>
-						<th>내용</th>
 						<th>작성자</th>
 						<th>작성일</th>
 					</tr>
@@ -64,10 +55,9 @@
 		ArrayList<LMSNoticeDto> noticeAdminGenList = (ArrayList<LMSNoticeDto>)request.getAttribute("noticeAdminGenList");
 		for(LMSNoticeDto bean : noticeAdminGenList) {
 		%>
-					<tr>
+					<tr onmouseover="mouseOver(this);" onmouseout="mouseOut(this);" onclick="location.href='notice_admin_gen_detail.lms?lmsblog=<%=bean.getLmsblog() %>'">
 						<td><%=bean.getLmsblog() %></td>
-						<td><%=bean.getLmstitle() %></td>
-						<td><%=bean.getLmsbcontent() %></td>
+						<td><%=bean.getLmsbtitle() %></td>
 						<td><%=bean.getLmsbauthor() %></td>
 						<td><%=bean.getLmsbdate() %></td>
 					</tr>

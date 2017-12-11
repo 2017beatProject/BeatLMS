@@ -18,26 +18,8 @@
 <body>
 	<jsp:include page="../template/header.jsp"></jsp:include>
 	<jsp:include page="../template/loginjoin.jsp"></jsp:include>
-	<jsp:include page="../template/admenu.jsp"></jsp:include>
-
-	<!-- aside -->
-	<div class="aside grid_2">
-		<div id="mainmenu">
-			<label><strong>NOTICE</strong></label>
-		</div>
-		<div id="aside">
-			<ul id="menu1">
-				<li><a href="notice_admin.lms">학사공지</a></li>
-			</ul>
-			<ul id="menu2">
-				<li><a href="notice_admin_gen.lms">일반공지</a></li>
-			</ul>
-			<!-- <ul id="menu3">
-				<li><a href="#"></a></li>
-			</ul> -->
-		</div>
-	</div>
-	<!-- aside END -->
+	<jsp:include page="../template/menu.jsp"></jsp:include>
+	<jsp:include page="../template/aside_menu_notice.jsp"></jsp:include>
 
 
 	<!-- content -->

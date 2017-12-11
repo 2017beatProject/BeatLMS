@@ -20,18 +20,11 @@ public class LMSNoticeDao extends LMSDao{
 	
 	
 	//게시판 입력
-//	public void insertNotice(int lmsbcode, String noticeWriter, String noticeTitle, String noticeCont, int mnum) {
 	public void insertNotice(int lmsbcode, String noticeWriter, String noticeTitle, String noticeCont) {
 		String sql="insert into "
 				+ "lmsBbsAll(lmsblog, lmsbcode, lmsbauthor, lmsbdate, lmsbtitle, "
 				+ "lmsbcontent)"
 				+ " values(lms_bbs_sq.nextval, ?, ?, sysdate, ?, ?)";
-		
-//		String sql = "insert all "
-//				+ "into lmsBbsAll(lmsblog, lmsbcode, lmsbauthor, lmsbdate, lmsbtitle, lmsbcontent) "
-//				+ "values(lms_bbs_sq.nextval, ?, ?, sysdate, ?, ?) "
-//				+ "into lmsmember(mnum, snum) values(?, 1) "
-//				+ "select  from dual";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -61,9 +54,62 @@ public class LMSNoticeDao extends LMSDao{
 		
 	}
 	
+	public LMSNoticeDto selectOne(int lmsblog) {
+		
+		String sql = "select * from lmsbbsAll where lmsblog=?";
+		
+		LMSNoticeDto bean = new LMSNoticeDto();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, lmsblog);
+			rs = pstmt.executeQuery();
+			System.out.println(sql);
+			
+			if(rs.next()) {
+				bean.setLmsblog(rs.getInt("lmsblog"));
+				bean.setLmsbcode(rs.getInt("lmsbcode"));
+				bean.setLmsbauthor(rs.getString("lmsbauthor"));
+				bean.setLmsbdate(rs.getDate("lmsbdate"));
+				bean.setLmsbtitle(rs.getString("lmsbtitle"));
+				bean.setLmsbcontent(rs.getString("lmsbcontent"));
+			}
+			System.out.println("값 입력");
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			destroy();
+		}
+		
+		return bean;
+	}
+	
+	
+	public int editOne(String lmsbtitle, String lmsbcontent, int lmsblog) {
+	
+		String sql = "update lmsbbsall set lmsbtitle=?, lmsbcontent=? where lmsblog=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			System.out.println(sql);
+			pstmt.setString(1, lmsbtitle);
+			pstmt.setString(2, lmsbcontent);
+			pstmt.setInt(3, lmsblog);
+			return pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		} finally {
+			destroy();
+		}
+		
+	}
+	
+	
 	public ArrayList<LMSNoticeDto> bbsListAll(int lmsbcode){
-//		String sql="select lmsblog, lmsbcode, lmsbauthor, lmsbdate, lmsbtitle, "
-//				+ "lmsbcontent, lmsmember.mnum from lmsBbsAll, lmsmember";
+
 		String sql="select lmsblog, lmsbcode, lmsbauthor, lmsbdate, lmsbtitle, "
 				+ "lmsbcontent from lmsBbsAll where lmsbcode=? order by lmsblog desc";
 		
@@ -81,7 +127,7 @@ public class LMSNoticeDao extends LMSDao{
 				bean.setLmsbcode(rs.getInt("lmsbcode"));//게시판 종류코드
 				bean.setLmsbauthor(rs.getString("lmsbauthor"));//게시판 작성자
 				bean.setLmsbdate(rs.getDate("lmsbdate"));//작성일
-				bean.setLmstitle(rs.getString("lmsbtitle"));//제목
+				bean.setLmsbtitle(rs.getString("lmsbtitle"));//제목
 				bean.setLmsbcontent(rs.getString("lmsbcontent"));//내용
 //				bean.setLmsnum(rs.getInt("mnum"));//회원번호
 				

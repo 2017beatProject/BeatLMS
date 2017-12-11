@@ -31,7 +31,11 @@ public class AccountantController extends HttpServlet {
 		
 		req.setCharacterEncoding("UTF-8");
 		
-//		int snum = Integer.parseInt(req.getParameter("snum"));
+		int snum = Integer.parseInt(req.getParameter("snum").trim());
+		//직원은 1, 일반회원은 2		
+		
+//		String snum = req.getParameter("snum");
+		System.out.println(snum);
 		
 		String mid = req.getParameter("id");
 		System.out.println("아이디:"+mid);
@@ -67,10 +71,9 @@ public class AccountantController extends HttpServlet {
 		
 		AccountantAdminDao accountantDao = new AccountantAdminDao();
 		
-//		accountantDao.memberJoin(snum, mid, mpw, mname, mbirth, mzen, mphone, mmail, maddress, maddnum);
-		accountantDao.memberJoin(mid, mpw, mname, mbirth, mzen, mphone, mmail, maddress, maddnum);
+		accountantDao.memberJoin(snum, mid, mpw, mname, mbirth, mzen, mphone, mmail, maddress, maddnum);
 		
-		req.getRequestDispatcher("/login/login.jsp").forward(req, resp);
+		req.getRequestDispatcher("/login/joinInfo.jsp").forward(req, resp);
 		
 	
 	}

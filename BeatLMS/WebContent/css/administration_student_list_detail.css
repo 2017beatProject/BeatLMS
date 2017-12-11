@@ -1,0 +1,194 @@
+@font-face {
+	font-family: 'ARLRDBD';
+	src: url(../font/ARLRDBD.TTF) format('truetype');
+}
+
+#aside ul {
+	position: relative;
+	text-align: center;
+	margin-left: 40px;
+	padding: 0px;
+}
+
+#aside>ul li {
+	position: relative;
+	list-style: none;
+	left: -40px;
+	width: 140px;
+	height: 50px;
+}
+
+#aside>ul>li>a {
+	position: relative;
+	text-decoration: none;
+	top: 15px;
+	color: black;
+}
+
+#mainmenu {
+	text-align: center;
+	font-family: ARLRDBD;
+	font-size: 1.3em;
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+#menu1>li {
+	text-align: center;
+}
+
+#menu2>li {
+	position: relative;
+	top: -16px;
+}
+
+#menu3>li {
+	position: relative;
+	top: -32px;
+}
+
+#menu4>li {
+	background-color: orange;
+	position: relative;
+	top: -48px;
+}
+
+#topimg {
+	position: relative;
+	left: -20px;
+}
+
+.aside {
+	background-color: bisque;
+	height: 350px;
+	width: 100%;
+	margin-left: 0px;
+	border-bottom: 5px solid orange;
+}
+
+.content {
+	position: relative;
+	/* background-color: azure; */
+	/* width: 820px; */
+}
+/* ---------------------aside-------------------------  */
+.layout {
+	position: relative;
+	left: 0px;
+	margin-top: 30px;
+	margin-bottom: 200px;
+}
+
+table {
+	position: relative;
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 70px;
+}
+
+td {
+	border-bottom: 0.5px solid #E1E1E1;
+	padding: 7px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+tr:last-child>td {
+	border-bottom: 3px solid #E1E1E1;
+}
+
+td>a {
+	list-style: none;
+	text-decoration: none;
+}
+
+th {
+	background-color: #2C3E50;
+	border-radius: 2px;
+	color: white;
+	padding: 3px;
+	width: 80px;
+	height: 20px;
+}
+
+#lecture th:nth-child(4) {
+	width: 300px;
+}
+
+#grade th:nth-child(4) {
+	background-color: #5B5B5B;
+}
+
+#attendance th:nth-child(5) {
+	background-color: #5B5B5B;
+}
+
+p :nth-child(1) {
+	border-bottom: 3px solid #F39C12;
+	color: #2C3E50;
+	width: 170px;
+	font-size: 2em;
+	border-radius: 5px;
+	padding-bottom: 3px;
+}
+
+#stuinfo {
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
+
+input {
+	margin-left: 10px;
+	margin-bottom: 10px;
+	border-radius: 2px;
+}
+
+#name {
+	width: 120px;
+}
+
+#id {
+	width: 120px;
+}
+
+#number {
+	width: 120px;
+}
+
+#bDay {
+	
+}
+
+#mail {
+	
+}
+
+#gender {
+	width: 45px;
+}
+
+#adress {
+	width: 495px;
+}
+
+#edbtn1 {
+	position: relative;
+	left: 370px;
+	top: -135px;
+	text-decoration: none;
+	background-color: orange;
+	border-radius: 5px;
+	padding: 10px;
+	color: white;
+}
+
+#edbtn2 {
+	position: relative;
+	left: 460px;
+	top: -135px;
+	text-decoration: none;
+	background-color: orange;
+	border-radius: 5px;
+	padding: 10px;
+	color: white;
+}

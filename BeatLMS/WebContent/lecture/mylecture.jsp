@@ -19,25 +19,9 @@
 	<jsp:include page="../template/header.jsp"></jsp:include>
 	<jsp:include page="../template/loginjoin.jsp"></jsp:include>
 	<jsp:include page="../template/menu.jsp"></jsp:include>
+	<jsp:include page="../template/aside_menu_lecture.jsp"></jsp:include>
 
-	<!-- aside -->
-	<div class="aside grid_2">
-		<div id="mainmenu">
-			<label><strong>LECTURE</strong></label>
-		</div>
-		<div id="aside">
-			<ul id="menu1">
-				<li><a href="lecture.lms">강의소개</a></li>
-			</ul>
-			<ul id="menu2">
-				<li><a href="mylecture.lms">수강강의</a></li>
-			</ul>
-			<!-- <ul id="menu3">
-				<li><a href="#"></a></li>
-			</ul> -->
-		</div>
-	</div>
-	<!-- aside END -->
+	
 
 
 	<!-- content -->

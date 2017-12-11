@@ -43,15 +43,11 @@ public class ComNumCheckController extends HttpServlet{
 		int comnumchk= dao.comNumcheck(comnum, comname, combirth);
 		if(comnumchk==1){
 			req.setAttribute("snum", 1);
-			req.getRequestDispatcher("/index/adindex.jsp").forward(req,resp);
-			System.out.println("인증되는 고니");
-			// 인증 성공 > 관리자 페이지 이동
+			req.getRequestDispatcher("login/join.jsp").forward(req,resp);
 			
 		}else if(comnumchk==0){
 			req.setAttribute("comNumresult", false);
 			req.getRequestDispatcher("/login/join_choice.jsp").forward(req, resp);
-			System.out.println("인증노노");
-			// 인증 불가 > 회원 가입 선택 화면으로 이동
 		}
 	
 	}

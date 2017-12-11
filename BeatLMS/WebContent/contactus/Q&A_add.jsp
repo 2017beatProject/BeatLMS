@@ -18,28 +18,8 @@
 	<jsp:include page="../template/header.jsp"></jsp:include>
 	<jsp:include page="../template/loginjoin.jsp"></jsp:include>
 	<jsp:include page="../template/menu.jsp"></jsp:include>
-
-	<!-- aside -->
-	<div class="aside grid_2">
-		<div id="mainmenu">
-			<label><strong>CONTACT<br>US
-			</strong></label>
-		</div>
-		<div id="aside">
-			<ul id="menu1">
-				<li><a href="counsel.lms">상담신청</a></li>
-			</ul>
-			<ul id="menu2">
-				<li><a href="QnA.lms">질문사항</a></li>
-			</ul>
-			<!-- <ul id="menu3">
-				<li><a href="#"></a></li>
-			</ul> -->
-		</div>
-	</div>
-	<!-- aside END -->
-
-
+<jsp:include page="../template/aside_menu_contact.jsp"></jsp:include>
+	
 	<!-- content -->
 	<div class="content grid_10">
 		<img class="imgs" id="topimg" alt="" src="./imgs/menu_topimg1.jpg">

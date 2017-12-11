@@ -62,7 +62,7 @@ public class LecturePageDao extends LMSDao {
 		//현재 정원은 빼두고 일단
 		
 		ArrayList<LecturePageDto> list = new ArrayList<LecturePageDto>();
-		
+	
 		try {
 			
 			pstmt = conn.prepareStatement(sql);

@@ -1,11 +1,11 @@
 <%@page import="com.beat.Management.model.LecturePageDto"%>
 <%@page import="java.util.ArrayList"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="./css/960.css">
 <link rel="stylesheet" href="./css/menu.css">
@@ -15,6 +15,18 @@
 <%
 	String lectserinum = request.getParameter("lectserinum");
 %>
+
+<script>
+
+function toDeletePage(lecseri){
+	//var deletePage = document.paging;
+
+	editform.action="oneLecDelete.lms?lecseri="+lecseri;
+	editform.method="post";
+	editform.submit();
+}
+
+</script>
 </head>
 <body>
 	<jsp:include page="../template/header.jsp"></jsp:include>
@@ -31,48 +43,57 @@
 				<img alt="" src="">
 			</div>
 			<p>
-				<b>°­ÀÇÁ¤º¸</b>
+				<b>ê°•ì˜ì •ë³´</b>
 			</p>
 			
-<% //¿©±âÂë¿¡ ÆûÅÂ±× ºÙÀÌ¸é µÉµí
+			
+			
+<form name="editform"  action="oneLecEditUpdate.lms" method="post">			
+
+<% 
 	ArrayList<LecturePageDto> list = (ArrayList<LecturePageDto>)request.getAttribute("onelec");
+
 	for(LecturePageDto bean : list){
 %>		
 			
 			<div id="inside">
 				<div>
-					<label>°­ÀÇ¸í</label>
-					<input type="text" name="lecname" value= "<%=bean.getLecName() %>"/>
+					<label>ê°•ì˜ëª…</label>
+					<input type="text" name="lecturename" value= "<%=bean.getLecName() %>" readonly="readonly"/>
 				</div>
 				<div>
-					<label>°­ÀÇÀå</label> <select name="">
-						<option value="<%=bean.getLecRoom() %>">¼±ÅÃ</option>
-						<option value="1">°­ÀÇÀå1</option>
-						<option value="2">°­ÀÇÀå2</option>
-						<option value="3">°­ÀÇÀå3</option>
+					<label>ê°•ì˜ì¥</label> <select name="lectureroom">
+						<option value="<%=bean.getLecRoom()%>"><%=bean.getReLecRoom() %></option>
+						<option value="1">ê°•ì˜ì¥1</option>
+						<option value="2">ê°•ì˜ì¥2</option>
+						<option value="3">ê°•ì˜ì¥3</option>
 					</select>
-					<label>°­»ç</label><select name="">
-						<option value="<%=bean.getLecTeacher()%>">¼±ÅÃ</option>
-						<option value="1">°­»ç1</option>
-						<option value="2">°­»ç2</option>
-						<option value="3">°­»ç3</option>
+					<label>ê°•ì‚¬</label><select name="lectureteacher">
+						<option value="<%=bean.getReLecTeacher()%>"><%=bean.getLecTeacher()%></option>
+						<option value="1">ê°•ì‚¬1</option>
+						<option value="2">ê°•ì‚¬2</option>
+						<option value="3">ê°•ì‚¬3</option>
 				    </select>
-				    <label>Á¤¿ø</label><input type="text" id="limit" name="maxnum" value="<%= bean.getMaxnum()%>"/>
+				    <label>ì •ì›</label><input type="text" id="limit" name="lecturelimit" value="<%= bean.getMaxnum()%>"/>
 				</div>
 				<div>
-				<label>½ÃÀÛ</label><input type="date" id="start" name="startdate" value="<%=bean.getLecStart() %>"/>
-				<label>Á¾·á</label><input type="date" id="end" name="enddate" value="<%=bean.getLecEnd()%>"/>
+				<label>ì‹œì‘</label><input type="date" id="start" name="lecturestartdate" value="<%=bean.getLecStart() %>"/>
+				<label>ì¢…ë£Œ</label><input type="date" id="end" name="lectureenddate" value="<%=bean.getLecEnd()%>"/>
 				</div>
 				<div>
-				 <textarea rows="" cols="" id="contents" name="leccontent" value = "<%=bean.getLecContent()%>">³»¿ë</textarea>
+				 <textarea rows="" cols="" id="contents" name="lecturecontent" value="<%=bean.getLecContent()%>"><%=bean.getLecContent()%></textarea>
 				</div>
-<%} %>
+
 			</div>
 				<div id="addbtn">
-					<a href="#">¼öÁ¤</a>
-					<a href="#">»èÁ¦</a>
+					<a href="javascript:editform.submit();">í™•ì¸</a>
+					<a href="javascript:toDeletePage('<%=bean.getLecName() %>');">ì‚­ì œ</a>
+					
 				</div>
+				<%} %>
+			</form>	
 		</div>
+		
 
 
 	</div>

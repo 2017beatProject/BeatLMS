@@ -14,8 +14,34 @@ public class LecturePageDto {
  	int num;
  	String lecContent;
  	
- 	
- 	
+ 	String reLecRoom;
+	int reLecTeacher;
+	
+	public String getReLecRoom(){
+		if(lecRoom.equals("1")){
+			reLecRoom="∞≠¿«¿Â1";
+		}else if(lecRoom.equals("2")){
+			reLecRoom="∞≠¿«¿Â2";
+		}else if(lecRoom.equals("3")){
+			reLecRoom="∞≠¿«¿Â3";
+		}
+		
+		return reLecRoom; 
+	} 
+	
+	public int getReLecTeacher(){
+		
+		if(lecTeacher.equals("±Ëµø√∂")){
+			reLecTeacher=1;
+		}else if(lecTeacher.equals("±Ë¥Î√∂")){
+			reLecTeacher=2;
+		}else if(lecTeacher.equals("±Ë±§ºˆ")){
+			reLecTeacher=3;
+		}
+		
+		return reLecTeacher;
+	}
+	
 	public String getLecContent() {
 		return lecContent;
 	}

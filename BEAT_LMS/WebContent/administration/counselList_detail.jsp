@@ -10,25 +10,18 @@
 <link rel="stylesheet" href="./css/960.css">
 <link rel="stylesheet" href="./css/menu.css">
 <link rel="stylesheet" href="./css/header.css">
-<link rel="stylesheet" href="./css/administration_counselList.css">
+<link rel="stylesheet" href="./css/administration_counselList_detail.css">
 <link rel="stylesheet" href="./css/footer.css">
-<script>
-	 function mouseOver(obj){
-		 obj.style.cursor='pointer';
-		 obj.style.backgroundColor="#dddddd";
-	 }
-	 
-	 function mouseOut(obj){
-		 obj.style.backgroundColor="";
-	 }
 
-</script>
+<style type="text/css">
+</style>
 </head>
 <body>
 	<jsp:include page="../template/header.jsp"></jsp:include>
 	<jsp:include page="../template/loginjoin.jsp"></jsp:include>
 	<jsp:include page="../template/menu.jsp"></jsp:include>
 	<jsp:include page="../template/aside_menu_administration.jsp"></jsp:include>
+
 
 
 	<!-- content -->
@@ -39,40 +32,28 @@
 				<img alt="" src="">
 			</div>
 			<p>
-				<b>상담목록</b>
+				<b>상담내용</b>
 			</p>
-			<div id="select">
-				<select name="select">
-					<option value="">선택</option>
-					<option value="1">이름</option>
-					<option value="2">아이디</option>
-					<option value="2">제목</option>
-				</select> <input type="text">
-				<button>검색</button>
-			</div>
-			<div>
-				<table class="list">
-					<tr>
-						<th>이름</th>
-						<th>아이디</th>
-						<th>로그번호 : 날짜</th>
-						<th>연락처</th>
-						<th>비고</th>
-					</tr>
-	<% ArrayList<CounselPageDto> list = (ArrayList<CounselPageDto>)request.getAttribute("list");
-	for(CounselPageDto bean : list){
-	%>
-					<tr onmouseover="mouseOver(this);" onmouseout="mouseOut(this);" onclick="location.href='mngcounsel.lms?counsellog=<%=bean.getCounsellog()%>'">
-						<td><%=bean.getMname() %></td>
-						<td><%=bean.getMid() %></td>
-						<td><%=bean.getCounsellog() %> : <%=bean.getCounseldate() %></td>
-						<td>0<%=bean.getMphone() %></td>
-						<td></td>
-					</tr>
+			<div id="contentlayout">
+				<div id="insidelayout">
 					
-<%} %>
-
-				</table>
+<% ArrayList<CounselPageDto> list = (ArrayList<CounselPageDto>)request.getAttribute("list");
+	for(CounselPageDto bean : list){
+%>
+					    <div>
+					     <label>이름</label><input type="text" id="name" value="<%=bean.getMname() %>" readonly="readonly"/>
+					     <label>아이디</label><input type="text" id="id" value="<%=bean.getMid() %>" readonly="readonly"/>
+					     <label>연락처</label><input type="text" id="Pnumber" value="0<%=bean.getMphone() %>" readonly="readonly"/>
+					    </div>
+						<div class="contents">
+							<textarea rows="" cols="" id="contents" name="" readonly="readonly"><%=bean.getCounselcontent() %></textarea>
+						</div>
+<%} %>					
+				</div>
+				<div id="addbtn">
+					<button type="submit">목록</button>
+					 <!--counselList 이동-->
+				</div>
 			</div>
 		</div>
 
